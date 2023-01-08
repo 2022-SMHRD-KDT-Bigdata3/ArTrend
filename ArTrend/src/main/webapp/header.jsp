@@ -217,7 +217,7 @@
 									<div class="modal-body">
 
 										<!-- 좋아요 알람 불러오기 -->
-
+								<!-- 
 										<script type="text/javascript">
 											$("#alarmBtn")
 													.click(
@@ -256,22 +256,24 @@
 												console.log("통신 실패ㅠ ");
 											}
 										</script>
+								 -->
 
 
 										<%
-										LikesDAO dao = new LikesDAO();
-										ArrayList<LikesVO> list = dao.like_alarm(info.getUser_email());
+										//LikesDAO dao = new LikesDAO();
+									//	ArrayList<LikesVO> list = dao.like_alarm(info.getUser_email());
 
-										for (int i = 0; i < list.size(); i++) {
+									//	for (int i = 0; i < list.size(); i++) {
 										%>
-										<a href="#해당 게시글"> <!-- 좋아요를 누른 사람 이름 + 님이 좋아요를 눌렀습니다. ,,, 비동기 가능? -->
+									<!-- 	<a href="#해당 게시글"> <!-- 좋아요를 누른 사람 이름 + 님이 좋아요를 눌렀습니다. ,,, 비동기 가능? -->
 											<%
-											list.get(i).getUser_email();
-											%>님이 좋아요를 눌렀습니다.
-										</a> </br>
+										//	list.get(i).getUser_email();
+											%><!-- 님이 좋아요를 눌렀습니다.
+										</a> </br>-->
 										<%
-										}
+									//	}
 										%>
+										
 
 										<p>
 											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
