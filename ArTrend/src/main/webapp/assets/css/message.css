@@ -1,0 +1,114 @@
+
+.container{
+  display: grid;
+  grid-gap : 10px;
+  height: 80vh;
+  margin-top:5%;
+  padding-left: 130px;
+  grid-template-columns: 200px 500px;
+  grid-template-rows: 70px 1fr 50px;
+  grid-template-areas: 'top header'
+                       'aside main'
+                       'aside bottom';
+}
+.container > div{
+
+  background-color: rgba(255, 255, 255, 0.681);
+  padding : 20px;
+  border : 1px solid  rgb(181, 179, 179);
+  border-radius: 10px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.chat_header{
+  grid-area :header;
+}
+
+.chat_top{
+  grid-area: top;
+}
+
+.chat_aside{
+  grid-area : aside;
+}
+
+.chat_main{
+grid-area : main;
+}
+
+.chat_bottom{
+grid-area : bottom;
+}
+
+.chat_pic{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 490px;
+  top:116px;
+}
+
+.chat_user{
+  font-size:20px;
+  text-decoration: none;
+  color: rgb(85, 85, 85);
+  font-weight: bold;
+}
+
+.chat_my{
+  position:absolute;
+  font-size:20px;
+  text-decoration: none;
+  color: rgb(85, 85, 85);
+  font-weight: bold;
+}
+
+.chat_user:hover, .chat_my:hover{
+  color:rgb(85, 85, 85);
+}
+
+.chat_pic_list{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 260px;
+  top:200px;
+}
+
+input {
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  background-color: white;
+}
+
+.chat_input{
+  position: relative;
+  left: -40px;
+  top:-12px;
+  width: 400px;
+  padding-left: 10px;
+}
+
+.chat_send{
+  position: relative;
+  width: 60px;
+  right: -200px;
+  top: -43px;
+  border: 1px solid rgba(14, 138, 41, 0.765);
+  color: rgba(14, 138, 41, 0.765);
+  font-weight:bold;
+}
+
+.chat_send:hover {
+	color:white;
+	background-color : rgba(14, 138, 41, 0.765);
+}
+

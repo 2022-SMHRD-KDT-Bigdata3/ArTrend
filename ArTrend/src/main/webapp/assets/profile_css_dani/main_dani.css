@@ -1,0 +1,100 @@
+
+/*헤더퍼온거*/
+.header_g{
+    display: flex;   
+
+}
+
+.header_btn{
+    width: 100%;
+}
+
+.mainVisual {
+    width: fit-content;
+    margin: 0px auto;
+}
+
+.mainVisual .profile{
+    display: flex;
+    width: 600px;
+    padding: 0 0 30px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.profile .pic {
+    width: 55%;
+    height: 55%;
+    margin: 0 50px 0 0;
+}
+
+.profile_pic{
+    border-radius: 50%;
+}
+
+.profile .info {
+    margin: auto;
+}
+
+.profile .username {
+    display: flex;
+    margin: 0 0 5% 0;
+}
+
+.profile .username .name{
+    display: flex;
+    font-size: 1.7em;
+    font-weight: 700;
+    margin: auto;
+    margin-left : 8%;
+    margin-right: 10%;
+    width:100%;
+}
+
+.profile .username span{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #fff;
+    background-color: rgb(50, 166, 255);
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 5px 7px;
+    margin: 0;
+}
+
+#subscrib_btn{
+    border: none;
+}
+
+.subinfo {
+    display: flex;
+    margin: 0 auto;
+}
+
+.subinfo .con{
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.subinfo .con h2 {
+    margin: 0 0 10px 0;
+}
+
+.subinfo .con p {
+    position: relative;
+    text-align: center;
+}
+
+.a_font{
+    color: black;
+}
+
+.sub_btn, .msg_btn{
+	color : rgba(14, 138, 41, 0.765);
+	border-color:rgba(14, 138, 41, 0.765);
+}
+
+.sub_btn:active{
+	color:white;
+	background-color : rgba(14, 138, 41, 0.765);
+}

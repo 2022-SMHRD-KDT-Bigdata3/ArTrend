@@ -8,7 +8,8 @@
 	
 	<!-- 파일 경로들 별칭 지정하기 typeAliases -->
 	<typeAliases> 
-	
+	<typeAlias type= "com.smhrd.model.UserVO" alias="UserVO"/>
+	<typeAlias type= "com.smhrd.model.LikesVO" alias="LikesVO"/>
 	</typeAliases>
 	
   <environments default="development">
@@ -23,6 +24,8 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="com/smhrd/db/MsgMemberMapper.xml"/>
+    <mapper resource="com/smhrd/db/UserMapper.xml"/>
+    <mapper resource="com/smhrd/db/LikesMapper.xml"/>
+    
   </mappers>
 </configuration>

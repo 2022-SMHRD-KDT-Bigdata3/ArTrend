@@ -1,0 +1,88 @@
+
+body{
+	width:100%;
+}
+div { 
+	width:100%;
+  }
+
+.agree_div{
+	text-align:center;
+}
+
+.navbar{
+    background-color:rgba(255, 255, 255, 0.678);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 0;
+    -moz-border-radius : 0;
+    border-radius : 0;
+    padding : 0;
+    margin : 0;
+    border : none;
+    background-color : #fff;
+}
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #fafafa; }
+
+    .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #f8f8f8; }
+
+    .navbar-default .brand {
+    position:absolute;
+    margin:0;
+    background-color: #fff; }
+
+/* 네비게이션 버튼들 - .nav-link*/
+.nav-link{
+    /* 글씨 크기 조절 ,,, */
+}
+
+.dropdown-item{
+    text-align: center;
+}
+
+/* 종 모양 버튼 */
+.btn{
+    font-size: 200px;
+}
+
+/* 회원가입 로그인 버튼
+.btn_signup, .btn_login{
+    font-size: large;
+    background-color: lightgrey;
+    border-color: lightgrey;
+    
+}*/
+
+.navbar-nav{
+	margin-right : 50px;
+}
+
+.d-flex{
+	margin-left : 70%;
+}
+
+#navbarSupportedContent{
+	position:absolute;
+	right:0px;
+}
+
+.modal-title{
+	margin-left:42%;
+}
+
+.form-switch{
+	margin-left:82%;
+}
+
+.me-2{
+	margin-top:3px;
+}

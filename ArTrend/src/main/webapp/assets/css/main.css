@@ -1,0 +1,71 @@
+body{
+    height: 4000px;
+}
+
+.card{
+    margin-top : 40px;
+}
+
+.img_post{
+    vertical-align: top;
+    /* 이미지 크기에 맞춰서 짤림*/
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .banner_img, .banner_bg{
+    display:inline-block;
+    position: relative;
+  }
+  
+  .banner_img:hover:after,
+  .banner_img:hover > .hover_text,
+  .banner_bg:hover:after,
+  .banner_bg:hover > .hover_text
+  {
+    display:block;
+  }
+  .banner_img:after,.banner_bg:after,.hover_text{
+    display:none;
+  }
+  .banner_img:after,.banner_bg:after{
+    content:'';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(104, 104, 104, 0.363);
+  }
+  
+  /* 게시판 사진 값 , 모서리 radius */
+  .banner_img {
+    overflow: hidden;
+    border-radius:0.34rem;
+  }
+  
+  .banner_img img{
+    height: 400px;
+    
+  }
+  .banner_img:hover img{
+    transform: scale(1.05);
+    transition: 0.5s;
+  }
+  .hover_text {
+    position: absolute;
+    color : white;
+    bottom:0;
+    background-color: rgba(212, 212, 212, 0.425);
+    z-index: 20;
+    font-weight:300;
+    font-size: 20px;
+    width:100%;
+  }
+  
+  /* 배경 이미지 */
+  .banner_bg {
+    width: 400px;
+    height: 400px;
+    background-color:white;
+  }

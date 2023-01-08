@@ -1,0 +1,48 @@
+/* 탭 3개 */
+.class_name2{
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    margin-left: 35%;
+    }
+    
+    .g_column{
+        width: 150px;
+        text-align: center;
+        color: black;
+        text-decoration:none;      
+    }
+
+/* 소개글 */
+.gallery_info_div{
+width: 65%;
+padding-left: 35%;
+padding-top: 10px;
+}
+
+/* 수정,추가 버튼 */
+.gallery_info_pen {
+    font-size: 25px;
+    padding-left: 48%;
+    padding-top: 3%;
+}
+.gallery_info_btn1{
+    color: black;
+}
+
+/* 소개글 타이틀 가운데 정렬 */
+h3{
+	text-align : center;
+}
+
+#horizontal-underline{
+	position:absolute;
+	background-color:lightgrey;
+	left: 38%;
+    width: 59px;
+    top: 453px;
+	height:4px;
+	transition : 0.5s;
+}
+
+    

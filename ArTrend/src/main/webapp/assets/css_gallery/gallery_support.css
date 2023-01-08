@@ -1,0 +1,75 @@
+/* 탭 3개*/
+.class_name2{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    }
+    
+    .g_column{
+        width: 10%;
+        text-align: center;
+        color: black;
+      
+    }
+
+
+
+/*후원물품*/
+
+.container1{
+    width: 40%;
+    height: 30%;
+}
+
+
+.support_div{
+    padding: 20px;
+    
+}
+
+.support_contents{
+    padding : 20px;
+    font-size : 15px;
+}
+
+.support_img>img{
+    width:50%;
+    height:auto;
+}
+
+.support_btn{
+    float: right;
+}
+
+
+
+/*후원하기*/
+.support_nick{
+    padding: 20px;
+}
+
+.container2{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.support_checkbox1{
+    margin: 12px 0 0 0;
+}
+
+.support_checkbox2{
+    margin: 0 50px 0 50px;
+}
+
+.support_point_Charge{
+    margin: 20px;
+}
+
+
+.support_final{
+    
+    display: flex;
+    justify-content: space-evenly;
+}
