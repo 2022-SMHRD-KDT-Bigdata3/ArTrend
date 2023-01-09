@@ -20,7 +20,10 @@
 
 
 <!--gallery_info.css 외부연결-->
+<link rel="stylesheet" href="./assets/css_gallery/gallery_Subscrib.css">
 <link rel="stylesheet" href="./assets/css_gallery/gallery_info.css">
+
+
 <!--다니css파일-->
 <link rel="stylesheet" href="./assets/profile_css_dani/font_dani.css">
 <link rel="stylesheet" href="./assets/profile_css_dani/main_dani.css">
@@ -42,103 +45,125 @@
 <body>
 	<!-- header include -->
 	<%@include file="header.jsp"%>
+	
+ <div class="wrapper">
+        <br><br><br>
+        <!--다니가 만들어준 프로필..-->
+        <div class="Wrap">
+            
+            <main id="main">
+                <div class="mainVisual">
+                    <div class="profile">
+                        <div class="pic">
+                            <img class="profile_pic"src="./assets/img_gallery/정사각형.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <div class="username">
+                                <h2 class="name">@dooboo</h2>
+                                <div>
+                                    <button id="subscrib_btn"><span>구독하기</span></button>
+                                    <a href="#"><span>메세지</span></a>
+                                </div>
+                            </div>
+                            <div class="subinfo">
+                                <div class="con">
+                                    <p class="a ">게시글 수</p><br>
+                                    <p>123</p>
+                                </div>
+                                <div class="con">
+                                    <p class="a">구독자</p><br>
+                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscrib_ja" href="#">5</a></p>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="subscrib_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel">@dooboo 님을 구독하고있는 유저</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!--구독자가 들어가야할 모달의 body-->
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                             </div>
+                                           </div>
+                                        </div>
+                                    </div>
 
-	<div class="wrapper">
-		<br> <br> <br>
-		<!--다니가 만들어준 프로필..-->
-		<div class="Wrap">
-			<header id="header"></header>
-			<main id="main">
-				<div class="mainVisual">
-					<div class="profile">
-						<div class="pic">
-							<img class="profile_pic" src="./assets/img_gallery/정사각형.jpg"
-								alt="">
-						</div>
-						<div class="info">
-							<div class="username">
-								<h2 class="name">@dooboo</h2>
-								<div>
-									<button id="subscrib_btn">
-										<span class="sub_btn">구독하기</span>
-									</button>
-									<a class="msg_btn" href="MessageSystem.jsp"><span>메세지</span></a>
-								</div>
-							</div>
-							<div class="subinfo">
-								<div class="con">
-									<p class="a">게시글 수</p>
-									<p>
-									<a class="a_font btn" href="#">170</a>
-									</p>
-								</div>
 
-								<!-- 구독자 목록 버튼 -->
-								<div class="con">
-									<p class="a">구독자</p>
-									<p>
-										<a class="a_font btn" href="#" data-bs-toggle="modal"
-											data-bs-target="#exampleModal99">500</a>
-									</p>
 
-									<!-- Modal -->
-									<div class="modal fade" id="exampleModal99" tabindex="-1"
-										aria-labelledby="exampleModalLabel" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-scrollable">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h1 class="modal-title fs-5" id="exampleModalLabel">
-														구독자</h1>
-													<button type="button" class="btn-close"
-														data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">
-													<%@include file="gallery_Subscribe.jsp"%>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- 구독자 모달 끝  -->
 
-								<!--  구독중 -->
-								<div class="con">
-									<p class="a">구독중</p>
-									<p>
-										<a class="a_font btn" href="#" data-bs-toggle="modal"
-											data-bs-target="#exampleModal98">300</a>
-									</p>
 
-									<!-- Modal -->
-									<div class="modal fade" id="exampleModal98" tabindex="-1"
-										aria-labelledby="exampleModalLabel" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-scrollable">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h1 class="modal-title fs-5" id="exampleModalLabel">
-														구독중</h1>
-													<button type="button" class="btn-close"
-														data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">
-													<%@include file="gallery_Subscribe.jsp"%>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- 구독중 모달 끝  -->
+                                </div>
+                                <div class="con">
+                                    <p class="a">구독중</p><br>
+                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscrib_ing" href="#">3</a></p>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-	</div>
 
-	<footer id="footer"></footer>
-	<br>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="subscrib_ing" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel">@dooboo 님이 구독하고있는 유저</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <!--구독자가 들어가야할 모달의 body-->
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                                <div class="subscrib_div wrapper">
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
+                                                </div><br>
+                                            </div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer id="footer"></footer>
+        </div>
+    
+        <br><br>
 
 	<!--이동할 탭 -->
 	<div> </div>
