@@ -1,8 +1,7 @@
 
-body{
+.header_body{
 	width:100%;
 }
-
 
 .agree_div{
 	text-align:center;
@@ -38,9 +37,9 @@ body{
     margin:0;
     background-color: #fff; }
 
-/* 네비게이션 버튼들 - .nav-link*/
-.nav-link{
-    /* 글씨 크기 조절 ,,, */
+/* 네비게이션 내 정보 버튼 */
+.d-block{
+    margin-left : 10px;
 }
 
 .dropdown-item{
@@ -62,15 +61,6 @@ body{
 
 .navbar-nav{
 	margin-right : 50px;
-}
-
-.d-flex{
-	margin-left : 70%;
-}
-
-#navbarSupportedContent{
-	position:absolute;
-	right:0px;
 }
 
 .modal-title{

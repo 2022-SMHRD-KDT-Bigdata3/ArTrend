@@ -19,20 +19,24 @@
     width: 600px;
     padding: 0 0 30px 0;
     border-bottom: 2px solid #ddd;
-}
-
-.profile .pic {
-    width: 55%;
-    height: 55%;
-    margin: 0 50px 0 0;
+    justify-content: space-around;
+    text-align: -webkit-center;
 }
 
 .profile_pic{
     border-radius: 50%;
 }
 
+.profile>.pic {
+   margin-left: 6vh;
+}
+
 .profile .info {
-    margin: auto;
+ width : 300px;
+}
+
+.sub_btn_width{
+	margin-top : 3%;
 }
 
 .profile .username {
@@ -47,22 +51,21 @@
     margin: auto;
     margin-left : 8%;
     margin-right: 10%;
-    width:100%;
 }
 
 .profile .username span{
     display: inline-block;
     font-size: 13px;
     font-weight: 400;
-    color: #fff;
-    background-color: rgb(50, 166, 255);
-    border: 1px solid #999;
+    color:rgba(14, 138, 41, 0.765);
+    background-color: white;
+    border: 1px solid rgba(14, 138, 41, 0.765);
     border-radius: 4px;
     padding: 5px 7px;
     margin: 0;
 }
 
-#subscrib_btn{
+#subscrib_btn, #msg_btn{
     border: none;
 }
 
@@ -87,14 +90,34 @@
 
 .a_font{
     color: black;
+    text-decoration: none;
 }
 
-.sub_btn, .msg_btn{
+#subscrib_btn, #msg_btn{
 	color : rgba(14, 138, 41, 0.765);
+	background-color : white;
 	border-color:rgba(14, 138, 41, 0.765);
+	width : 70px;
 }
 
 .sub_btn:active{
 	color:white;
 	background-color : rgba(14, 138, 41, 0.765);
 }
+
+/* 탭 3개 */
+.class_name2{
+    display: flex;
+    justify-content: center;
+    }
+    
+    .g_column{
+        width: 150px;
+        text-align: center;
+        color: black;
+        text-decoration:none;      
+    }
+    
+ .sub_msg_btn{
+ 	display: flex;	
+ }
