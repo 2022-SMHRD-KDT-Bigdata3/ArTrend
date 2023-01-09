@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<properties resource="com/smhrd/db/db.poperties"></properties>
+	<properties resource="com/smhrd/db/db.properties"></properties>
 	
 	<!-- 파일 경로들 별칭 지정하기 typeAliases -->
 	<typeAliases> 
