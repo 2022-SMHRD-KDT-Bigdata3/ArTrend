@@ -54,25 +54,25 @@
 		</header>
 		<div class="container container1" align="center">
 
-			<div class="support_div support_post">
-				<div class="support_div support_btn">
-					<a href="#"><i
-						class="fa-regular fa-square-minus fa-2x fa_regular"
-						style="color: rgb(132, 132, 132)"></i></a>
-				</div>
 
 				<div class="support_div_sub support_title">
 
 					<h5>할로우 나이트 엽서 세트</h5>
 				</div>
 
-				<div class="support_div_sub support_img" style="width:60%">
+				<div class="support_div_sub support_img" style="width:40%">
+			<div class="support_div support_post">
+				<div class="support_div support_btn">
+					<a href="#"><i
+						class="fa-regular fa-square-minus fa-2x fa_regular"
+						style="color: rgb(132, 132, 132)"></i></a>
+				</div>
 					<img src="./assets/img_gallery/KakaoTalk_20221201_141427224_12.jpg"
 						alt="">
 				</div>
 
 				<div class="support_div_sub support_contents">
-					<p style="width:50%">작가가 등록한 상품에 대한 설명!! 그들은 커다란 이상 곧 만천하의 대중을 품에 안고 그들에게 밝은 길을
+					<p>작가가 등록한 상품에 대한 설명!! 그들은 커다란 이상 곧 만천하의 대중을 품에 안고 그들에게 밝은 길을
 						찾아 주며 그들을 행복스럽고 그렇다고합니다 예예예예예예ㅖ예!!!!~!~!~!</p>
 				</div>
 
@@ -90,7 +90,7 @@
 				<div class="modal fade" id="support_real" tabindex="-1"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
-						<div class="modal-content">
+						<div class="modal-content modal-width" style="width:max-content;">
 							<div class="modal-header">
 								<h1 class="modal-title fs-6" id="exampleModalLabel">후원하기 /
 									@dooboo</h1>

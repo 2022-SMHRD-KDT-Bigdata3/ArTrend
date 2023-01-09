@@ -22,7 +22,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
-<body>
+<body class="header_body">
 
 	<!-- 로그인 후 info에 담긴 것 사용하기 -->
 	<%
@@ -41,7 +41,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute; right: 20px;">
 				<form class="d-flex" role="search">
 					<input class="form-control me-2" type="search" placeholder="Search"
 						aria-label="Search">
@@ -308,17 +308,18 @@
 							📩️ </a></li>
 							
 					<!-- 마이갤러리 이동  -->
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 👤 </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="gallery_post.jsp">
-									내갤러리 </a></li>
-							<li><a class="dropdown-item" href="InfoEdit.jsp"> 정보수정 </a></li>
+					<li class="nav-item dropdown">
+					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          			<img src="./assets/images/KakaoTalk_20221209_120050427.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+       			    </a>
+					
+          			<ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
+			            <li><a class="dropdown-item" href="gallery_post.jsp"> 내갤러리 </a></li>
+							<li><a class="dropdown-item" href="update.jsp"> 정보수정 </a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="LogOutService"> 로그아웃
-							</a></li>
-						</ul></li>
+							<li><a class="dropdown-item" href="LogOutService"> 로그아웃 </a></li>
+		            </ul>
+					</li>
 				</ul>
 
 				<%

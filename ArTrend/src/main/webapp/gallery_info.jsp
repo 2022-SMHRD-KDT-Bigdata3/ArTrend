@@ -15,8 +15,11 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 
-<!--gallery_info.css 외부연결-->
+<!--gallery css 외부연결-->
 <link rel="stylesheet" href="./assets/css_gallery/gallery_info.css">
+<link rel="stylesheet" href="./assets/css_gallery/gallery_Subscrib.css">
+
+
 <!--다니css파일-->
 <link rel="stylesheet" href="./assets/profile_css_dani/font_dani.css">
 <link rel="stylesheet" href="./assets/profile_css_dani/main_dani.css">
@@ -35,7 +38,7 @@
 <!-- header include -->
 <%@include file="gallery_header.jsp"%> 
 
-    <div class="wrapper">
+   
         <br>
         <!--소개글이 나올 디브-->
         <div class="gallery_info_div">
@@ -70,7 +73,6 @@
             </div>
          </div> 
         <br><br>
-</div>
-	<script src="./assets/css_gallery/gallery_underbar.js"></script>
+
 </body>
 </html>
