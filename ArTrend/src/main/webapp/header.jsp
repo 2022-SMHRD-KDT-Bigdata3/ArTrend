@@ -304,7 +304,7 @@
 					</li>
 					
 					<!-- 메세지 화면 이동  -->
-					<li class="nav-item"><a class="nav-link" href="messagePage.jsp">
+					<li class="nav-item"><a class="nav-link" href="MessageSystem.jsp">
 							📩️ </a></li>
 							
 					<!-- 마이갤러리 이동  -->
