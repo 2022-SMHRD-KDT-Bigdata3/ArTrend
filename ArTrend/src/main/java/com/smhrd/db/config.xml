@@ -10,6 +10,7 @@
 	<typeAliases> 
 	<typeAlias type= "com.smhrd.model.UserVO" alias="UserVO"/>
 	<typeAlias type= "com.smhrd.model.LikesVO" alias="LikesVO"/>
+	<typeAlias type= "com.smhrd.model.BoardsVO" alias="BoardsVO"/>
 	</typeAliases>
 	
   <environments default="development">
@@ -26,6 +27,6 @@
   <mappers>
     <mapper resource="com/smhrd/db/UserMapper.xml"/>
     <mapper resource="com/smhrd/db/LikesMapper.xml"/>
-    
+    <mapper resource="com/smhrd/db/BoardsMapper.xml"/>
   </mappers>
 </configuration>
