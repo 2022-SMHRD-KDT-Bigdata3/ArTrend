@@ -23,7 +23,7 @@
 	<div class="container text-center">
 	
 		<div class="row">
-			<!-- card시작 -->
+	 		<!-- card시작 -->
 			<div class="col-lg-4 col-md-6">
 				<div class="card text-bg-light">
 					<a href="#;" class="banner_img" data-bs-toggle="modal" data-bs-target="#exampleModal3"> 
