@@ -66,12 +66,12 @@ response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인�
 if(boards != null) {
 	System.out.println("boards 정보 받아오기 성공");
 	System.out.println(boards.toString());//확인용출력
-	session.setAttribute("boards", boards);
 	
 }else {
 	System.out.println("정보 받아오기 실패");
 }
 %>
+
 
 
 	<div class="col-lg-4 col-md-6">
@@ -81,7 +81,7 @@ if(boards != null) {
 			 <img class="img_post"
 				src="./assets/kjh/img/scream.jpg" alt="">
 				<p class="hover_text">
-					dsfasdfadfagsfdgf5d6gfgsdgsdfdsfg4f5gh4654gfdh</p>
+					<%=boards.get(0).getBoard_title()%></p>
 			</a>
 
 			<div class="modal fade" id="postModal1" data-bs-backdrop="static"
@@ -107,8 +107,11 @@ if(boards != null) {
 								<div class="post-rest-container">
 									<div class="post-rest-header">
 										<div class="post-user-container">
-											<a href ="gallery_user.jsp"><img class="user-card-img" src="./assets/kjh/img/scream.jpg"
-												alt=""> <span class="card-user-name">monk</span></a>
+											<a href ="gallery_user.jsp">
+												<img class="user-card-img" src="./assets/kjh/img/scream.jpg"alt=""> 
+													<span class="card-user-name">
+														<%String[] nick1 = boards.get(0).getUser_email().split("@");%><%=nick1[0] %>
+														</span></a>
 										</div>
 										<div class="post-header-btn">
 											<button class="normal-btn">
@@ -133,8 +136,8 @@ if(boards != null) {
 									
 									<div class="post-info-padding">
 										<div class="post-info">
-											<p class="post-title">절규</p>
-											<p class="post-des">새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.</p>
+											<p class="post-title"><%=boards.get(0).getBoard_title() %></p>
+											<p class="post-des"><%=boards.get(0).getBoard_content() %></p>
 										</div>
 									</div>
 									<div class="comment-container-padding">
