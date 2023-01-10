@@ -1,5 +1,6 @@
 package com.smhrd.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
@@ -21,15 +22,19 @@ public class PostWriteService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		// 시퀀스: 보드넘, 데이트/ 받아오기 : 유저이메일 / 인풋: 제목, 카테고리, 내용, 사진 / 디폴트 : view
-
-		String savePath = "/assets/uploadFile/";
+		// 파일 경로
+		String savePath = "assets/uploadFile";
 		int uploadFileSizeLimit = 5 * 1024 * 1024;
 		String encType = "UTF-8";
 		ServletContext context = getServletContext();
 		String uploadFilePath = context.getRealPath(savePath);
 		System.out.println(uploadFilePath);
-
+		
+		File dir = new File(uploadFilePath);
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		
 		MultipartRequest multi = new MultipartRequest(request, uploadFilePath, uploadFileSizeLimit, encType,
 				new DefaultFileRenamePolicy());
 

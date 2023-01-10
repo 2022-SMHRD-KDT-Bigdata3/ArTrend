@@ -32,5 +32,13 @@ public class BoardsDAO {
 		
 		return (ArrayList<BoardsVO>)list;
 	}
+	
+	public BoardsVO postView(int board_num) {
+		session = sqlSessionFactory.openSession(true);
+		BoardsVO vo = session.selectOne("postView", board_num);
+		session.close();
+		return vo;
+
+	}
 
 }
