@@ -23,7 +23,7 @@ public class PostWriteService extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// 파일 경로
-		String savePath = "assets/uploadFile";
+		String savePath = "imges";
 		int uploadFileSizeLimit = 5 * 1024 * 1024;
 		String encType = "UTF-8";
 		ServletContext context = getServletContext();

@@ -42,6 +42,9 @@ if(boards != null) {
 	System.out.println("정보 받아오기 실패");
 }
 %>
+
+<%-- <img src="imges/<%=boards.get(1).getBoard_pic()%>"> --%>
+
 	<%@include file="header.jsp"%>
 	<!-- 최신글 순서 메인 화면 -->
 	<div class="container text-center">
