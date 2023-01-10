@@ -54,9 +54,9 @@
 					<li class="nav-item">
 						<!-- 회원가입(sign-up) 모달--> <!-- Button trigger modal -->
 						<button type="button" class="btn btn_signup"
-							data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+							data-bs-toggle="modal" data-bs-target="#JoinModal">
 							JOIN</button> <!-- Modal -->
-						<div class="modal fade" id="staticBackdrop"
+						<div class="modal fade" id="JoinModal"
 							data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 							aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -146,8 +146,8 @@
 					<li class="nav-item">
 						<!-- 로그인(login) 모달--> <!-- Button trigger modal -->
 						<button type="button" class="btn btn_login" data-bs-toggle="modal"
-							data-bs-target="#exampleModal">LOGIN</button> <!-- Modal -->
-						<div class="modal fade" id="exampleModal" tabindex="-1"
+							data-bs-target="#LoginModal">LOGIN</button> <!-- Modal -->
+						<div class="modal fade" id="LoginModal" tabindex="-1"
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">

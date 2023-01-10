@@ -1,6 +1,13 @@
+<%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%
+   UserVO info1=new UserVO();
+   if(session.getAttribute("info")!=null){	
+     info1 = (UserVO) session.getAttribute("info");
+     System.out.print("로그인 이메일 :" + info1.getUser_email());
+   } 
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,13 +38,25 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<script type="text/javascript">
+
+// 로그인 상태 확인해서 게시글 상세 or 로그인 모달 띄우기
+  function checkModel(){
+	  if(<%=info1.getUser_email()!=null%>){
+	     $('#postModal1').modal('show');
+	  }else{
+		  $('#LoginModal').modal('show'); 
+	  }
+  }
+</script>
 </head>
 <body>
 	<div class="col-lg-4 col-md-6">
 		<div class="card text-bg-light">
 
-			<a href="#;" class="banner_img" data-bs-toggle="modal"
-				data-bs-target="#postModal1"> <img class="img_post"
+			<a href="javascript:checkModel()" class="banner_img">
+			 <img class="img_post"
 				src="./assets/kjh/img/scream.jpg" alt="">
 				<p class="hover_text">
 					dsfasdfadfagsfdgf5d6gfgsdgsdfdsfg4f5gh4654gfdh</p>

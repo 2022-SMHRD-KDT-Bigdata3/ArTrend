@@ -1,4 +1,3 @@
-<%@page import="java.io.PrintWriter"%>
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -52,37 +51,6 @@ if(boards != null) {
 			<!-- card 시작 -->
 			<%@include file="post_view.jsp"%>
 			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-			
-			<!-- card 시작 -->
-			<%@include file="post_view.jsp"%>
-			<!-- card 끝 -->
-
-
-
 			
 
 		</div>
