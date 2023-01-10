@@ -27,17 +27,17 @@
     <div class="subscrib_div wrapper">
         <div class="class5 subscrib_img"><img class = "subscrib_img1" src="./assets/img_gallery/정사각형.jpg" alt="" height="50px" width="50px"></div>
         <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-        <div class="class5 subscrib_btn do_subscribe"><button>구독하기</button></div>
+        <div class="class5 subscrib_btn"><button>구독하기</button></div>
     </div><br>
     <div class="subscrib_div wrapper">
         <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
         <div class="class5 subscrib_nick"><p>@dooboo2</p></div>
-        <div class="class5 subscrib_btn do_subscribe"><button>구독하기</button></div>
+        <div class="class5 subscrib_btn"><button>구독하기</button></div>
     </div><br>
     <div class="subscrib_div wrapper">
         <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
         <div class="class5 subscrib_nick"><p>@dooboo3</p></div>
-        <div class="class5 subscrib_btn do_subscribe"><button>구독하기</button></div>
+        <div class="class5 subscrib_btn "><button>구독하기</button></div>
     </div><br>
 
 

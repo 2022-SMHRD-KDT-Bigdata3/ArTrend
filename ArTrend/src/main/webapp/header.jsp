@@ -314,7 +314,7 @@
        			    </a>
 					
           			<ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
-			            <li><a class="dropdown-item" href="gallery_post.jsp"> 내갤러리 </a></li>
+			            <li><a class="dropdown-item" href="MyGallery.jsp"> 내갤러리 </a></li>
 							<li><a class="dropdown-item" href="update.jsp"> 정보수정 </a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="LogOutService"> 로그아웃 </a></li>

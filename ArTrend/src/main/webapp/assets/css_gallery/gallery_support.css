@@ -74,6 +74,24 @@
     justify-content: space-evenly;
 }
 
-.modal-width{
-	width:40vh;
+/* 현아 추가 */
+.btn_sub{
+	display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    color : rgba(14, 138, 41, 0.765);
+    border : 1px solid;
+	background-color : white;
+	border-color:rgba(14, 138, 41, 0.765);
+    border-radius: 5px;
+    padding: 5px 7px;
+    margin: 0;
+}
+
+.btn_sub:hover{
+	color : white;
+    border : 1px solid;
+	background-color : rgba(14, 138, 41, 0.765);
+	border-color:rgba(14, 138, 41, 0.765);
+    border-radius: 5px;
 }

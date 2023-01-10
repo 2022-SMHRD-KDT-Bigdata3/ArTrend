@@ -27,14 +27,28 @@
     margin: 12px 0 0 0;
 }
 
-.subscrib_btn {
+.subscrib_btn>button {
     display: inline-block;
     font-size: 13px;
     font-weight: 400;
     color : rgba(14, 138, 41, 0.765);
-	background-color : none;
+    border : 1px solid;
+	background-color : white;
 	border-color:rgba(14, 138, 41, 0.765);
     border-radius: 5px;
     padding: 5px 7px;
     margin: 0;
+}
+
+.btn {
+	display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    color : rgba(14, 138, 41, 0.765);
+    border : 1px solid;
+	background-color : white;
+	border-color:rgba(14, 138, 41, 0.765);
+    border-radius: 5px;
+    padding: 5px 7px;
+    margin: 0;	
 }

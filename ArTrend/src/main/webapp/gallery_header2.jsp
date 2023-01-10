@@ -172,26 +172,5 @@
 			</main>
 		</div>
 	</div>
-
-	<footer id="footer"></footer>
-	<br>
-
-	<!--이동할 탭 -->
-	<div> </div>
-	<div class="class_name2">
-		<div class="g_column g_post">
-			<a class="g_column g_post" href="gallery_post.jsp"><p>게시글</p></a>
-		</div>
-
-		<div class="g_column g_info">
-			<a class="g_column g_info" href="gallery_info.jsp"><p>소개글</p></a>
-		</div>
-
-
-		<div class="g_column g_sp">
-			<a class="g_column g_sp" href="gallery_support.jsp"><p>후원</p></a>
-		</div>
-	</div>
-
 </body>
 </html>

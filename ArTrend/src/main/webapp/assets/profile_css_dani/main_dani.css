@@ -19,7 +19,7 @@
     width: 600px;
     padding: 0 0 30px 0;
     border-bottom: 2px solid #ddd;
-    justify-content: space-around;
+    justify-content: space-evenly;
     text-align: -webkit-center;
 }
 
@@ -63,6 +63,7 @@
     border-radius: 4px;
     padding: 5px 7px;
     margin: 0;
+    width:max-content;
 }
 
 #subscrib_btn, #msg_btn{
@@ -97,7 +98,7 @@
 	color : rgba(14, 138, 41, 0.765);
 	background-color : white;
 	border-color:rgba(14, 138, 41, 0.765);
-	width : 70px;
+	padding : 5px;
 }
 
 .sub_btn:active{

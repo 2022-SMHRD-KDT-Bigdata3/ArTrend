@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gallery_info</title>
+    
 <!-- 현아 header css -->
     <link href="./assets/css/main.css" rel="stylesheet">
     <link href="./assets/css/header.css" rel="stylesheet">
@@ -36,7 +37,6 @@
 </head>
 <body>
 <!-- header include -->
-<%@include file="gallery_header.jsp"%> 
 
    
         <br>
@@ -66,9 +66,16 @@
             <div class="gallery_info_btn">
                  <div class=" gallery_info_pen">
                     <!-- 소개글 수정하기(소개글이 있을 경우)-->
-                    <a href=""><i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i></a> 
+                    <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#introModify">
+                    <i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i>
+                    </button>
+                    	<%@include file="intro_modify.jsp" %>
+                    	
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
-                    <a href=""><i class="gallery_info_btn1 fa-regular fa-square-plus"></i></a>
+                    <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
+                    <i class="gallery_info_btn1 fa-regular fa-square-plus"></i>
+                    </button>
+                    	<%@include file="intro_modify.jsp" %>
                  </div>
             </div>
          </div> 

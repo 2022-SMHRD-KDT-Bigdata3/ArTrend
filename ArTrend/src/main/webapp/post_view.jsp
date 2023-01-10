@@ -81,7 +81,7 @@
 													<ul class="dropdown-menu text-small"
 														style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);"
 														data-popper-placement="bottom-end">
-														<li><a class="dropdown-item" href="update.jsp"> 게시글 수정 </a></li>
+														<li><a class="dropdown-item" href="post_modify.jsp"> 게시글 수정 </a></li>
 														
 														<li><a class="dropdown-item" href="update.jsp"> 게시글 삭제 </a></li>
 													</ul>
@@ -162,6 +162,36 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+//Bootstrap multiple modal
 
+var count = 0; // 모달이 열릴 때 마다 count 해서  z-index값을 높여줌
+
+$(document).on('show.bs.modal', '.modal', function () {
+
+    var zIndex = 1040 + (10 * count);
+
+    $(this).css('z-index', zIndex);
+
+    setTimeout(function() {
+
+        $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+
+    }, 0);
+
+    count = count + 1
+
+});
+
+
+
+// multiple modal Scrollbar fix
+
+$(document).on('hidden.bs.modal', '.modal', function () {
+
+    $('.modal:visible').length && $(document.body).addClass('modal-open');
+
+});
+</script>
 </body>
 </html>

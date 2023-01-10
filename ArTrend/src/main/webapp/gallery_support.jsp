@@ -41,11 +41,13 @@
 <!--아이콘-->
 <script src="https://kit.fontawesome.com/fa92a52c34.js"
 	crossorigin="anonymous"></script>
-
-
 </head>
+
 <body>
-	<%@include file="gallery_header.jsp"%>
+
+<!-- header include -->
+	
+	
 	<div class="wrapper">
 
 		<!--후원품-->
@@ -63,9 +65,20 @@
 				<div class="support_div_sub support_img" style="width:40%">
 			<div class="support_div support_post">
 				<div class="support_div support_btn">
+				
+						<!-- 등록된 글이 없을 경우 출력(?) -->
+				<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite">
+                    <i class="fa-regular fa-square-plus fa-2x" style="color: rgb(132, 132, 132)"></i>
+                </button>
+                    	<%@include file="support_write.jsp" %>
+						
+						
+				<!-- 등록된 글이 있을 경우 -->
 					<a href="#"><i
-						class="fa-regular fa-square-minus fa-2x fa_regular"
+						class="fa-regular fa-square-minus fa-2x"
 						style="color: rgb(132, 132, 132)"></i></a>
+						
+						
 				</div>
 					<img src="./assets/img_gallery/KakaoTalk_20221201_141427224_12.jpg"
 						alt="">
@@ -81,7 +94,7 @@
                     <a href="#" ><i class="fa-regular fa-pen-to-square fa-2x" style="color:rgb(132, 132, 132)"></i></a>
                 </div> -->
 
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				<button type="button" class="btn_sub" data-bs-toggle="modal"
 					data-bs-target="#support_real">후원하기</button>
 
 
@@ -90,7 +103,7 @@
 				<div class="modal fade" id="support_real" tabindex="-1"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
-						<div class="modal-content modal-width" style="width:max-content;">
+						<div class="modal-content" style="width:100%">
 							<div class="modal-header">
 								<h1 class="modal-title fs-6" id="exampleModalLabel">후원하기 /
 									@dooboo</h1>
@@ -133,17 +146,16 @@
 									</div>
 
 								</div>
-								<span class="support_point_Charge"><a href="#"
+								<span class="support_point_Charge"><a href="point.jsp"
 									align="center">포인트 충전하기</a></span> <br> <br> <br>
 
 								<div class="container support_final" align="center">
 									<div>
-										<a href="#"><button type="button"
-												class="btn_padding1 btn btn-secondary btn-sm">취소하기</button></a>
+										<button type="button" class="btn_padding1 btn_sub btn-sm">취소하기</button>
 									</div>
 									<div>
 										<a href="#"><button type="button"
-												class="btn_padding btn btn-primary btn-sm">후원하기</button></a>
+												class="btn_padding btn_sub btn-sm">후원하기</button></a>
 									</div>
 								</div>
 							</div>

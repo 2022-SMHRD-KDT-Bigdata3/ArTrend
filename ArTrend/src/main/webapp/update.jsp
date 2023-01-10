@@ -85,7 +85,7 @@
             <!-- 등록하기 버튼 클릭시 바뀐 정보 db저장 -> 바뀐 정보가 유저 갤러리 화면에 출력(닉네임의 경우) -->
             <input class="input-btn" type="submit" value="등록하기" > 
             <!-- 취소하기 버튼 클릭시 유저 갤러리 화면으로 이동 -> 경로 넣기 -->
-            <button class="close-btn" onclick = "location.href = ''">취소하기</button>
+            <button class="close-btn" onclick="history.back()">취소하기</button>
          </div>
     </div>
 </div>

@@ -14,6 +14,9 @@
 <link href="./assets/css/main.css" rel="stylesheet">
 <link href="./assets/css/header.css" rel="stylesheet">
 
+<!-- 장 -->
+<link href="./asset/kjh/css/postWrite.css" rel="stylesheet">
+
 <!--부트스트랩css-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -24,8 +27,9 @@
 
 <!--gallery_info.css 외부연결-->
 <link rel="stylesheet" href="./assets/css_gallery/gallery_info.css">
-<link rel="stylesheet" href="./assets/css_gallery/gallery_post.css">
+<link rel="stylesheet" href="./assets/css_gallery/gallery_post2.css">
 <link rel="stylesheet" href="./assets/css_gallery/gallery_img_input.css">
+<link rel="stylesheet" href="./assets/cee_gallery/gallery_Subscrib.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 
@@ -51,60 +55,7 @@
 
 
 	<!-- header include -->
-	<%@include file="gallery_header.jsp"%> 
 	  
-	    
-	     <!-- Modal -->
-  <div class="modal fade" id="postWrite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="postWriteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="postWriteLabel">새 게시물 만들기</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="write-container">
-                <div class="write-img-container">
-                    <img id="write-img" src="" alt="">
-                    <input type="file" id="write-img-input" onchange="imgPreview(this);" style="display:none" accept=".jpg,.png">
-                    <label class="write-img-btn" for="write-img-input"><img src="./assets/kjh/icon/plus.svg" alt=""></label>
-                </div>
-                <div class="write-info-container">
-                    <div class="writer-info-padding">
-                        <div class="writer-info-container">
-                            <img src="" alt="">
-                            <span class="writer-info-name"><%=info.getUser_nick() %></span>
-                        </div>
-                    </div>
-                    <div class="write-title-container">
-                        <input type="text" class="write-title-input" placeholder="제목을 입력하세요">
-                    </div>
-                    <div class="write-category-container">
-                        <input list="cate-list" class="write-category-input" placeholder="카테고리를 선택하세요">
-                        <datalist id="cate-list">
-                            <option value="그림"></option>
-                            <option value="사진"></option>
-                            <option value="영상"></option>
-                        </datalist>
-                    </div>
-                    <div class="write-desc-container">
-                        <div class="write-desc-input" placeholder="내용을 입력하세요" contenteditable="true"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="append_div" class="modal-footer">
-          <button id="append_div" type="button" class="btn btn-primary" data-bs-dismiss="modal">만들기</button>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-  <br><br>
-  <footer id="footer"></footer>
-
-   
 	<div class="class_name4" id="boxWrap">
 	
 	  <div class=" sub_img sub_img1"><a href="#" class="sub_img sub_img1"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_10.jpg" alt="" class="sub_img sub_img1"></a></div>
@@ -114,7 +65,13 @@
       
   	</div>
   
-	<div class="btnWrap post_append_btn" ><button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite"><i class="post_append fa-regular fa-square-plus"></i></button></div>
+	<div class="btnWrap post_append_btn" >
+	<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite">
+	<i class="post_append fa-regular fa-square-plus"></i>
+	</button>
+	</div>
+	
+	<%@include file="post_write.jsp" %>
 
   
   
