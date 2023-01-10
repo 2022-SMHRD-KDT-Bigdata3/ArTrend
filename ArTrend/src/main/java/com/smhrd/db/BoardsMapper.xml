@@ -9,5 +9,9 @@
     <select id="SubscriberSelectAll" resultType="BoardsVO">
    		select * from boards where board_num is not null
    </select>
+   
+      <select id="postView" resultType="BoardsVO">
+	select * from boards where board_num = #{board_num}
+   </select>
   
 </mapper>
