@@ -44,6 +44,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.PostWriteService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SubscriberService</servlet-name>
+  	<display-name>SubscriberService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SubscriberService</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>Main</servlet-name>
@@ -60,7 +66,7 @@
   	<url-pattern>/JoinService</url-pattern>
   </servlet-mapping>
   
-  <servlet-mapping>
+ <servlet-mapping>
   	<servlet-name>LogOutService</servlet-name>
   	<url-pattern>/LogOutService</url-pattern>
   </servlet-mapping>
@@ -72,5 +78,10 @@
   	<servlet-name>PostWriteService</servlet-name>
   	<url-pattern>/PostWriteService</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubscriberService</servlet-name>
+  	<url-pattern>/SubscriberService</url-pattern>
+  </servlet-mapping>
 
 </web-app>
+  

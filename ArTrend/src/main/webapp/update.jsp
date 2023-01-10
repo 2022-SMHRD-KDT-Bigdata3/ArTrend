@@ -31,7 +31,7 @@
             </div>
             <div class="info">
                 <div class="username">
-                    <h2 class="name">@dooboo</h2>
+                    <h2 class="name">@<%=info.getUser_nick() %></h2>
                     <div class="dropdown">
                         <button class="dropbtn" >프로필 사진변경</button>
                             <div class="dropdown-content">
