@@ -42,8 +42,8 @@ public class PostWriteService extends HttpServlet {
 
 		BoardsDAO dao = new BoardsDAO();
 		int res = dao.postWrite(vo);
-
-		response.sendRedirect("postWrite.jsp");
+		
+		response.sendRedirect("MyGallery.jsp");
 	}
 
 }

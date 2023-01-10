@@ -38,7 +38,7 @@
 
 			<a href="#;" class="banner_img" data-bs-toggle="modal"
 				data-bs-target="#postModal1"> <img class="img_post"
-				src="./assets/kjh/img/scream.jpg" alt="땡땡땡 배경">
+				src="./assets/kjh/img/scream.jpg" alt="">
 				<p class="hover_text">
 					dsfasdfadfagsfdgf5d6gfgsdgsdfdsfg4f5gh4654gfdh</p>
 			</a>
