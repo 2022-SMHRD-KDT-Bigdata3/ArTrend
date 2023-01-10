@@ -47,12 +47,16 @@ public class PostWriteService extends HttpServlet {
 
 		BoardsDAO dao = new BoardsDAO();
 		int res = dao.postWrite(vo);
+
 		
 		if(res>0) {
 			System.out.println("업로드 성공");
+		}else {
+			System.out.println("업로드 실패");
 		}
 		
-		response.sendRedirect("MyGallery.jsp");
+		response.sendRedirect("gallery_my.jsp");
+
 	}
 
 }
