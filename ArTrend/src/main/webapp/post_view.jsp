@@ -66,8 +66,8 @@
 								<div class="post-rest-container">
 									<div class="post-rest-header">
 										<div class="post-user-container">
-											<img class="user-card-img" src="./assets/kjh/img/scream.jpg"
-												alt=""> <span class="card-user-name">monk</span>
+											<a href ="gallery_user.jsp"><img class="user-card-img" src="./assets/kjh/img/scream.jpg"
+												alt=""> <span class="card-user-name">monk</span></a>
 										</div>
 										<div class="post-header-btn">
 											<button class="normal-btn">
