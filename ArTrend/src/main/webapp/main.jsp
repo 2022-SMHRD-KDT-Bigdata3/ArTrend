@@ -26,23 +26,6 @@
 </head>
 <body>
 
-
-<% BoardsDAO dao = new BoardsDAO();
-
-ArrayList<BoardsVO> boards =dao.SubscriberSelectAll();
-
-response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
-
-if(boards != null) {
-	System.out.println("boards 정보 받아오기 성공");
-	System.out.println(boards.toString());//확인용출력
-	session.setAttribute("boards", boards);
-	
-}else {
-	System.out.println("정보 받아오기 실패");
-}
-%>
-
 	<%@include file="header.jsp"%>
 	<!-- 최신글 순서 메인 화면 -->
 	<div class="container text-center">
