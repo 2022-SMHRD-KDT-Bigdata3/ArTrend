@@ -3,15 +3,21 @@
 <mapper namespace="BoardsMapper">
 
    <insert id="postWrite" parameterType="BoardsVO">
-      insert into boards values(boards_seq.nextVal, #{board_type}, #{user_email}, #{board_title}, #{board_content}, sysdate, #{board_view}, #{board_pic})
+      insert into boards values(boards_seq.nextVal, #{board_type}, #{user_email},
+      #{board_title}, #{board_content}, sysdate, #{board_view},
+      #{board_pic})
    </insert>
-   
-    <select id="SubscriberSelectAll" resultType="BoardsVO">
-   		select * from boards where board_num is not null
+
+   <select id="SubscriberSelectAll" resultType="BoardsVO">
+      select * from boards where board_num is not null
    </select>
-   
-      <select id="postView" resultType="BoardsVO">
-	select * from boards where board_num = #{board_num}
+
+   <select id="postView" resultType="BoardsVO">
+      select * from boards where board_num = #{board_num}
    </select>
-  
+
+   <select id="getBoardNick" resultType="BoardsVO">
+      select b.board_num, u.user_nick as user_email, b.board_type, b.board_title, b.board_content, b.board_date, b.board_view, b.board_pic from boards b, users u where b.user_email = u.user_email
+   </select>
+
 </mapper>
