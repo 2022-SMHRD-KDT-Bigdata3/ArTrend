@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +93,7 @@
     <div class="row mb-3">
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm"><b>결제정보</b></label>
         <div class="col-sm-5">
-          <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="이름">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="이름">
         </div>
     </div>
     <div class="row mb-3">
@@ -105,9 +105,9 @@
     <div class="row mb-3">
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm"></label>
         <div class="col-sm-5">
-        <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="전화번호">
+        <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="전화번호">
         </div>
-    </div>
+    </div>s
     <hr width="60%">
       
     <div class="row mb-3">
@@ -128,8 +128,6 @@
     <br>
     <p>유의사항이 적혀있는 줄글,무엇을 위하여 설산에서 <br>고행을 하였으며, 예수는 무엇을 위하여
     광야에서 <br>방황하였으며, 공자는 무엇을 위하여 천하를 철환하였는가? </p>
-
-
     
    
     </form>

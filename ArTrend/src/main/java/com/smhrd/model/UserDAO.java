@@ -31,5 +31,14 @@ public class UserDAO {
 
 			return info;
 		}
+		
+	// 회원정보 수정 메서드 
+		public int user_update(UserVO vo) {
+			session = sqlSessionFactory.openSession(true);
+			int cnt = session.update("user_update", vo);
+			session.close();
+			
+			return cnt;
+		}
 	
 }
