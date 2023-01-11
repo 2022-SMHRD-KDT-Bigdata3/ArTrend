@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.CmtVO"%>
+<%@page import="com.smhrd.model.CmtDAO"%>
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
@@ -56,8 +58,9 @@
 
 <!-- 게시물 정보 가져오기  -->
 <% BoardsDAO dao = new BoardsDAO();
-
 ArrayList<BoardsVO> boards =dao.getBoardNick();
+CmtDAO cmtdao = new CmtDAO();
+ArrayList<CmtVO> cmtView = cmtdao.cmtView();
 
 response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
 
@@ -161,27 +164,15 @@ if(boards != null) {
 									</div>
 									<div class="comment-container-padding">
 										<div class="post-comment-container">
+											<%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
+												if (cmtView.get(allCmt).getBoard_num() == boards.get(i).getBoard_num()) {%>
 											<div class="post-comment-card">
-												<span class="card-user-name">초코파이</span> <span
-													class="comment-body">몽쉘.</span>
+												<span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
+												<span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
 											</div>
-											<div class="post-comment-card">
-												<span class="card-user-name">새벽</span> <span
-													class="comment-body">새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.
-													새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에
-													손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어
-													손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬
-													더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는
-													이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면
-													스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와
-													닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛
-													와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.
-													새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에
-													손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어
-													손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬
-													더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는
-													이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.</span>
-											</div>
+												<% }
+												}
+												%>
 										</div>
 									</div>
 									<div class="post-btn-padding">
