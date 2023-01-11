@@ -182,7 +182,8 @@ if(boards != null) {
 									</div>
 									<div class="comment-box-padding">
 									<form action="CmtWriteService">
-									<input type="text" style="display:none" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
+									<input type="text" style="display:none;" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
+									<input type="text" style="display:none;" name="redirecto" value="main">
 										<div class="comment-box">
 											<input type="text" class="comment-input"
 												placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
