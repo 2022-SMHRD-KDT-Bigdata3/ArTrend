@@ -11,6 +11,11 @@
 </head>
 <body>
 
+<%
+//유저의 정보 가져오기
+UserVO write_post = (UserVO) session.getAttribute("info");
+%>
+
   <!-- Modal -->
   <div class="modal fade" id="postWrite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="postWriteLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -30,8 +35,8 @@
                 <div class="write-info-container">
                     <div class="writer-info-padding">
                         <div class="writer-info-container">
-                            <img src="./assets/kjh/img/poke01.jpg" alt="">
-                            <span class="writer-info-name">poke</span>
+                            <img src="<%=write_post.getUser_pic() %>" alt="">
+                            <span class="writer-info-name"><%=write_post.getUser_nick() %></span>
                         </div>
                     </div>
                     <div class="write-title-container">

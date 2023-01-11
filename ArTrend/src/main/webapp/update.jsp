@@ -44,7 +44,7 @@
                     <div class="dropdown">
                         <button class="dropbtn" >프로필 사진변경</button>
                             <div class="dropdown-content">
-                              <a  href="photoupload.html" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">사진 업로드</a>
+                              <a href="profileupload.html" onclick="window.open(this.href, '_blank', 'width=800, height=600'); return false;">사진 업로드</a>
                               <a href="#">기본이미지 변경</a>
                             </div>
                     </div>

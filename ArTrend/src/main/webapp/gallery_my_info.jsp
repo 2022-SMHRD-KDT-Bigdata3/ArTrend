@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,31 +39,26 @@
 <body>
 <!-- header include -->
 
-   
+<%UserVO my_info = (UserVO) session.getAttribute("info");%>    
+
         <br>
         <!--소개글이 나올 디브-->
+        
         <div class="gallery_info_div">
             <div class="gallery_info_title">
-                <h3>블랙 햅쌀 고봉 라떼</h3>
+                <h3><%=my_info.getUser_nick() %>님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
-                <span>
-                    검은 토끼의 해에 새롭게 돌아온 햅쌀 라떼
-                    에스프레소 샷과 어우러진 쌀, 흑임자가 더해져 더욱 고소해지고 입에서 톡톡 터지는 흑미 토핑이 소복하게 쌓여 건강하게 즐기는 라떼 음료
-                </span><br><br>
-                <span>
-                    몸도 마음도 든든하게 채워줄 #블랙햅쌀고봉라떼 한 잔으로
-                    2023년도 힘차게 출발해 보자구요. 🏃
-                </span><br><br>   
-                <span>
-                    ✅ 에스프레소 샷과 블랙 햅쌀이 만나 더욱 고소하고,
-                    흑미 토핑이 팝콘처럼 소복이 쌓인 블랙 햅쌀 고봉 라떼는 1월 1일 출시합니다.
+                <span> 
+                	<%=my_info.getUserInfo() %>
                 </span>
             </div>
         </div><br><br>
 
         <!-- 소개글 수정하기(소개글이 있을 경우) or 소개글 추가하기(소개글이 없을 경우) 버튼-->
         <div>
+        
+        <%if(my_info.getUserInfo().equals("-")) {%>
             <div class="gallery_info_btn">
                  <div class=" gallery_info_pen">
                     <!-- 소개글 수정하기(소개글이 있을 경우)-->
@@ -70,12 +66,14 @@
                     <i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i>
                     </button>
                     	<%@include file="intro_modify.jsp" %>
-                    	
+                    <%}else{%>	
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
                     <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
                     <i class="gallery_info_btn1 fa-regular fa-square-plus"></i>
                     </button>
-                    	<%@include file="intro_modify.jsp" %>
+                    	<%@include file="intro_modify.jsp"%>
+                    	
+                    	<%} %>
                  </div>
             </div>
          </div> 
