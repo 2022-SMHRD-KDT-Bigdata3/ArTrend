@@ -70,7 +70,7 @@
                     <!-- 변경할 글 내용 -->
                     <div class="write-desc-container">
                         <div class="write-desc-input" contenteditable="true">
-                        <input type="text" name="board_content" style="border: none; background-color: #fafafa;" placeholder="내용을 입력하세요">
+                        <input type="text" name="board_content" style="display: none; background-color: #fafafa;" placeholder="내용을 입력하세요">
                         <!-- 해당 게시글 번호의 텍스트 뿌려주기 -->
                         <%= selectedBoard.getBoard_content() %>
                         </div>
