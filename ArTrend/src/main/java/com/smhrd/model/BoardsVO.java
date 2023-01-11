@@ -28,6 +28,17 @@ public class BoardsVO {
 		user_email = "123@123.123";
 	}
 
+	// PostWriteService
+	public BoardsVO(String board_type, String user_email, String board_title, String board_content, String board_pic) {
+		this.board_type = board_type;
+		this.user_email = user_email;
+		this.board_title = board_title;
+		this.board_content = board_content;
+		this.board_pic = board_pic;
+		board_num = 0;
+		board_view = 0;
+	}
+
 	public BoardsVO(int board_num, String board_type, String user_email, String board_title, String board_content,
 			String board_date, int board_view, String board_pic) {
 		this.board_num = board_num;

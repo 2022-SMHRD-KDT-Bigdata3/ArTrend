@@ -31,7 +31,7 @@
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="main.jsp"> <img
-				src="./assets/images/img_logo.png" alt="ArTrend" width="200px"
+				src="./assets/images/logo_green.png" alt="ArTrend" width="200px"
 				height="80px">
 			</a>
 			<button class="navbar-toggler" type="button"
@@ -54,9 +54,9 @@
 					<li class="nav-item">
 						<!-- 회원가입(sign-up) 모달--> <!-- Button trigger modal -->
 						<button type="button" class="btn btn_signup"
-							data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+							data-bs-toggle="modal" data-bs-target="#JoinModal">
 							JOIN</button> <!-- Modal -->
-						<div class="modal fade" id="staticBackdrop"
+						<div class="modal fade" id="JoinModal"
 							data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 							aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -146,8 +146,8 @@
 					<li class="nav-item">
 						<!-- 로그인(login) 모달--> <!-- Button trigger modal -->
 						<button type="button" class="btn btn_login" data-bs-toggle="modal"
-							data-bs-target="#exampleModal">LOGIN</button> <!-- Modal -->
-						<div class="modal fade" id="exampleModal" tabindex="-1"
+							data-bs-target="#LoginModal">LOGIN</button> <!-- Modal -->
+						<div class="modal fade" id="LoginModal" tabindex="-1"
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -314,7 +314,7 @@
        			    </a>
 					
           			<ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">
-			            <li><a class="dropdown-item" href="MyGallery.jsp"> 내갤러리 </a></li>
+			            <li><a class="dropdown-item" href="gallery_my.jsp"> 내갤러리 </a></li>
 							<li><a class="dropdown-item" href="update.jsp"> 정보수정 </a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="LogOutService"> 로그아웃 </a></li>
