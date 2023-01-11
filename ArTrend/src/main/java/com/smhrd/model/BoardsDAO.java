@@ -41,4 +41,13 @@ public class BoardsDAO {
 
 	}
 
+	// 게시글 쓴 사람 nick 가져오기
+	  public ArrayList<BoardsVO> getBoardNick() {
+	      session = sqlSessionFactory.openSession(true);
+
+	      List<BoardsVO> list = session.selectList("getBoardNick");
+	      session.close();
+
+	      return (ArrayList<BoardsVO>) list;
+	   }
 }
