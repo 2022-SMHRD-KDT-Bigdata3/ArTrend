@@ -27,7 +27,7 @@
 <body>
 
 	<%@include file="header.jsp"%>
-	<!-- 최신글 순서 메인 화면ㄹㄹㄹ -->
+	<!-- 최신글 순서 메인 화면 -->
 	<div class="container text-center">
 
 		<div class="row">
