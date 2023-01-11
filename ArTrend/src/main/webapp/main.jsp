@@ -26,8 +26,6 @@
 </head>
 <body>
 
-
-
 	<%@include file="header.jsp"%>
 	<!-- 최신글 순서 메인 화면 -->
 	<div class="container text-center">
@@ -38,12 +36,10 @@
 			<%@include file="post_view.jsp"%>
 			<!-- card 끝 -->
 			
-
 		</div>
 		<!-- row 끝 -->
 
 	</div>
-
 
 </body>
 </html>

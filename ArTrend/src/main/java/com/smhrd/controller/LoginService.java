@@ -43,7 +43,6 @@ public class LoginService extends HttpServlet {
 				RequestDispatcher re = request.getRequestDispatcher("main.jsp");
 				re.forward(request, response);
 		
-		
 	}
 
 }
