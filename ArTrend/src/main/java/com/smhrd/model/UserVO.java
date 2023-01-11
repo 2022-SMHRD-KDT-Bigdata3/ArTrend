@@ -41,6 +41,8 @@ public class UserVO {
 		this.user_email = user_email;
 		this.user_pw = user_pw;
 	}
+	
+	
 
 	// 기본 생성자
 	public UserVO() {

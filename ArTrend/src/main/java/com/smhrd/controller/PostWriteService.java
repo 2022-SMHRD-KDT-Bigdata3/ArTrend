@@ -42,7 +42,7 @@ public class PostWriteService extends HttpServlet {
 		}
 		
 		MultipartRequest multi = new MultipartRequest(request, uploadFilePath, uploadFileSizeLimit, encType,
-				new DefaultFileRenamePolicy());
+		new DefaultFileRenamePolicy());
 
 		String board_type = multi.getParameter("board_type");
 		String user_email = info_post.getUser_email();

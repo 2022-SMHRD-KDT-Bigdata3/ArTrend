@@ -56,7 +56,7 @@
 						</div>
 						<div class="info">
 							<div class="username">
-								<h2 class="name">@dooboo</h2>
+								<h2 class="name">@<%=info.getUser_nick() %></h2>
 								<div class="sub_msg_btn">
 									<button id="subscrib_btn" onclick = "location.href='#'"><span>구독하기</span></button>
                                     <button id="msg_btn" onclick = "location.href = 'MessageSystem.jsp'"><span>메세지</span></button>
