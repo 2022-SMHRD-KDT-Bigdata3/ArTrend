@@ -63,16 +63,16 @@
    
    
 
-<%	//post_view에서 세션에 저장한 boards를 가져온다
-	ArrayList<BoardsVO> boards_my_post = (ArrayList<BoardsVO>) session.getAttribute("boards");
+<%   //post_view에서 세션에 저장한 boards를 가져온다
+   ArrayList<BoardsVO> boards_my_post = (ArrayList<BoardsVO>) session.getAttribute("boards");
    //로그인할때 저장된 user의 info를 가져옴
-	UserVO info_my_post = (UserVO) session.getAttribute("info");
-	for(int i=0 ; i<boards_my_post.size() ; i++) { 
-		if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_nick())){%>
+   UserVO info_my_post = (UserVO) session.getAttribute("info");
+   for(int i=0 ; i<boards_my_post.size() ; i++) { 
+      if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_nick())){%>
       <div class=" sub_img sub_img<%=i%>"><a href="#" class="sub_img sub_img<%=i%>"> <img class="sub_img sub_img<%=i%>"  src="imges/<%= boards_my_post.get(i).getBoard_pic() %>" alt="" > </a></div>
       <%} %>
-   	<%} %>   
-   	       
+      <%} %>   
+             
      </div>
   
    <div class="btnWrap post_append_btn" >
