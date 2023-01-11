@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.BoardsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,6 +42,21 @@
 <body>
 	<!-- header include -->
 	<%@include file="header.jsp"%>
+	
+	
+
+
+<%	//post_view에서 세션에 저장한 boards를 가져온다
+	ArrayList<BoardsVO> boards_user_header = (ArrayList<BoardsVO>) session.getAttribute("boards");
+	String user_nick_header = request.getParameter("getUser_email");
+	//확인용콘솔출력
+	System.out.print(user_nick_header);
+	int board_user_cnt = 0;
+	for(int i=0 ; i<boards_user_header.size() ; i++) { 
+		if((boards_user_header.get(i).getUser_email()).equals(user_nick_header)){
+			board_user_cnt++; } 
+   			}%>   
+	
 
 	<div class="wrapper">
 		<br> <br> <br>
@@ -56,7 +72,7 @@
 						</div>
 						<div class="info">
 							<div class="username">
-								<h2 class="name">@<%=info.getUser_nick() %></h2>
+								<h2 class="name">@<%=user_nick_header %></h2>
 								<div class="sub_msg_btn">
 									<button id="subscrib_btn" onclick = "location.href='#'"><span>구독하기</span></button>
                                     <button id="msg_btn" onclick = "location.href = 'MessageSystem.jsp'"><span>메세지</span></button>
@@ -67,7 +83,8 @@
 								<div class="con">
 									<p class="a">게시글 수</p>
 									<p>
-									<a class="a_font" href="gallery_post.jsp">170</a>
+									<!-- 유저의 게시글수로 바꿔줘야함 -->
+									<a class="a_font" href="gallery_post.jsp"><%=board_user_cnt %></a>
 									</p>
 								</div>
 
