@@ -107,7 +107,7 @@
         <div class="col-sm-5">
         <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="전화번호">
         </div>
-    </div>s
+    </div>
     <hr width="60%">
       
     <div class="row mb-3">

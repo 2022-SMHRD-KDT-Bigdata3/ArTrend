@@ -95,7 +95,24 @@
             <button class="close-btn" onclick="location.href='galley_my.jsp'">취소하기</button>
          </div>
         </form>
-     
+        
+        <!-- 비밀번호 일치 확인 -->
+   <script>
+       $('(.form-control)').focusout(function () {
+          var pwd1 = $("#colFormLabel").val();
+          var pwd2 = $("#colFormLabelLg").val();
+  
+          if (pwd1 != "" || pwd2 != "") {
+              if (pwd1 == pwd2) {
+                // 비밀번호 일치 이벤트 실행
+             } else {
+            	 alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
+             }
+          }
+        	
+        
+    });
+</script>
     </div>
 </div>
    
