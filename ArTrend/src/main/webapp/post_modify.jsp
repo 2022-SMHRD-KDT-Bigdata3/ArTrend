@@ -52,9 +52,9 @@
                     <div class="write-title-container">
                     
                     <!-- 변경할 제목 -->
-                        <input type="text" name="board_title" class="write-title-input" placeholder="제목을 입력하세요" required>
                         <!-- 해당 게시글 번호의 타이틀 뿌려주기 -->
-                        <%= selectedBoard.getBoard_title() %>
+                        <input type="text" name="board_title" class="write-title-input" value="<%= selectedBoard.getBoard_title() %>" placeholder="제목을 입력하세요" required>
+                      
                     </div>
                     
                     <!-- 변경할 글 타입 -->
@@ -70,7 +70,7 @@
                     <!-- 변경할 글 내용 -->
                     <div class="write-desc-container">
                         <div class="write-desc-input" contenteditable="true">
-                        <input type="text" name="board_content" style="border: none; background-color: #fafafa;" placeholder="내용을 입력하세요">
+                        <input type="text" name="board_content" style="display: none; background-color: #fafafa;" placeholder="내용을 입력하세요">
                         <!-- 해당 게시글 번호의 텍스트 뿌려주기 -->
                         <%= selectedBoard.getBoard_content() %>
                         </div>

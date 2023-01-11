@@ -10,3 +10,6 @@ function imgPreview(input) {
         }
     }
     
+function getContent(){
+    document.getElementById("real-textarea").value = document.querySelector("div.write-desc-input").innerText;
+}
