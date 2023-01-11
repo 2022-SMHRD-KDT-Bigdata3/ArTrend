@@ -20,4 +20,14 @@
       select b.board_num, u.user_nick as user_email, b.board_type, b.board_title, b.board_content, b.board_date, b.board_view, b.board_pic from boards b, users u where b.user_email = u.user_email
    </select>
 
+	<!-- 선택한 게시글 정보만 받기 -->
+	<select id="selectedBoard" resultType="BoardsVO">
+		select * from boards where board_num = #{board_num}
+	</select>
+	
+	<!-- 해당 게시글 수정 -->
+	<update id="postModify">
+		update boards set board_title = #{board_title}, board_type=#{board_type}, board_content=#{board_content} where board_num=#{board_num}		
+	</update>
+	
 </mapper>
