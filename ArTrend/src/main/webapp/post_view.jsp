@@ -8,7 +8,6 @@
    UserVO info1=new UserVO();
    if(session.getAttribute("info")!=null){	
      info1 = (UserVO) session.getAttribute("info");
-     System.out.print("로그인 이메일 :" + info1.getUser_email());
    } 
 	%>
 <!DOCTYPE html>
@@ -37,29 +36,28 @@
 	<!-- 게시글 수정 css -->
 <link rel="stylesheet" href="./assets/kjh/css/postModify.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-
-
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
-<script type="text/javascript">
-
-// 로그인 상태 확인해서 게시글 상세 or 로그인 모달 띄우기
-  function checkModel(){
-	  if(<%=info1.getUser_email()!=null%>){
-	     $('#postModal1').modal('show');
-	  }else{
-		  $('#LoginModal').modal('show'); 
-	  }
-  }
-</script>
+	<!-- 로그인 상태 확인해서 게시글 상세 or 로그인 모달 띄우기 -->
+	
+	<script type="text/javascript">
+			// body에서 for문 i 활용 -- checkModel() 의 매개변수로
+		  function checkModel(i){
+			  if(<%=info1.getUser_email()!=null%>){
+			// 내가 클릭한 게시글과 mapping
+			     $('#postModal'+i).modal("show");
+			  }else{
+				  $('#LoginModal').modal('show'); 
+			  }
+		}
+	  
+	</script>
 </head>
 <body>
 
 <!-- 게시물 정보 가져오기  -->
 <% BoardsDAO dao = new BoardsDAO();
 
-ArrayList<BoardsVO> boards =dao.SubscriberSelectAll();
+ArrayList<BoardsVO> boards =dao.getBoardNick();
 
 response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
 
@@ -71,20 +69,23 @@ if(boards != null) {
 	System.out.println("정보 받아오기 실패");
 }
 %>
-
-
-
+	
+	<% for(int i=0 ; i<boards.size() ; i++) { %>
+	
+	<!-- 전체 반복 하면 메인에 그 만큼 출력 됨 -->
 	<div class="col-lg-4 col-md-6">
 		<div class="card text-bg-light">
 
-			<a href="javascript:checkModel()" class="banner_img">
+			<a href="javascript:checkModel(<%=i%>)" class="banner_img">
 			 <img class="img_post"
-				src="./assets/kjh/img/scream.jpg" alt="">
+				src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
 				<p class="hover_text">
-					<%=boards.get(0).getBoard_title()%></p>
+					<%= boards.get(i).getBoard_title()%>
+					
+					</p>
 			</a>
-
-			<div class="modal fade" id="postModal1" data-bs-backdrop="static"
+			
+			<div class="modal fade" id="postModal<%=i%>" data-bs-backdrop="static"
 				data-bs-keyboard="false" tabindex="-1" aria-labelledby="postModal"
 				aria-hidden="true">
 				<button class="modal-close-btn" data-bs-dismiss="modal">
@@ -101,17 +102,23 @@ if(boards != null) {
 						<div class="modal-body">
 							<div class="post-container">
 								<div class="post-img-container">
-									<img class="img_post" src="./assets/kjh/img/scream.jpg" alt="">
+								
+								<!-- 게시판 상세 - 이미지 -->
+									<img class="img_post" src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
 									<p class="hover_text">몽크 - 절규</p>
 								</div>
+								
+								<!-- 게시글 상세보기  -->
 								<div class="post-rest-container">
 									<div class="post-rest-header">
 										<div class="post-user-container">
-											<a href ="gallery_user.jsp">
-												<img class="user-card-img" src="./assets/kjh/img/scream.jpg"alt=""> 
-													<span class="card-user-name">
-														<%String[] nick1 = boards.get(0).getUser_email().split("@");%><%=nick1[0] %>
-														</span></a>
+										
+									<!-- 게시판 상세 - 유저 -->
+									<a href ="gallery_user.jsp?getUser_email=<%= boards.get(i).getUser_email()%>">
+                                    <img class="user-card-img" 	src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
+                                       <span class="card-user-name">
+                                          <%= boards.get(i).getUser_email() %>
+                                          </span>
 										</div>
 										<div class="post-header-btn">
 											<button class="normal-btn">
@@ -136,8 +143,17 @@ if(boards != null) {
 									
 									<div class="post-info-padding">
 										<div class="post-info">
-											<p class="post-title"><%=boards.get(0).getBoard_title() %></p>
-											<p class="post-des"><%=boards.get(0).getBoard_content() %></p>
+										
+										<!-- 게시글 상세 페이지 타이틀 -->
+											<p class="post-title">
+											<%=  boards.get(i).getBoard_title()%>
+											</p>
+											
+										<!-- 게시글 상세 페이지 내용 -->
+											<p class="post-des">
+											<%= boards.get(i).getBoard_content()%>
+										
+											</p>
 										</div>
 									</div>
 									<div class="comment-container-padding">
@@ -206,6 +222,8 @@ if(boards != null) {
 			</div>
 		</div>
 	</div>
+<%} %>
+	
 <script type="text/javascript">
 //Bootstrap multiple modal
 
@@ -236,6 +254,9 @@ $(document).on('hidden.bs.modal', '.modal', function () {
     $('.modal:visible').length && $(document.body).addClass('modal-open');
 
 });
+
+
+
 </script>
 </body>
 </html>
