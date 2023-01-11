@@ -169,3 +169,29 @@ right: 20px;
 input{
 	border-radius : 5px;
 }
+
+
+/* 230111 현아 추가 */
+
+.postBtn_all{
+	display: flex;
+   	flex-direction: row;
+    height: 30px;
+}
+
+.postBtn{
+    border: 1px solid rgba(14, 138, 41, 0.765);
+    background-color: white;
+    color: rgba(14, 138, 41, 0.765);
+    border-radius: 5px;
+    padding: 0;
+    width: 70px;
+}
+
+.postBtn:hover{
+	color : white;
+    border : 1px solid;
+	background-color : rgba(14, 138, 41, 0.765);
+	border-color:rgba(14, 138, 41, 0.765);
+    border-radius: 5px;
+}
