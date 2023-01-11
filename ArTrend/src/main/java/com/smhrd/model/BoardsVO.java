@@ -50,6 +50,15 @@ public class BoardsVO {
 		this.board_view = board_view;
 		this.board_pic = board_pic;
 	}
+	
+	// 게시글 수정
+		public BoardsVO(int board_num, String board_type, String board_title, String board_content) {
+			this.board_num = board_num;
+			this.board_type = board_type;
+			this.board_title = board_title;
+			this.board_content = board_content;
+		}
+	
 
 	public BoardsVO() {
 

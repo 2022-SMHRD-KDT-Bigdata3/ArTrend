@@ -50,4 +50,25 @@ public class BoardsDAO {
 
 	      return (ArrayList<BoardsVO>) list;
 	   }
+	  
+	// 클릭한 게시글만 정보 가져오기
+	   public BoardsVO boardSelect(Integer board_num) {
+		session = sqlSessionFactory.openSession(true);
+		
+		BoardsVO res = session.selectOne("selectedBoard", board_num);
+		session.close();
+		
+		return res;
+	}
+		
+		// 게시글 수정
+	   public int postModify(BoardsVO vo) {
+		session = sqlSessionFactory.openSession(true);
+		
+		int res = session.update("postModify", vo);
+		session.close();
+		
+		return res;
+	}
+	  
 }
