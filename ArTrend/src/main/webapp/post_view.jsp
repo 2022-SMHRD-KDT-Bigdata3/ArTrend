@@ -204,7 +204,7 @@ if(boards != null) {
 												placeholder="소중한 댓글을 남겨주세요">
 											<button class="add-comment-btn">
 												<img class="add-comment-icon"
-													src="./assets/kjh/icon/envelope.svg" alt="">aaaaaa
+													src="./assets/kjh/icon/envelope.svg" alt="">
 											</button>
 										</div>
 									</div>
