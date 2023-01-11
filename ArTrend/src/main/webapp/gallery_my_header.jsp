@@ -75,7 +75,7 @@
 								<h2 class="name">@<%=info.getUser_nick() %></h2>
 								<div class="sub_msg_btn">
 								<!-- 정보수정페이지로 이동 -->
-									<button id="subscrib_btn" onclick = "location.href='#'"><span>정보수정</span></button>
+									<button id="subscrib_btn" onclick = "location.href='update.jsp'"><span>정보수정</span></button>
 								</div>
 							
 							</div>
