@@ -14,10 +14,11 @@ import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
 public class UpdateService extends HttpServlet {
-   private static final long serialVersionUID = 1L;
 
-   protected void service(HttpServletRequest request, HttpServletResponse response)
-         throws ServletException, IOException {
+	   private static final long serialVersionUID = 1L;
+
+	   protected void service(HttpServletRequest request, HttpServletResponse response)
+	         throws ServletException, IOException {
 
       System.out.println("UpdateService 실행");
       // update.jsp 에서 수정을 실행시 여기서 기능을 실행
@@ -72,5 +73,6 @@ public class UpdateService extends HttpServlet {
       re.forward(request, response);
 
    }
+
 
 }

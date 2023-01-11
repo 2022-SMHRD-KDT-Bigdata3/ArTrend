@@ -52,7 +52,7 @@ UserVO write_post = (UserVO) session.getAttribute("info");
                     </div>
                     <div class="write-desc-container">
                         <div class="write-desc-input" placeholder="내용을 입력하세요" contenteditable="true"></div>
-                        <textarea id="real-textarea" style="display:none" name="board_content"></textarea>
+                        <textarea id="real-textarea" style="display:none;" name="board_content"></textarea>
                     </div>
                 </div>
             </div>

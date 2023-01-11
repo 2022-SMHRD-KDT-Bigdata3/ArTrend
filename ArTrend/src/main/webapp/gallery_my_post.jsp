@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.CmtVO"%>
+<%@page import="com.smhrd.model.CmtDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -90,6 +92,11 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
    //로그인할때 저장된 user의 info를 가져옴
    UserVO info_my_post = (UserVO) session.getAttribute("info");
    
+   // 댓글
+   CmtDAO cmtdao = new CmtDAO();
+   ArrayList<CmtVO> cmtView = cmtdao.cmtView();
+   
+   
    for(int i=0 ; i<boards_my_post.size() ; i++) { 
       if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_nick())){%>
       
@@ -160,19 +167,15 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
                            </div>
                            <div class="comment-container-padding">
                               <div class="post-comment-container">
+                                 <%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
+                                    if (cmtView.get(allCmt).getBoard_num() == boards_my_post.get(i).getBoard_num()) {%>
                                  <div class="post-comment-card">
-                                    <span class="card-user-name">초코파이</span> <span
-                                       class="comment-body">몽쉘.</span>
+                                    <span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
+                                    <span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
                                  </div>
-                                 <div class="post-comment-card">
-                                    <span class="card-user-name">새벽</span> <span
-                                       class="comment-body">새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.
-                                       새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에
-                                       손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어
-                                       손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬
-                                       더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는
-                                       </span>
-                                 </div>
+                                    <% }
+                                    }
+                                    %>
                               </div>
                            </div>
                            <div class="post-btn-padding">
@@ -199,14 +202,18 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
                               </div>
                            </div>
                            <div class="comment-box-padding">
+                           <form action="CmtWriteService">
+                           <input type="text" style="display:none;" name="board_num" value="<%=boards_my_post.get(i).getBoard_num()%>">
+                           <input type="text" style="display:none;" name="redirecto" value="mp">   
                               <div class="comment-box">
                                  <input type="text" class="comment-input"
-                                    placeholder="소중한 댓글을 남겨주세요">
-                                 <button class="add-comment-btn">
+                                    placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
+                                 <button class="add-comment-btn" type="submit">
                                     <img class="add-comment-icon"
                                        src="./assets/kjh/icon/envelope.svg" alt="">
-                                 </button>
+                                 </button>         
                               </div>
+                              </form>
                            </div>
                         </div>
                      </div>

@@ -124,6 +124,7 @@ if(boards != null) {
                                        <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>'">
                                           <%= boards.get(i).getUser_email() %>
                                           </span>
+<<<<<<< HEAD
                            </div>
                            
                               <!-- 게시글 수정/삭제 버튼 삭제 -->
@@ -201,6 +202,86 @@ if(boards != null) {
          </div>
       </div>
    </div>
+=======
+									</div>
+									
+										<!-- 게시글 수정/삭제 버튼 삭제 -->
+									</div>
+									
+									<div class="post-info-padding">
+										<div class="post-info">
+										
+										<!-- 게시글 상세 페이지 타이틀 -->
+											<p class="post-title">
+											<%=  boards.get(i).getBoard_title()%>
+											</p>
+											
+										<!-- 게시글 상세 페이지 내용 -->
+											<p class="post-des">
+											<%= boards.get(i).getBoard_content()%>
+										
+											</p>
+										</div>
+									</div>
+									<div class="comment-container-padding">
+										<div class="post-comment-container">
+											<%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
+												if (cmtView.get(allCmt).getBoard_num() == boards.get(i).getBoard_num()) {%>
+											<div class="post-comment-card">
+												<span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
+												<span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
+											</div>
+												<% }
+												}
+												%>
+										</div>
+									</div>
+									<div class="post-btn-padding">
+										<div class="post-list-btn">
+											<div class="post-left-btn">
+												<button class="normal-btn">
+													<img src="./assets/kjh/icon/heart-nofill.svg" alt="">
+												</button>
+												<button class="normal-btn">
+													<img src="./assets/kjh/icon/journal.svg" alt="">
+												</button>
+											</div>
+											<div class="post-right-btn">
+												<button class="normal-btn">
+													<img src="./assets/kjh/icon/coin.svg" alt="">
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="post-view-padding">
+										<div class="post-view-info">
+											<span class="likes">3.2k likes</span><span class="views">10k
+												views</span>
+										</div>
+									</div>
+									<div class="comment-box-padding">
+									<form action="CmtWriteService">
+									<input type="text" style="display:none;" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
+									<input type="text" style="display:none;" name="redirecto" value="main">
+										<div class="comment-box">
+											<input type="text" class="comment-input"
+												placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
+											<button class="add-comment-btn" type="submit">
+												<img class="add-comment-icon"
+													src="./assets/kjh/icon/envelope.svg" alt="">
+											</button>			
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-Bigdata3/ArTrend.git
 <%} %>
    
 <script type="text/javascript">

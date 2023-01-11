@@ -40,5 +40,10 @@ public class UserDAO {
 			
 			return cnt;
 		}
+
+		public int info_update(UserVO vo) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 	
 }

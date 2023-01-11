@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.CmtVO"%>
+<%@page import="com.smhrd.model.CmtDAO"%>
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -76,6 +78,10 @@
 	String user_nick = request.getParameter("getUser_email");
 	System.out.print(user_nick);
 	
+	// 댓글
+	CmtDAO cmtdao = new CmtDAO();
+	ArrayList<CmtVO> cmtView = cmtdao.cmtView();
+	
 	for(int i=0 ; i<boards_user_post.size() ; i++) { 
 		if((boards_user_post.get(i).getUser_email()).equals(user_nick)){%>
       <div class=" sub_img sub_img<%=i%>">
@@ -140,21 +146,17 @@
 									</div>
 								</div>
 								<div class="comment-container-padding">
-									<div class="post-comment-container">
-										<div class="post-comment-card">
-											<span class="card-user-name">초코파이</span> <span
-												class="comment-body">몽쉘.</span>
+										<div class="post-comment-container">
+											<%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
+												if (cmtView.get(allCmt).getBoard_num() == boards_user_post.get(i).getBoard_num()) {%>
+											<div class="post-comment-card">
+												<span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
+												<span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
+											</div>
+												<% }
+												}
+												%>
 										</div>
-										<div class="post-comment-card">
-											<span class="card-user-name">새벽</span> <span
-												class="comment-body">새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.
-												새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에
-												손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어
-												손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬
-												더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는
-												</span>
-										</div>
-									</div>
 								</div>
 								<div class="post-btn-padding">
 									<div class="post-list-btn">
@@ -179,16 +181,20 @@
 											views</span>
 									</div>
 								</div>
-								<div class="comment-box-padding">
-									<div class="comment-box">
-										<input type="text" class="comment-input"
-											placeholder="소중한 댓글을 남겨주세요">
-										<button class="add-comment-btn">
-											<img class="add-comment-icon"
-												src="./assets/kjh/icon/envelope.svg" alt="">
-										</button>
+									<div class="comment-box-padding">
+									<form action="CmtWriteService">
+									<input type="text" style="display:none;" name="board_num" value="<%=boards_user_post.get(i).getBoard_num()%>">
+									<input type="text" style="display:none;" name="redirecto" value="up">
+										<div class="comment-box">
+											<input type="text" class="comment-input"
+												placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
+											<button class="add-comment-btn" type="submit">
+												<img class="add-comment-icon"
+													src="./assets/kjh/icon/envelope.svg" alt="">
+											</button>			
+										</div>
+										</form>
 									</div>
-								</div>
 							</div>
 						</div>
 					</div>
