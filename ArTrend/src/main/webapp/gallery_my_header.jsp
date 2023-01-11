@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.BoardsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,6 +42,21 @@
 <body>
 	<!-- header include -->
 	<%@include file="header.jsp"%>
+	
+	
+<%	//post_view에서 세션에 저장한 boards를 가져온다
+	ArrayList<BoardsVO> boards_my_header = (ArrayList<BoardsVO>) session.getAttribute("boards");
+   //로그인할때 저장된 user의 info를 가져옴
+	UserVO info_my_header = (UserVO) session.getAttribute("info");
+	
+	int board_my_cnt = 0;
+	for(int i=0 ; i<boards_my_header.size() ; i++) { 
+		if((boards_my_header.get(i).getUser_email()).equals(info_my_header.getUser_nick())){
+				System.out.print("접속한 유저의 닉네임(확인용):"+info_my_header.getUser_nick());
+				board_my_cnt++;
+			} 
+		}%> 
+   	  
 
 	<div class="wrapper">
 		<br> <br> <br>
@@ -67,7 +83,7 @@
 								<div class="con">
 									<p class="a">게시글 수</p>
 									<p>
-									<a class="a_font" href="gallery_post.jsp">170</a>
+									<a class="a_font" href="gallery_post.jsp"><%=board_my_cnt %></a>
 									</p>
 								</div>
 

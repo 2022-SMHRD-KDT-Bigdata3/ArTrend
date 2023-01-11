@@ -64,6 +64,8 @@ response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인�
 if(boards != null) {
 	System.out.println("boards 정보 받아오기 성공");
 	System.out.println(boards.toString());//확인용출력
+	//세션에저장
+	session.setAttribute("boards", boards);
 	
 }else {
 	System.out.println("정보 받아오기 실패");
