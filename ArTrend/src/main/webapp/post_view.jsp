@@ -113,35 +113,17 @@ if(boards != null) {
 								<!-- 게시글 상세보기  -->
 								<div class="post-rest-container">
 									<div class="post-rest-header">
-										<div class="post-user-container">
-										
+									
 									<!-- 게시판 상세 - 유저 -->
-									<a style="text-decoration: none; color: black;"
-									href ="gallery_user.jsp?getUser_email=<%= boards.get(i).getUser_email()%>">
-                                    <img class="user-card-img" 	src="<%= info1.getUser_pic() %>" alt="">
-                                       <span class="card-user-name">
+									<div class="post-user-container">	
+										<span style="text-decoration: none; color: black;"></span>
+	                                    <img class="user-card-img" 	src="<%= info1.getUser_pic() %>" alt="">
+                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='gallery_user.jsp?getUser_email=<%= boards.get(i).getUser_email()%>'">
                                           <%= boards.get(i).getUser_email() %>
                                           </span>
-										</div>
-										<div class="post-header-btn">
-											<button class="normal-btn">
-
-												<!-- 게시글 수정 / 삭제 드롭다운 -->
-												<div>
-													<img src="./assets/kjh/icon/three-dots.svg" alt="" href="#"
-														class="d-block link-dark text-decoration-none dropdown-toggle"
-														data-bs-toggle="dropdown" aria-expanded="false">
-
-													<ul class="dropdown-menu text-small"
-														style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);"
-														data-popper-placement="bottom-end">
-														<li><a class="dropdown-item" href="BoardSelectService?getBoard_num=<%= boards.get(i).getBoard_num()%>"> 게시글 수정 </a></li>
-														
-														<li><a class="dropdown-item" href="update.jsp"> 게시글 삭제 </a></li>
-													</ul>
-												</div>
-											</button>
-										</div>
+									</div>
+									
+										<!-- 게시글 수정/삭제 버튼 삭제 -->
 									</div>
 									
 									<div class="post-info-padding">
