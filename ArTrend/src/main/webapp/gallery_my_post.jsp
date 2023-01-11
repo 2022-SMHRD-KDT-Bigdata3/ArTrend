@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.BoardsVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,11 +60,19 @@
      
    <div class="class_name4" id="boxWrap">
    
-     <div class=" sub_img sub_img1"><a href="#" class="sub_img sub_img1"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_10.jpg" alt="" class="sub_img sub_img1"></a></div>
-      <div class=" sub_img sub_img2"><a href="#" class="sub_img sub_img2"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_17.jpg" alt="" class="sub_img sub_img2"> </a></div>
-      <div class=" sub_img sub_img3"><a href="#" class="sub_img sub_img3"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_22.jpg" alt="" class="sub_img sub_img3"></a></div>
-      <div class=" sub_img sub_img4"><a href="#" class="sub_img sub_img4"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_08.jpg" alt="" class="sub_img sub_img4"></a></div>
-      
+   
+   
+
+<%	//post_view에서 세션에 저장한 boards를 가져온다
+	ArrayList<BoardsVO> boards_my_post = (ArrayList<BoardsVO>) session.getAttribute("boards");
+   //로그인할때 저장된 user의 info를 가져옴
+	UserVO info_my_post = (UserVO) session.getAttribute("info");
+	for(int i=0 ; i<boards_my_post.size() ; i++) { 
+		if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_nick())){%>
+      <div class=" sub_img sub_img<%=i%>"><a href="#" class="sub_img sub_img<%=i%>"> <img class="sub_img sub_img<%=i%>"  src="imges/<%= boards_my_post.get(i).getBoard_pic() %>" alt="" > </a></div>
+      <%} %>
+   	<%} %>   
+   	       
      </div>
   
    <div class="btnWrap post_append_btn" >

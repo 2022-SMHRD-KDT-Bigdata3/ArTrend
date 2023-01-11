@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.BoardsVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,13 +60,22 @@
 	  
 	<div class="class_name4" id="boxWrap">
 	
-	  <div class=" sub_img sub_img1"><a href="#" class="sub_img sub_img1"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_10.jpg" alt="" class="sub_img sub_img1"></a></div>
-      <div class=" sub_img sub_img2"><a href="#" class="sub_img sub_img2"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_17.jpg" alt="" class="sub_img sub_img2"> </a></div>
-      <div class=" sub_img sub_img3"><a href="#" class="sub_img sub_img3"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_22.jpg" alt="" class="sub_img sub_img3"></a></div>
-      <div class=" sub_img sub_img4"><a href="#" class="sub_img sub_img4"> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_08.jpg" alt="" class="sub_img sub_img4"></a></div>
-      
+
+
+<%	//post_view에서 세션에 저장한 boards를 가져온다
+	ArrayList<BoardsVO> boards_user_post = (ArrayList<BoardsVO>) session.getAttribute("boards");
+	String user_nick = request.getParameter("getUser_email");
+	System.out.print(user_nick);
+	
+	for(int i=0 ; i<boards_user_post.size() ; i++) { 
+		if((boards_user_post.get(i).getUser_email()).equals(user_nick)){%>
+      <div class=" sub_img sub_img<%=i%>"><a href="#" class="sub_img sub_img<%=i%>"> <img class="sub_img sub_img<%=i%>"  src="imges/<%= boards_user_post.get(i).getBoard_pic() %>" alt="" > </a></div>
+      <%} %>
+   	<%} %>   
+   	  
   	</div>
-  
+
+
   	<!-- 남의 갤러리니까 게시글 추가 버튼 없어도됨 -->
 	<!-- <div class="btnWrap post_append_btn" >
 	<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite">

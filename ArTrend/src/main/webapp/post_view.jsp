@@ -64,6 +64,8 @@ response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인�
 if(boards != null) {
 	System.out.println("boards 정보 받아오기 성공");
 	System.out.println(boards.toString());//확인용출력
+	//세션에저장
+	session.setAttribute("boards", boards);
 	
 }else {
 	System.out.println("정보 받아오기 실패");
@@ -114,8 +116,9 @@ if(boards != null) {
 										<div class="post-user-container">
 										
 									<!-- 게시판 상세 - 유저 -->
-									<a href ="gallery_user.jsp?getUser_email=<%= boards.get(i).getUser_email()%>">
-                                    <img class="user-card-img" 	src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
+									<a style="text-decoration: none; color: black;"
+									href ="gallery_user.jsp?getUser_email=<%= boards.get(i).getUser_email()%>">
+                                    <img class="user-card-img" 	src="<%= info1.getUser_pic() %>" alt="">
                                        <span class="card-user-name">
                                           <%= boards.get(i).getUser_email() %>
                                           </span>
@@ -132,7 +135,7 @@ if(boards != null) {
 													<ul class="dropdown-menu text-small"
 														style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);"
 														data-popper-placement="bottom-end">
-														<li><a class="dropdown-item" href="post_modify.jsp"> 게시글 수정 </a></li>
+														<li><a class="dropdown-item" href="BoardSelectService?getBoard_num=<%= boards.get(i).getBoard_num()%>"> 게시글 수정 </a></li>
 														
 														<li><a class="dropdown-item" href="update.jsp"> 게시글 삭제 </a></li>
 													</ul>
