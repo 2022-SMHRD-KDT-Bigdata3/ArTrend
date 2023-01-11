@@ -69,6 +69,30 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.CmtWriteService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PostModifyService</servlet-name>
+  	<display-name>PostModifyService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PostModifyService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BoardSelect</servlet-name>
+  	<display-name>BoardSelect</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.BoardSelect</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BoardSelectService</servlet-name>
+  	<display-name>BoardSelectService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.BoardSelectService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserInfoCheck</servlet-name>
+  	<display-name>UserInfoCheck</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.UserInfoCheck</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>Main</servlet-name>
@@ -113,6 +137,23 @@
   <servlet-mapping>
   	<servlet-name>CmtWriteService</servlet-name>
   	<url-pattern>/CmtWriteService</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  <servlet-name>PostModifyService</servlet-name>
+  	<url-pattern>/PostModifyService</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardSelect</servlet-name>
+  	<url-pattern>/BoardSelect</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BoardSelectService</servlet-name>
+  	<url-pattern>/BoardSelectService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserInfoCheck</servlet-name>
+  	<url-pattern>/UserInfoCheck</url-pattern>
   </servlet-mapping>
 
 </web-app>

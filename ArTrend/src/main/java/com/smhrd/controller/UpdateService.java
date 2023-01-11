@@ -60,9 +60,12 @@ public class UpdateService extends HttpServlet {
 			session.setAttribute("info", vo);
 
 			System.out.println("회원정보 수정 성공");
+
 			
 			// JOptionPane.showMessageDialog(null, "회원정보수정 완료");
 			url = "galley_my.jsp";
+
+
 		} else {
 			// update.jsp
 			url = "update.jsp";
