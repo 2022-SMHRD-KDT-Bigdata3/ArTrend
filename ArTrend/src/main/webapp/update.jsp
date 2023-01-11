@@ -18,6 +18,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  
+  
+  
+  
+  
+  
   </head>
 <body>
 <%@include file="header.jsp"%>  
@@ -27,7 +33,7 @@
         <br>
         <div class="profile">
             <div class="pic">
-                <img class="profile_pic" src="./assets/img_gallery/KakaoTalk_20221201_141427224_01.jpg" alt="">
+                <img class="profile_pic" id="profile_pic_preview" src="./assets/img_gallery/KakaoTalk_20221201_141427224_01.jpg" alt="">
             </div>
             <div class="info">
                 <div class="username">
@@ -86,7 +92,7 @@
             <!-- 등록하기 버튼 클릭시 바뀐 정보 db저장 -> 바뀐 정보가 유저 갤러리 화면에 출력(닉네임의 경우) -->
             <input class="input-btn" type="submit" value="등록하기" > 
             <!-- 취소하기 버튼 클릭시 유저 갤러리 화면으로 이동 -> 경로 넣기 -->
-            <button class="close-btn" onclick="location.href=''">취소하기</button>
+            <button class="close-btn" onclick="location.href='galley_my.jsp'">취소하기</button>
          </div>
         </form>
      
