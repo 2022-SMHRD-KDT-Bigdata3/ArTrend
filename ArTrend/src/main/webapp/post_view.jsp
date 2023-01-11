@@ -121,7 +121,7 @@ if(boards != null) {
 									<div class="post-user-container">	
 										<span style="text-decoration: none; color: black;"></span>
 	                                    <img class="user-card-img" 	src="<%= info1.getUser_pic() %>" alt="">
-                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='gallery_user.jsp?getUser_email=<%= boards.get(i).getUser_email()%>'">
+                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>'">
                                           <%= boards.get(i).getUser_email() %>
                                           </span>
 									</div>
