@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -42,6 +43,8 @@
 <body>
 	<!-- header include -->
 	<%@include file="header.jsp"%>
+<% UserDAO dao = new UserDAO();
+UserVO user_status = dao.userSelectOne(info.getUser_email());%>
 	
 	
 <%	//post_view에서 세션에 저장한 boards를 가져온다
@@ -67,7 +70,7 @@
 				<div class="mainVisual">
 					<div class="profile">
 						<div class="pic">
-							<img class="profile_pic" src="./assets/img_gallery/정사각형.jpg"
+							<img class="profile_pic" src="uimges/<%=user_status.getUser_pic()%>"
 								alt="" style="width: 150px; height: 150px;">
 						</div>
 						<div class="info">

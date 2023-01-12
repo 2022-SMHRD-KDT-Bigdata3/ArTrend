@@ -1,5 +1,8 @@
 package com.smhrd.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -44,6 +47,23 @@ public class UserDAO {
 		public int info_update(UserVO vo) {
 			// TODO Auto-generated method stub
 			return 0;
+		}
+
+		public int uPicUpdate(UserVO vo) {
+			
+			session = sqlSessionFactory.openSession(true);
+			int res = session.update("uPicUpdate", vo);
+			session.close();
+			
+			return res;
+		}
+		
+		public UserVO userSelectOne(String user_email) {
+			session = sqlSessionFactory.openSession(true);
+			UserVO vo = session.selectOne("userSelectOne", user_email);
+			session.close();
+			return vo;
+
 		}
 	
 }

@@ -1,7 +1,7 @@
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ArTrend</title>
 <link
-   href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-   rel="stylesheet"
-   integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-   crossorigin="anonymous">
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
 
 <!-- 현아 css -->
 <link href="./assets/css/main.css" rel="stylesheet">
@@ -26,20 +26,20 @@
 </head>
 <body>
 
-   <%@include file="header.jsp"%>
-   <!-- 최신글 순서 메인 화면 -->
-   <div class="container text-center">
+	<%@include file="header.jsp"%>
+	<!-- 최신글 순서 메인 화면 -->
+	<div class="container text-center">
 
-      <div class="row">
-      
-         <!-- card 시작 -->
-         <%@include file="post_view.jsp"%>
-         <!-- card 끝 -->
-         
-      </div>
-      <!-- row 끝 -->
+		<div class="row">
+		
+			<!-- card 시작 -->
+			<%@include file="post_view.jsp"%>
+			<!-- card 끝 -->
+			
+		</div>
+		<!-- row 끝 -->
 
-   </div>
+	</div>
 
 </body>
 </html>
