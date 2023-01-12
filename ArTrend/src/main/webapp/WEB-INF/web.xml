@@ -19,12 +19,7 @@
   	<servlet-class>com.smhrd.controller.LoginService</servlet-class>
   </servlet>
   
-  <servlet>
-  	<servlet-name>UpdateService</servlet-name>
-  	<display-name>UpdateService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.UpdateService</servlet-class>
-  </servlet>
+
   
   <servlet>
   	<servlet-name>JoinService</servlet-name>
@@ -99,6 +94,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.UpdateService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ProfileUploadService</servlet-name>
+  	<display-name>ProfileUploadService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.ProfileUploadService</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>Main</servlet-name>
@@ -162,10 +163,10 @@
   	<url-pattern>/UserInfoCheck</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>UpdateService</servlet-name>
-  	<url-pattern>/UpdateService</url-pattern>
+  	<servlet-name>ProfileUploadService</servlet-name>
+  	<url-pattern>/ProfileUploadService</url-pattern>
   </servlet-mapping>
-
+  
 </web-app>
 
   
