@@ -41,9 +41,14 @@ public class UserDAO {
 			return cnt;
 		}
 
+		
+		// 소개글 수정 메서드
 		public int info_update(UserVO vo) {
-			// TODO Auto-generated method stub
-			return 0;
+			session = sqlSessionFactory.openSession(true);
+			int res = session.update("info_update", vo);
+			session.close();
+			
+			return res;
 		}
 	
 }

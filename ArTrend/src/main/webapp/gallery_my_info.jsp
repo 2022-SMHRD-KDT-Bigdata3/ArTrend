@@ -39,7 +39,8 @@
 <body>
 <!-- header include -->
 
-<%UserVO my_info = (UserVO) session.getAttribute("info");%>    
+<%UserVO my_info = (UserVO) session.getAttribute("info");
+System.out.println(my_info.getUserInfo());%>    
 
         <br>
         <!--소개글이 나올 디브-->
@@ -53,7 +54,7 @@
                 	<%=my_info.getUserInfo() %>
                 </span>
             </div>
-        </div><br><br>
+       
 
         <!-- 소개글 수정하기(소개글이 있을 경우) or 소개글 추가하기(소개글이 없을 경우) 버튼-->
         <div>
@@ -61,23 +62,23 @@
         <%if(my_info.getUserInfo().equals("-")) {%>
             <div class="gallery_info_btn">
                  <div class=" gallery_info_pen">
-                    <!-- 소개글 수정하기(소개글이 있을 경우)-->
-                    <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#introModify">
-                    <i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i>
-                    </button>
-                    	<%@include file="intro_modify.jsp" %>
-                    <%}else{%>	
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
                     <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
                     <i class="gallery_info_btn1 fa-regular fa-square-plus"></i>
                     </button>
                     	<%@include file="intro_modify.jsp"%>
+                    <!-- 소개글 수정하기(소개글이 있을 경우)-->
+                    <%}else {%>	
+                    <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#introModify">
+                    <i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i>
+                    </button>
+                    	<%@include file="intro_modify.jsp" %>
                     	
                     	<%} %>
                  </div>
             </div>
          </div> 
         <br><br>
-
+ </div><br><br>
 </body>
 </html>

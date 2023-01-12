@@ -93,6 +93,13 @@
   	<servlet-class>com.smhrd.controller.UpdateService</servlet-class>
   </servlet>
   
+    <servlet>
+  	<servlet-name>InfoUpdateService</servlet-name>
+  	<display-name>InfoUpdateService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.InfoUpdateService</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>Main</servlet-name>
   	<url-pattern>/Main</url-pattern>
@@ -152,6 +159,10 @@
   <servlet-mapping>
   	<servlet-name>UpdateService</servlet-name>
   	<url-pattern>/UpdateService</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>InfoUpdateService</servlet-name>
+  	<url-pattern>/InfoUpdateService</url-pattern>
   </servlet-mapping>
 
 </web-app>
