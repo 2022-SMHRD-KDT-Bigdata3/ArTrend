@@ -6,114 +6,124 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-  	<servlet-name>Main</servlet-name>
-  	<display-name>Main</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.Main</servlet-class>
+     <servlet-name>Main</servlet-name>
+     <display-name>Main</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.Main</servlet-class>
   </servlet>
   
   <servlet>
-  	<servlet-name>LoginService</servlet-name>
-  	<display-name>LoginService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.LoginService</servlet-class>
+     <servlet-name>LoginService</servlet-name>
+     <display-name>LoginService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.LoginService</servlet-class>
   </servlet>
   
 
   
   <servlet>
-  	<servlet-name>JoinService</servlet-name>
-  	<display-name>JoinService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.JoinService</servlet-class>
+     <servlet-name>JoinService</servlet-name>
+     <display-name>JoinService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.JoinService</servlet-class>
   </servlet>
   
   <servlet>
-  	<servlet-name>LogOutService</servlet-name>
-  	<display-name>LogOutService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.LogOutService</servlet-class>
+     <servlet-name>LogOutService</servlet-name>
+     <display-name>LogOutService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.LogOutService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>LikeSelectAll</servlet-name>
-  	<display-name>LikeSelectAll</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.LikeSelectAll</servlet-class>
+     <servlet-name>LikeSelectAll</servlet-name>
+     <display-name>LikeSelectAll</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.LikeSelectAll</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>PostWriteService</servlet-name>
-  	<display-name>PostWriteService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.PostWriteService</servlet-class>
+     <servlet-name>PostWriteService</servlet-name>
+     <display-name>PostWriteService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PostWriteService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>SubscriberService</servlet-name>
-  	<display-name>SubscriberService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.SubscriberService</servlet-class>
+     <servlet-name>SubscriberService</servlet-name>
+     <display-name>SubscriberService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.SubscriberService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>PostViewService</servlet-name>
-  	<display-name>PostViewService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.PostViewService</servlet-class>
+     <servlet-name>PostViewService</servlet-name>
+     <display-name>PostViewService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PostViewService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>CmtWriteService</servlet-name>
-  	<display-name>CmtWriteService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.CmtWriteService</servlet-class>
+     <servlet-name>CmtWriteService</servlet-name>
+     <display-name>CmtWriteService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.CmtWriteService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>PostModifyService</servlet-name>
-  	<display-name>PostModifyService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.PostModifyService</servlet-class>
+     <servlet-name>PostModifyService</servlet-name>
+     <display-name>PostModifyService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PostModifyService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>BoardSelect</servlet-name>
-  	<display-name>BoardSelect</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.BoardSelect</servlet-class>
+     <servlet-name>BoardSelect</servlet-name>
+     <display-name>BoardSelect</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.BoardSelect</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>BoardSelectService</servlet-name>
-  	<display-name>BoardSelectService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.BoardSelectService</servlet-class>
+     <servlet-name>BoardSelectService</servlet-name>
+     <display-name>BoardSelectService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.BoardSelectService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>UserInfoCheck</servlet-name>
-  	<display-name>UserInfoCheck</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.UserInfoCheck</servlet-class>
+     <servlet-name>UserInfoCheck</servlet-name>
+     <display-name>UserInfoCheck</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.UserInfoCheck</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>UpdateService</servlet-name>
-  	<display-name>UpdateService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.UpdateService</servlet-class>
+     <servlet-name>UpdateService</servlet-name>
+     <display-name>UpdateService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.UpdateService</servlet-class>
   </servlet>
+  
   <servlet>
-  	<servlet-name>ProfileUploadService</servlet-name>
+    <servlet-name>ProfileUploadService</servlet-name>
   	<display-name>ProfileUploadService</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.ProfileUploadService</servlet-class>
   </servlet>
+ 
+  <servlet>
+  	<servlet-name>UserPicService</servlet-name>
+  	<display-name>UserPicService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.UserPicService</servlet-class>
+  </servlet>
+  
+
   
   <servlet-mapping>
-  	<servlet-name>Main</servlet-name>
-  	<url-pattern>/Main</url-pattern>
+     <servlet-name>Main</servlet-name>
+     <url-pattern>/Main</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>LoginService</servlet-name>
-  	<url-pattern>/LoginService</url-pattern>
+     <servlet-name>LoginService</servlet-name>
+     <url-pattern>/LoginService</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>JoinService</servlet-name>
-  	<url-pattern>/JoinService</url-pattern>
+     <servlet-name>JoinService</servlet-name>
+     <url-pattern>/JoinService</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
@@ -122,50 +132,63 @@
   </servlet-mapping>
   
  <servlet-mapping>
-  	<servlet-name>LogOutService</servlet-name>
-  	<url-pattern>/LogOutService</url-pattern>
+     <servlet-name>LogOutService</servlet-name>
+     <url-pattern>/LogOutService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>LikeSelectAll</servlet-name>
-  	<url-pattern>/LikeSelectAll</url-pattern>
+     <servlet-name>LikeSelectAll</servlet-name>
+     <url-pattern>/LikeSelectAll</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>PostWriteService</servlet-name>
-  	<url-pattern>/PostWriteService</url-pattern>
+     <servlet-name>PostWriteService</servlet-name>
+     <url-pattern>/PostWriteService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>SubscriberService</servlet-name>
-  	<url-pattern>/SubscriberService</url-pattern>
+     <servlet-name>SubscriberService</servlet-name>
+     <url-pattern>/SubscriberService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>PostViewService</servlet-name>
-  	<url-pattern>/PostViewService</url-pattern>
+     <servlet-name>PostViewService</servlet-name>
+     <url-pattern>/PostViewService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>CmtWriteService</servlet-name>
-  	<url-pattern>/CmtWriteService</url-pattern>
+     <servlet-name>CmtWriteService</servlet-name>
+     <url-pattern>/CmtWriteService</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
   <servlet-name>PostModifyService</servlet-name>
-  	<url-pattern>/PostModifyService</url-pattern>
+     <url-pattern>/PostModifyService</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>BoardSelect</servlet-name>
-  	<url-pattern>/BoardSelect</url-pattern>
+     <servlet-name>BoardSelect</servlet-name>
+     <url-pattern>/BoardSelect</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>BoardSelectService</servlet-name>
-  	<url-pattern>/BoardSelectService</url-pattern>
+     <servlet-name>BoardSelectService</servlet-name>
+     <url-pattern>/BoardSelectService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>UserInfoCheck</servlet-name>
-  	<url-pattern>/UserInfoCheck</url-pattern>
+     <servlet-name>UserInfoCheck</servlet-name>
+     <url-pattern>/UserInfoCheck</url-pattern>
   </servlet-mapping>
+ 
   <servlet-mapping>
-  	<servlet-name>ProfileUploadService</servlet-name>
+    <servlet-name>ProfileUploadService</servlet-name>
   	<url-pattern>/ProfileUploadService</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+     <servlet-name>UpdateService</servlet-name>
+     <url-pattern>/UpdateService</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet-mapping>
+  	<servlet-name>UserPicService</servlet-name>
+  	<url-pattern>/UserPicService</url-pattern>
+  </servlet-mapping>
+
   
 </web-app>
 

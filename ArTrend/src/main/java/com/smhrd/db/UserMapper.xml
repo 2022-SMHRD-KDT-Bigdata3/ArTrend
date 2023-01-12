@@ -19,6 +19,14 @@
 		set user_nick = #{user_nick}, user_pw = #{user_pw}
 		where user_email = #{user_email}
 	</update>
+	
+	<update id="uPicUpdate" parameterType = "UserVO">
+		update users set user_pic = #{user_pic} where user_email=#{user_email}	
+	</update>
+	
+	<select id="userSelectOne" resultType="UserVO">
+		select * from users where user_email = #{user_email}
+	</select>
    
    
 </mapper>
