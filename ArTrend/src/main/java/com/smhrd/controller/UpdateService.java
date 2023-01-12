@@ -66,13 +66,13 @@ public class UpdateService extends HttpServlet {
 			url = "galley_my.jsp";
 
 
-		} else {
+		  } else {
 			// update.jsp
 			url = "update.jsp";
-		}
+		  }
 
-		RequestDispatcher re = request.getRequestDispatcher(url);
-		re.forward(request, response);
+		 RequestDispatcher re = request.getRequestDispatcher(url);
+		 re.forward(request, response);
 
 	}
 
