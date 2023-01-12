@@ -1,3 +1,7 @@
+
+<%@page import="com.smhrd.model.SupportDAO"%>
+<%@page import="com.smhrd.model.SupportVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -46,64 +50,168 @@
 
 <body>
 
-<!-- header include -->
+	<%
+	//로그인된 정보 받아오기
+	System.out.println("후원목록 가져오기 실행(mysupport)");
+	UserVO my_support = (UserVO) session.getAttribute("info");
+	String user_email = my_support.getUser_email();
+
+	//support 정보 받아오기 
+	SupportDAO dao = new SupportDAO();
+
+	SupportVO support = dao.getSupport(user_email);
+	response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
+	
+	if (support != null) {
+		System.out.println("support 정보 받아오기 성공");
+		System.out.println(support.toString());//확인용출력
+		//세션에저장
+		session.setAttribute("support", support);
+	} else {
+		System.out.println("정보 받아오기 실패");
+	}
+	%>
+
+
+
+
+
+
+
+
+	<!-- header include -->
 
 	<div class="wrapper">
 
 		<!--후원품-->
 		<header class="container support_div support_ment" align="center">
-			<h2>@dooboo님의 후원이벤트가 진행중입니다!</h2>
+		<%if(support != null){ %>
+			<h2>
+				@<%=my_support.getUser_nick()%>님의 후원이벤트가 진행중입니다!
+			</h2> 
+			<%}else{ %>
+			<h2>
+				@<%=my_support.getUser_nick()%>님의 후원이벤트가 진행중이지 않습니다!
+			</h2> <%} %>
 		</header>
 		<div class="container container1" align="center">
 
 
-				<div class="support_div_sub support_title">
+			<div class="support_div_sub support_title">
 
-					<h5>할로우 나이트 엽서 세트</h5>
-				</div>
+				<h5></h5>
+			</div>
 
-				<div class="support_div_sub support_img" style="width:40%">
-			<div class="support_div support_post">
-				<div class="support_div support_btn">
-				
+			<div class="support_div_sub support_img" style="width: 40%">
+				<div class="support_div support_post">
+					<div class="support_div support_btn">
+
 						<!-- 본인의 갤러리 이니까 후원물품을 추가하는 버튼이 필요
 							누르게 된다면 후원물품 추가 페이지로 이동(gallery_user_support.jsp에서는 필요없는 버튼)-->
-				<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite">
-                    <i class="fa-regular fa-square-plus fa-2x" style="color: rgb(132, 132, 132)"></i>
-                </button>
-                    	<%@include file="support_write.jsp" %>
 						
+							
+							<%if(support == null){ %>
+						<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite">
+							<i class="fa-regular fa-square-plus fa-2x"style="color: rgb(132, 132, 132)"></i>
+						</button>		
+							
+							<% }else if (support != null){ %>
+						<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite">
+							<i class="fa-regular fa-square-plus fa-2x"style="color: rgb(132, 132, 132)"></i>
+						</button>
+							
+									
+							
+							
+							
+					</div>
+					<div class="support_div">
+						<h2>
 						
-				<!-- 등록된 글이 있을 경우 -->
-					<a href="#"><i
-						class="fa-regular fa-square-minus fa-2x"
-						style="color: rgb(132, 132, 132)"></i></a>
-						
-						
-				</div>
-					<img src="./assets/img_gallery/KakaoTalk_20221201_141427224_12.jpg"
+							<%=support.getGift_title()%>
+							
+							
+						</h2>
+					</div>
+					
+					<!-- 이미지 넣어주긔@@@ -->
+					
+					<img src="gift_imges/<%= support.getGift_pic() %>"
 						alt="">
+						
 				</div>
 
 				<div class="support_div_sub support_contents">
-					<p>작가가 등록한 상품에 대한 설명!! 그들은 커다란 이상 곧 만천하의 대중을 품에 안고 그들에게 밝은 길을
-						찾아 주며 그들을 행복스럽고 그렇다고합니다 예예예예예예ㅖ예!!!!~!~!~!</p>
+					<p>
+						
+							<%=support.getGift_content()%>
+							
+							
+					</p>
 				</div>
+			
+				<a href="SupportDeleteService?user_email=<%= user_email%>"><i class="fa-regular fa-square-minus fa-2x" style="color: rgb(132, 132, 132)"></i></a>
+				<%} %>
+			</div>
+		</div>
+	</div>
+			
+							<!-- Modal -->						  
+							  <div class="modal fade" id="supportWrite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="supportWriteLabel" aria-hidden="true">
+							    <div class="modal-dialog modal-lg">
+							      <div class="modal-content">
+									<form action="SupportUpdateService"method="post" onsubmit="return getContent()" enctype="multipart/form-data">
+							        <div class="modal-header">
+							          <h1 class="modal-title fs-5" id="supportWriteLabel">후원 상품 등록하기</h1>
+							          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							        </div>
+							        <div class="modal-body">
+							            <div class="write-container">
+							                <div class="write-img-container">
+							                 <img id="write-img" src="" alt="">
+							                	 <label class="control-label col-sm-2" for="fileName">파일 :</label>
+											    <input type="file" name="gift_pic" id="fileName">
+											  <div class="write-info-container">
+							                    <div class="support-info-title">상품명</div>
+							                    <div class="write-title-container">
+							                        <input type="text" name="gift_title" class="write-title-input" placeholder="상품명을 입력하세요">
+							                    </div>
+							                    <div class="support-info-title">상품 설명</div>
+							                    <div class="write-desc-container">
+							                        <div class="write-desc-input" placeholder="상품 설명을 입력해주세요" contenteditable="true">
+							                        <textarea name="gift_content" id="contents" class="form-control" rows="10" cols=""></textarea>
+							                        </div>
+							                    </div>
+							                    <div class="support-info-title">후원 액수</div>
+							                    <div class="support-heart-container">
+							                        <input class="support-heart" type="number" min="5000" value="5000">
+							                    </div>
+							                </div>
+							            </div>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button submit" class="btn btn-primary" data-bs-dismiss="modal">등록하기</button>
+							        </div>
+							      </div>
+							    </div>
+							  </div>
+							</form>
+						
+							 
 
-
-			<!-- 본인의 갤러리니까 후원하기 버튼은 없어도 됨! (gallery_user_support.jsp에서는 필요한 버튼) -->
-				<!--본인의 후원글일 경우에 출력 -->
-				<!-- <div class="support_div_sub edit_btn">
+	<!-- 본인의 갤러리니까 후원하기 버튼은 없어도 됨! (gallery_user_support.jsp에서는 필요한 버튼) -->
+	<!--본인의 후원글일 경우에 출력 
+				<div class="support_div_sub edit_btn">
                     <a href="#" ><i class="fa-regular fa-pen-to-square fa-2x" style="color:rgb(132, 132, 132)"></i></a>
-                </div> -->
+                </div> 
 
-					<!-- <button type="button" class="btn_sub" data-bs-toggle="modal"
+					 <button type="button" class="btn_sub" data-bs-toggle="modal"
 					data-bs-target="#support_real">후원하기</button>-->
 
 
 
-				<!-- Modal -->
-			<!-- <div class="modal fade" id="support_real" tabindex="-1"
+	<!-- Modal -->
+	<!--  <div class="modal fade" id="support_real" tabindex="-1"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content" style="width:100%">
@@ -113,11 +221,10 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
-							<div class="modal-body"> -->
+							<div class="modal-body"> 
 							
-								<!--구독자가 들어가야할 모달의 body-->
-								<!--후원하기 -->
-							<!-- 	<div class=" container2 support_checkbox">
+							
+								<div class=" container2 support_checkbox">
 									<div class="support_checkbox support_checkbox1" align="center">
 										<input class="form-check-input" type="checkbox" value=""
 											id="flexCheckDefault"> <label
@@ -165,10 +272,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+				</div>-->
 
 	<!--부트스트랩 js-->
 	<script

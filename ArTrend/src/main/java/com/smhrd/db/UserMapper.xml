@@ -34,5 +34,9 @@
 		set  user_info = #{user_info}
 		where user_email = #{user_email}
 	</update>
+	
+	 <select id="getinfo" resultType="UserVO">
+		select * from users where user_email = #{user_email}
+	</select>
    
 </mapper>

@@ -99,6 +99,25 @@
   	<servlet-class>com.smhrd.controller.UserPicService</servlet-class>
   </servlet>
   
+      <servlet>
+  	<servlet-name>InfoUpdateService</servlet-name>
+  	<display-name>InfoUpdateService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.InfoUpdateService</servlet-class>
+  </servlet>
+    <servlet>
+    	<servlet-name>SupportUpdateService</servlet-name>
+    	<display-name>SupportUpdateService</display-name>
+    	<description></description>
+    	<servlet-class>com.smhrd.controller.SupportUpdateService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>SupportDeleteService</servlet-name>
+    	<display-name>SupportDeleteService</display-name>
+    	<description></description>
+    	<servlet-class>com.smhrd.controller.SupportDeleteService</servlet-class>
+    </servlet>
+  
   
     <servlet>
   	<servlet-name>InfoUpdateService</servlet-name>
@@ -178,6 +197,17 @@
   	<servlet-name>UserPicService</servlet-name>
   	<url-pattern>/UserPicService</url-pattern>
   </servlet-mapping>
+  
+
+    <servlet-mapping>
+    	<servlet-name>SupportUpdateService</servlet-name>
+    	<url-pattern>/SupportUpdateService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>SupportDeleteService</servlet-name>
+    	<url-pattern>/SupportDeleteService</url-pattern>
+    </servlet-mapping>
+  
   
 
 </web-app>

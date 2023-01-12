@@ -70,5 +70,14 @@ public class UserDAO {
 			return vo;
 
 		}
+		
+		//인포 가져오는 메서드
+		
+		public UserVO getinfo(String user_email) {
+			session = sqlSessionFactory.openSession(true);
+			UserVO vo = session.selectOne("getinfo", user_email);
+			session.close();
+			return vo;
+		}
 	
 }

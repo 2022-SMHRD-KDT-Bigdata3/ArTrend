@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.SupportVO"%>
+<%@page import="com.smhrd.model.SupportDAO"%>
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -40,18 +43,42 @@
 <!-- header include -->
 
 <%UserVO my_info = (UserVO) session.getAttribute("info");
-System.out.println(my_info.getUserInfo());%>    
+System.out.println(my_info.getUserInfo());%>   
+
+
+	<%
+	//로그인된 정보 받아오기
+	System.out.println("소개글 가져오기 실행(mysupport)");
+	UserVO my_info13 = (UserVO) session.getAttribute("info");
+	String user_email1 = my_info13.getUser_email();
+
+	//user 정보 받아오기 
+	UserDAO dao_my_info1996 = new UserDAO();
+
+	UserVO info_my1996 = dao_my_info1996.getinfo(user_email1);
+	response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
+	
+	if (info_my1996 != null) {
+		System.out.println("info3 정보 받아오기 성공");
+		System.out.println(info_my1996.toString());//확인용출력
+		//세션에저장
+		session.setAttribute("info3", info_my1996);
+	} else {
+		System.out.println("정보 받아오기 실패");
+	}
+	%>
+
 
         <br>
         <!--소개글이 나올 디브-->
         
         <div class="gallery_info_div">
             <div class="gallery_info_title">
-                <h3><%=my_info.getUser_nick() %>님의 소개글입니다!</h3>
+                <h3><%=info_my1996.getUser_nick() %>님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
                 <span> 
-                	<%=my_info.getUserInfo() %>
+                	<%=info_my1996.getUserInfo() %>
                 </span>
             </div>
        
@@ -59,7 +86,7 @@ System.out.println(my_info.getUserInfo());%>
         <!-- 소개글 수정하기(소개글이 있을 경우) or 소개글 추가하기(소개글이 없을 경우) 버튼-->
         <div>
         
-        <%if(my_info.getUserInfo().equals("-")) {%>
+        <%if(info_my1996.getUserInfo().equals("-")) {%>
             <div class="gallery_info_btn">
                  <div class=" gallery_info_pen">
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->

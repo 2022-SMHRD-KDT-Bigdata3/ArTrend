@@ -43,8 +43,8 @@
 <body>
 	<!-- header include -->
 	<%@include file="header.jsp"%>
-<% UserDAO dao = new UserDAO();
-UserVO user_status = dao.userSelectOne(info.getUser_email());%>
+<% UserDAO dao_my_header = new UserDAO();
+UserVO user_status = dao_my_header.userSelectOne(info.getUser_email());%>
 	
 	
 <%	//post_view에서 세션에 저장한 boards를 가져온다
