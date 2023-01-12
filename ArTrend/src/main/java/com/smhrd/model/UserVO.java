@@ -31,7 +31,7 @@ public class UserVO {
 		this.user_email = user_email;
 		this.user_pw = user_pw;
 		this.user_nick = user_nick;
-		user_pic = "https://blog.kakaocdn.net/dn/c3vWTf/btqUuNfnDsf/VQMbJlQW4ywjeI8cUE91OK/img.jpg";
+		user_pic = "undefined.png";
 		user_info = "-";
 		user_point = 0;
 	}
@@ -103,8 +103,4 @@ public class UserVO {
 				+ user_pic + ", user_info=" + user_info + ", user_point=" + user_point + "]";
 	}	
     
-	
-	
-    
-		
 }
