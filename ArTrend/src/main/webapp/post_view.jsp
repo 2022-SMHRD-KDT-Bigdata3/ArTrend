@@ -145,7 +145,7 @@ if(boards != null) {
                               </div>
                            </div>
                            <div class="comment-container-padding">
-                              <div class="post-comment-container">
+                              <div class="post-comment-container comment-container-ajax<%=i%>">
                                  <%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
                                     if (cmtView.get(allCmt).getBoard_num() == boards.get(i).getBoard_num()) {%>
                                  <div class="post-comment-card">
@@ -181,18 +181,18 @@ if(boards != null) {
                               </div>
                            </div>
                            <div class="comment-box-padding">
-                           <form action="CmtWriteService">
-                           <input type="text" style="display:none;" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
+<!--                            <form action="CmtWriteService"> -->
+                           <input type="text" class="cmt_board_num cmt_board_num_ajax<%=i%>" style="display:none;" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
                            <input type="text" style="display:none;" name="redirecto" value="main">
                               <div class="comment-box">
-                                 <input type="text" class="comment-input"
+                                 <input type="text" class="comment-input cmt_content_ajax<%=i%>"
                                     placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
-                                 <button class="add-comment-btn" type="submit">
+                                 <button class="add-comment-btn cmt_btn_ajax<%=i%>" type="submit">
                                     <img class="add-comment-icon"
                                        src="./assets/kjh/icon/envelope.svg" alt="">
                                  </button>         
                               </div>
-                              </form>
+<!--                               </form> -->
                            </div>
                         </div>
                      </div>
@@ -235,6 +235,35 @@ $(document).on('hidden.bs.modal', '.modal', function () {
 
 });
 
+<% for(int i=0 ; i<boards.size() ; i++) { %>
+$('.cmt_btn_ajax<%=i%>').click(function(){
+	var cmt_board_num = $('.cmt_board_num_ajax<%=i%>').val();
+	var cmt_content = $('.cmt_content_ajax<%=i%>').val();
+	var user_email = '<%= info1.getUser_email() %>';
+	console.log(cmt_board_num);
+	console.log(cmt_content);
+	console.log(cmt_content);
+	
+	$.ajax({
+		url : "CmtWriteServiceAjax",
+		method : "POST",
+		data : {"cmt_content" : cmt_content, "user_email" : user_email, "board_num" : cmt_board_num},
+		dataType : "JSON",
+		success : function(data){
+			
+            console.log("통신성공");
+            console.log(data.cmtCheck);
+            
+           	$('<div class=\"post-comment-card\"><span class=\"card-user-name\"><%=info1.getUser_nick()%></span><span class=\"comment-body\"> ' + cmt_content + '</span></div>').appendTo('.comment-container-ajax<%=i%>');
+           	$('.cmt_content_ajax<%=i%>').val("");
+
+         },
+         error : function(err){
+            console.log("통신 실패")
+         }
+	});
+});
+<%} %>
 
 
 </script>
