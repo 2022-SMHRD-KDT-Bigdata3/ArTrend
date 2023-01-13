@@ -1,6 +1,6 @@
+<%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.CmtVO"%>
 <%@page import="com.smhrd.model.CmtDAO"%>
-<%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
@@ -58,7 +58,8 @@
 
 <!-- 게시물 정보 가져오기  -->
 <% BoardsDAO dao = new BoardsDAO();
-ArrayList<BoardsVO> boards =dao.getBoardNick();
+ArrayList<JoinVO> boards = dao.getBoardNick();
+
 CmtDAO cmtdao = new CmtDAO();
 ArrayList<CmtVO> cmtView = cmtdao.cmtView();
 
@@ -117,12 +118,12 @@ if(boards != null) {
                         <div class="post-rest-container">
                            <div class="post-rest-header">
                            
-                           <!-- 게시판 상세 - 유저 -->
+						<!-- 게시판 상세 - 유저 -->
                            <div class="post-user-container">   
                               <span style="text-decoration: none; color: black;"></span>
                                        <img class="user-card-img"    src="<%= info1.getUser_pic() %>" alt="">
-                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>'">
-                                          <%= boards.get(i).getUser_email() %>
+                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>&getUser_nick=<%=boards.get(i).getUser_nick()%>'">
+                                          <%= boards.get(i).getUser_nick() %>
                                           </span>
                            </div>
                            

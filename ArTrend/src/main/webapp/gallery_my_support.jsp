@@ -111,14 +111,13 @@
 						
 							
 							<%if(support == null){ %>
-						<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite">
-							<i class="fa-regular fa-square-plus fa-2x"style="color: rgb(132, 132, 132)"></i>
+						<button data-remote="support_write.jsp" style="border: none; background-color: white; margin: 0 60px 0 0;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite"
+						onclick="popSupport()">
+							<i class="fa-regular fa-square-plus fa-2x post_append"></i>
 						</button>		
 							
 							<% }else if (support != null){ %>
-						<button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite">
-							<i class="fa-regular fa-square-plus fa-2x"style="color: rgb(132, 132, 132)"></i>
-						</button>
+						
 							
 									
 							
@@ -126,12 +125,12 @@
 							
 					</div>
 					<div class="support_div">
-						<h2>
+						<h5>
 						
 							<%=support.getGift_title()%>
 							
 							
-						</h2>
+						</h5>
 					</div>
 					
 					<!-- 이미지 넣어주긔@@@ -->
@@ -156,123 +155,18 @@
 		</div>
 	</div>
 			
-							<!-- Modal -->						  
-							  <div class="modal fade" id="supportWrite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="supportWriteLabel" aria-hidden="true">
-							    <div class="modal-dialog modal-lg">
-							      <div class="modal-content">
-									<form action="SupportUpdateService"method="post" onsubmit="return getContent()" enctype="multipart/form-data">
-							        <div class="modal-header">
-							          <h1 class="modal-title fs-5" id="supportWriteLabel">후원 상품 등록하기</h1>
-							          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							        </div>
-							        <div class="modal-body">
-							            <div class="write-container">
-							                <div class="write-img-container">
-							                 <img id="write-img" src="" alt="">
-							                	 <label class="control-label col-sm-2" for="fileName">파일 :</label>
-											    <input type="file" name="gift_pic" id="fileName">
-											  <div class="write-info-container">
-							                    <div class="support-info-title">상품명</div>
-							                    <div class="write-title-container">
-							                        <input type="text" name="gift_title" class="write-title-input" placeholder="상품명을 입력하세요">
-							                    </div>
-							                    <div class="support-info-title">상품 설명</div>
-							                    <div class="write-desc-container">
-							                        <div class="write-desc-input" placeholder="상품 설명을 입력해주세요" contenteditable="true">
-							                        <textarea name="gift_content" id="contents" class="form-control" rows="10" cols=""></textarea>
-							                        </div>
-							                    </div>
-							                    <div class="support-info-title">후원 액수</div>
-							                    <div class="support-heart-container">
-							                        <input class="support-heart" type="number" min="5000" value="5000">
-							                    </div>
-							                </div>
-							            </div>
-							        </div>
-							        <div class="modal-footer">
-							          <button type="button submit" class="btn btn-primary" data-bs-dismiss="modal">등록하기</button>
-							        </div>
-							      </div>
-							    </div>
-							  </div>
-							</form>
+							
 						
 							 
+<script>
+function popSupport() {
+   
+   var popWriteX = (window.screen.width / 2) - (1000 / 2);
+   window.open('support_write.jsp', 'popWrite', 'top=10, left='+ popWriteX +', width=1000, height=800, status=no, menubar=no, toolbar=no, resizable=no');
 
-	<!-- 본인의 갤러리니까 후원하기 버튼은 없어도 됨! (gallery_user_support.jsp에서는 필요한 버튼) -->
-	<!--본인의 후원글일 경우에 출력 
-				<div class="support_div_sub edit_btn">
-                    <a href="#" ><i class="fa-regular fa-pen-to-square fa-2x" style="color:rgb(132, 132, 132)"></i></a>
-                </div> 
-
-					 <button type="button" class="btn_sub" data-bs-toggle="modal"
-					data-bs-target="#support_real">후원하기</button>-->
-
-
-
-	<!-- Modal -->
-	<!--  <div class="modal fade" id="support_real" tabindex="-1"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content" style="width:100%">
-							<div class="modal-header">
-								<h1 class="modal-title fs-6" id="exampleModalLabel">후원하기 /
-									@dooboo</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body"> 
-							
-							
-								<div class=" container2 support_checkbox">
-									<div class="support_checkbox support_checkbox1" align="center">
-										<input class="form-check-input" type="checkbox" value=""
-											id="flexCheckDefault"> <label
-											class="form-check-label" for="flexCheckDefault"></label>
-									</div>
-									<div class="support_checkbox support_checkbox2">
-										<label for="">후원금액과 후원시 받게되는 혜택에 대한 주의사항 및 안내사항이 적힌
-											메세지 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어 우리 인생을 풍부하게 하는 것이다 보라 청춘을 !</label>
-									</div>
-								</div>
-								<br> <br> <br>
-
-								<div class="subinfo">
-									<div class="con">
-										<p class="a ">보유포인트</p>
-										<br>
-										<p>40,000</p>
-									</div>
-									<div class="con">
-										<p class="a">사용할 포인트</p>
-										<br>
-										<p>
-											<input type="text">
-										</p>
-									</div>
-									<div class="con">
-										<p class="a">남은 포인트</p>
-										<br>
-										<p>35,000</p>
-									</div>
-
-								</div>
-								<span class="support_point_Charge"><a href="point.jsp"
-									align="center">포인트 충전하기</a></span> <br> <br> <br>
-
-								<div class="container support_final" align="center">
-									<div>
-										<button type="button" class="btn_padding1 btn_sub btn-sm">취소하기</button>
-									</div>
-									<div>
-										<a href="#"><button type="button"
-												class="btn_padding btn_sub btn-sm">후원하기</button></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>-->
+}
+</script>
+	
 
 	<!--부트스트랩 js-->
 	<script

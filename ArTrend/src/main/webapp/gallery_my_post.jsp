@@ -1,7 +1,8 @@
+<%@page import="com.smhrd.model.BoardsDAO"%>
+<%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.CmtVO"%>
 <%@page import="com.smhrd.model.CmtDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
-<%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
@@ -86,11 +87,15 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
    
    
 
-<%   //post_view에서 세션에 저장한 boards를 가져온다
-   ArrayList<BoardsVO> boards_my_post = (ArrayList<BoardsVO>) session.getAttribute("boards");
+<%   
+
+	//boards에서 게시물을 가져온다
+	BoardsDAO dao1 = new BoardsDAO();
+	ArrayList<JoinVO> boards_my_post = dao1.getBoardNick();
 
    //로그인할때 저장된 user의 info를 가져옴
    UserVO info_my_post = (UserVO) session.getAttribute("info");
+   
    
    // 댓글
    CmtDAO cmtdao = new CmtDAO();
@@ -98,7 +103,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
    
    
    for(int i=0 ; i<boards_my_post.size() ; i++) { 
-      if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_nick())){%>
+	      if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_email())){%>
       
       <div class="sub_img sub_img<%=i%>">
       <a href="javascript:MyPost(<%=i%>)" class="sub_img sub_img<%=i%>">
@@ -132,12 +137,12 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
                            <div class="post-rest-header">
                               <div class="post-user-container">
                               
-                           <!-- 게시판 상세 - 유저 -->
+						<!-- 게시판 상세 - 유저 -->
                            <a style="text-decoration: none; color: black;"
                            href ="gallery_user.jsp?getUser_email=<%= boards_my_post.get(i).getUser_email()%>"></a>
                                     <img class="user-card-img"    src="<%= info_my_post.getUser_pic() %>" alt="">
                                        <span class="card-user-name">
-                                          <%= boards_my_post.get(i).getUser_email() %>
+                                          <%= boards_my_post.get(i).getUser_nick() %>
                                           </span>
                               </div>
                                  
@@ -230,8 +235,8 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
      
   
    <div class="btnWrap post_append_btn" >
-   <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite">
-   <i class="post_append fa-regular fa-square-plus"></i>
+   <button style="border: none; background-color: white; " type="button" data-bs-toggle="modal" data-bs-target="#postWrite">
+   <i class="post_append fa-regular fa-square-plus" ></i>
    </button>
    </div>
    

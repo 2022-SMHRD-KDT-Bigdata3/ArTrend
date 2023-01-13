@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.SupportDAO"%>
+<%@page import="com.smhrd.model.SupportVO"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -48,18 +50,59 @@
 
 <!-- header include -->
 
+	<%
+	// 로그인한 유저의 정보 받아오기
+	System.out.println("후원목록 가져오기 실행(usersupport)");
+	UserVO user_support = (UserVO) session.getAttribute("info"); //글쓴사람의 이메일
+	String user_nick_support = request.getParameter("getUser_nick"); //글쓴사람의 닉
+
+	
+	
+	
+	
+	//갤러리 유저의 정보 받아오기
+	String user_email_support = request.getParameter("getUser_email"); //글쓴사람의 이메일
+	//support 정보 받아오기 
+	SupportDAO user_support_dao = new SupportDAO();
+	SupportVO user_support_vo = user_support_dao.getSupport(user_email_support);
+	response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
+	
+	if (user_support_vo != null) {
+		System.out.println("support 정보 받아오기 성공");
+		System.out.println(user_support_vo.toString());//확인용출력
+		
+	} else {
+		System.out.println("정보 받아오기 실패");
+	}
+	%>
+
+
+
+
+
 	<div class="wrapper">
 
 		<!--후원품-->
 		<header class="container support_div support_ment" align="center">
-			<h2>@dooboo님의 후원이벤트가 진행중입니다!</h2>
+			
+		<%if(user_support_vo != null){ %>
+			<h2>
+				@<%=user_nick_support%>님의 후원이벤트가 진행중입니다!
+			</h2> 
+			<%}else{ %>
+			<h2>
+				@<%=user_nick_support%>님의 후원이벤트가 진행중이지 않습니다!
+			</h2> <%} %>
 		</header>
+		
 		<div class="container container1" align="center">
 
 
 				<div class="support_div_sub support_title">
-
-					<h5>할로우 나이트 엽서 세트</h5>
+				<%if(user_support_vo != null){ %>
+					<h5>
+						<%=user_support_vo.getGift_title()%>
+					</h5>
 				</div>
 
 				<div class="support_div_sub support_img" style="width:40%">
@@ -74,13 +117,11 @@
 						
 						
 				</div>
-					<img src="./assets/img_gallery/KakaoTalk_20221201_141427224_12.jpg"
-						alt="">
+
 				</div>
 
 				<div class="support_div_sub support_contents">
-					<p>작가가 등록한 상품에 대한 설명!! 그들은 커다란 이상 곧 만천하의 대중을 품에 안고 그들에게 밝은 길을
-						찾아 주며 그들을 행복스럽고 그렇다고합니다 예예예예예예ㅖ예!!!!~!~!~!</p>
+				
 				</div>
 
 
@@ -98,7 +139,7 @@
 						<div class="modal-content" style="width:100%">
 							<div class="modal-header">
 								<h1 class="modal-title fs-6" id="exampleModalLabel">후원하기 /
-									@dooboo</h1>
+								
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
@@ -113,8 +154,9 @@
 											class="form-check-label" for="flexCheckDefault"></label>
 									</div>
 									<div class="support_checkbox support_checkbox2">
-										<label for="">후원금액과 후원시 받게되는 혜택에 대한 주의사항 및 안내사항이 적힌
-											메세지 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어 우리 인생을 풍부하게 하는 것이다 보라 청춘을 !</label>
+										<label for="">ArTrend는 회원 상호 간 콘텐츠 거래를 위한 중개 시스템을 제공할 뿐, 회원을 대리하지 않습니다.
+										환급, 취소 등 회원 간 성립된 거래에 대한 모든 책임은 회원이 직접 부담합니다.
+									</label>
 									</div>
 								</div>
 								<br> <br> <br>
@@ -123,7 +165,7 @@
 									<div class="con">
 										<p class="a ">보유포인트</p>
 										<br>
-										<p>40,000</p>
+										<%=user_support.getUserPoint() %>
 									</div>
 									<div class="con">
 										<p class="a">사용할 포인트</p>
@@ -131,11 +173,6 @@
 										<p>
 											<input type="text">
 										</p>
-									</div>
-									<div class="con">
-										<p class="a">남은 포인트</p>
-										<br>
-										<p>35,000</p>
 									</div>
 
 								</div>
@@ -158,7 +195,7 @@
 			</div>
 		</div>
 	</div> 
-
+<%} %>
 	<!--부트스트랩 js-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

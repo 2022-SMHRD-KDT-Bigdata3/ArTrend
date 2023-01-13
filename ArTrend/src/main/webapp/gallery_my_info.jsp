@@ -48,7 +48,7 @@ System.out.println(my_info.getUserInfo());%>
 
 	<%
 	//로그인된 정보 받아오기
-	System.out.println("소개글 가져오기 실행(mysupport)");
+	System.out.println("소개글 가져오기 실행(my_info)");
 	UserVO my_info13 = (UserVO) session.getAttribute("info");
 	String user_email1 = my_info13.getUser_email();
 
@@ -86,22 +86,16 @@ System.out.println(my_info.getUserInfo());%>
         <!-- 소개글 수정하기(소개글이 있을 경우) or 소개글 추가하기(소개글이 없을 경우) 버튼-->
         <div>
         
-        <%if(info_my1996.getUserInfo().equals("-")) {%>
+      
             <div class="gallery_info_btn">
-                 <div class=" gallery_info_pen">
+                 <div class=" gallery_info_pen" style=" margin: 0 0 0 230px; padding: 0;">
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
                     <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
-                    <i class="gallery_info_btn1 fa-regular fa-square-plus"></i>
+                    <i class="gallery_info_btn1 fa-regular fa-square-plus post_append" style="font-size: 2rem;"> </i>
                     </button>
                     	<%@include file="intro_modify.jsp"%>
-                    <!-- 소개글 수정하기(소개글이 있을 경우)-->
-                    <%}else {%>	
-                    <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#introModify">
-                    <i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i>
-                    </button>
-                    	<%@include file="intro_modify.jsp" %>
-                    	
-                    	<%} %>
+                  
+                    
                  </div>
             </div>
          </div> 

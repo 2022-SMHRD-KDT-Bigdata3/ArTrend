@@ -43,12 +43,12 @@ UserVO user_status = dao.userSelectOne(info.getUser_email());%>
                     <form action="UserPicService" method="post" enctype="multipart/form-data">
                         <button type="button" class="dropbtn">프로필 사진변경</button>
                             <div class="dropdown-content">
-								<input type="file" id="user-img-input" name="user_pic" onchange="uimgPreview(this);" style="display:none;" accept=".jpg,.png">
-								<input type="submit" id="user-img-submit" style="display:none;">
-								<a onclick="clickFile();" style="cursor:pointer;">미리보기</a>
-								<a onclick="clickFileSubmit();" style="cursor:pointer;">적용하기</a>
+                        <input type="file" id="user-img-input" name="user_pic" onchange="uimgPreview(this);" style="display:none;" accept=".jpg,.png">
+                        <input type="submit" id="user-img-submit" style="display:none;">
+                        <a onclick="clickFile();" style="cursor:pointer;">미리보기</a>
+                        <a onclick="clickFileSubmit();" style="cursor:pointer;">적용하기</a>
                             </div>
-						</form>
+                  </form>
                     </div>
                 </div>
                 
@@ -115,22 +115,22 @@ UserVO user_status = dao.userSelectOne(info.getUser_email());%>
    }
 
    function uimgPreview(input) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-	        reader.onload = function(e) {
-	            document.getElementById('user-img').src = e.target.result;
-	        };
-	        reader.readAsDataURL(input.files[0]);
-	        } else {
-	        document.getElementById('user-img').src = "";
-	        }
-	    }
+       if (input.files && input.files[0]) {
+           var reader = new FileReader();
+           reader.onload = function(e) {
+               document.getElementById('user-img').src = e.target.result;
+           };
+           reader.readAsDataURL(input.files[0]);
+           } else {
+           document.getElementById('user-img').src = "";
+           }
+       }
    
    function clickFile() {
-	   document.getElementById('user-img-input').click();
+      document.getElementById('user-img-input').click();
    }
    function clickFileSubmit() {
-	   document.getElementById('user-img-submit').click();
+      document.getElementById('user-img-submit').click();
    }
 </script>
     </div>

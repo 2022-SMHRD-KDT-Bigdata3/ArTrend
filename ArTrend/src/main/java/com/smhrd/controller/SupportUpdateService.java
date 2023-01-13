@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -71,7 +72,12 @@ public class SupportUpdateService extends HttpServlet {
 				}else {
 					System.out.println("후원글등록 실패");
 				}
-				response.sendRedirect("gallery_my.jsp");
+			      PrintWriter out = response.getWriter();
+
+			      out.print("<script language='javascript'>");
+			      out.print("opener.window.location.reload();");
+			      out.print("self.close();");
+			      out.print("</script>");
 				
 	}
 

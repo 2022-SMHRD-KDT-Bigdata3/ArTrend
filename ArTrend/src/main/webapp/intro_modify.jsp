@@ -18,33 +18,6 @@
 
 
 
- <form action="InfoUpdateService" method="post"  onsubmit="return getContent()" > 
-  <!--  소개글 수정 Modal -->
-  <div class="modal fade" id="introModify" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="introModifyLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="introModifyLabel"> 내 소개 작성하기 </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="intro-container">
-               <div class="intro-input" placeholder="내용을 입력하세요" contenteditable="true">
-                	<input type="text" name="user_info" class="write-title-input" required>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="intro_modify_btn" data-bs-dismiss="modal"> 저장 </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>    
-  
-
-
-
 
 
 

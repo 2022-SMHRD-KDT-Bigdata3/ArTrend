@@ -23,7 +23,7 @@ public class BoardsDAO {
 	}
 	
 	
-	//게시물의 정보를 가져오는 기능
+	//게시물의 정보를 가져오는 기능 사용하고있는지 모르겠ㄲ음...일단두자
 	public ArrayList<BoardsVO> SubscriberSelectAll() {
 		session = sqlSessionFactory.openSession(true);
 		
@@ -41,15 +41,16 @@ public class BoardsDAO {
 
 	}
 
-	// 게시글 쓴 사람 nick 가져오기
-	  public ArrayList<BoardsVO> getBoardNick() {
+	 // 모든 게시글 정보 가져오기 (post_view)
+	   public ArrayList<JoinVO> getBoardNick() {
 	      session = sqlSessionFactory.openSession(true);
 
-	      List<BoardsVO> list = session.selectList("getBoardNick");
+	      List<JoinVO> list = session.selectList("getBoardNick");
 	      session.close();
 
-	      return (ArrayList<BoardsVO>) list;
+	      return (ArrayList<JoinVO>) list;
 	   }
+	   
 	  
 	// 클릭한 게시글만 정보 가져오기
 	   public BoardsVO boardSelect(Integer board_num) {
