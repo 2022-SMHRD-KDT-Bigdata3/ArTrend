@@ -1,0 +1,52 @@
+.popup > .title{
+    border-radius: 15px 15px 0 0;
+    min-height: 40px;
+    color: #fff;
+    background-color: #b66;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+.popup > .content {
+    padding: 20px;
+    box-sizing: border-box;
+}
+.popup > .cmd {
+    bottom: 0;
+    min-height: 40px;
+    padding: 60px 60px;
+    width: fit-content;
+    border-radius: 15px 15px 15px 15px;
+    min-height: 40px;
+    text-align: center;
+    background-color: rgb(248, 248, 248);
+    border-color: #aaa;
+    margin: 0 auto;
+
+}
+.popup > .cmd .button {
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    float: right;
+}
+.popup > .cmd .button:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+#chooseFile{
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    visibility: hidden;
+}
+#input_btn2{
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    margin: auto;
+    display: block;
+    
+    
+}

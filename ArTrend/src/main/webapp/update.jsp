@@ -61,7 +61,7 @@ UserVO user_status = dao.userSelectOne(info.getUser_email());%>
             <div class="row ">
                 <label for="colFormLabel" class="col-sm-5 col-form-label">변경할 닉네임 입력 </label>
                 <div class="col-sm-7">
-                <input type="text" class="form-control" id="colFormLabelSm" name="user_nick" placeholder="변경할 닉네임 ">
+                <input type="text" value="<%= info.getUser_nick() %>" class="form-control" id="colFormLabelSm" name="user_nick" placeholder="변경할 닉네임 ">
                 <br>
                 <input class="nickChe-btn" type="submit" value="중복확인">
                 </div>
@@ -94,7 +94,10 @@ UserVO user_status = dao.userSelectOne(info.getUser_email());%>
             <!-- 등록하기 버튼 클릭시 바뀐 정보 db저장 -> 바뀐 정보가 유저 갤러리 화면에 출력(닉네임의 경우) -->
             <input class="input-btn" type="submit" value="등록하기" > 
             <!-- 취소하기 버튼 클릭시 유저 갤러리 화면으로 이동 -> 경로 넣기 -->
-            <button type="button" class="close-btn" onclick="location.href='main.jsp';">취소하기</button>
+
+            <button type="button" class="close-btn" onclick="location.href='galley_my.jsp'">취소하기</button>
+
+           
          </div>
         </form>
         

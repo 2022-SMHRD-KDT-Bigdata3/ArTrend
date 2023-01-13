@@ -60,6 +60,8 @@ public class UpdateService extends HttpServlet {
          // 수정된 정보 (info)를 다시 session 영역에 저장하기 !
          session.setAttribute("info", vo);
 
+
+
          System.out.println("회원정보 수정 성공");
          // 1/10 팝업창 안뜸. 확인 필요
          // JOptionPane.showMessageDialog(null, "회원정보수정 완료");
@@ -69,8 +71,11 @@ public class UpdateService extends HttpServlet {
          url = "update.jsp";
       }
 
-      RequestDispatcher re = request.getRequestDispatcher(url);
-      re.forward(request, response);
+
+
+		 RequestDispatcher re = request.getRequestDispatcher(url);
+		 re.forward(request, response);
+
 
    }
 

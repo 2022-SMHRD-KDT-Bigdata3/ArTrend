@@ -70,7 +70,7 @@ public class UserDAO {
 			
 			return res;
 		}
-		
+
 		//소개글가져오는 메서드
 		public UserVO getinfo(String user_email) {
 			session = sqlSessionFactory.openSession(true);
@@ -79,6 +79,15 @@ public class UserDAO {
 			return vo;
 		}
 		
+
+		 // 회원포인트 업데이트 메서드
+		public int user_pointup(UserVO vo) {
+			session = sqlSessionFactory.openSession(true);
+			int cnt = session.update("user_pointup", vo);
+			session.close();
+			
+			return cnt;
+		}
 
 	
    

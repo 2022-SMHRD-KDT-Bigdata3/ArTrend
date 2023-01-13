@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,9 +25,8 @@ public class PostWriteService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		UserVO info_post = (UserVO)session.getAttribute("info");
+		UserVO info_post = (UserVO) session.getAttribute("info");
 		System.out.println(info_post.getUser_email());
-
 
 		// 파일 경로
 		String savePath = "imges";
@@ -35,14 +35,14 @@ public class PostWriteService extends HttpServlet {
 		ServletContext context = getServletContext();
 		String uploadFilePath = context.getRealPath(savePath);
 		System.out.println(uploadFilePath);
-		
+
 		File dir = new File(uploadFilePath);
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
-		
+
 		MultipartRequest multi = new MultipartRequest(request, uploadFilePath, uploadFileSizeLimit, encType,
-		new DefaultFileRenamePolicy());
+				new DefaultFileRenamePolicy());
 
 		String board_type = multi.getParameter("board_type");
 		String user_email = info_post.getUser_email();
@@ -55,14 +55,17 @@ public class PostWriteService extends HttpServlet {
 		BoardsDAO dao = new BoardsDAO();
 		int res = dao.postWrite(vo);
 
-		
-		if(res>0) {
+		if (res > 0) {
 			System.out.println("업로드 성공");
-		}else {
+		} else {
 			System.out.println("업로드 실패");
 		}
-		
-		response.sendRedirect("gallery_my.jsp");
+
+		PrintWriter out = response.getWriter();
+
+		out.print("<script language='javascript'>");
+		out.print("self.close();");
+		out.print("</script>");
 
 	}
 

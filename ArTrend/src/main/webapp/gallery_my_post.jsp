@@ -231,18 +231,13 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
       <%} %>
       <%} %>      
      </div>
-     
-     
-  
-   <div class="btnWrap post_append_btn" >
-   <button style="border: none; background-color: white; " type="button" data-bs-toggle="modal" data-bs-target="#postWrite">
-   <i class="post_append fa-regular fa-square-plus" ></i>
-   </button>
-   </div>
-   
-   <%@include file="post_write.jsp" %>
 
-  
+   
+	<div class="btnWrap post_append_btn" >
+		<button data-remote="post_write.jsp" style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite" onclick ="popWrite()">
+			<i class="post_append fa-regular fa-square-plus"></i>
+		</button>
+	</div>
   
 <!--부트스트랩 js 현아-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -281,6 +276,13 @@ $(document).on('hidden.bs.modal', '.modal', function () {
     $('.modal:visible').length && $(document.body).addClass('modal-open');
 
 });
+
+function popWrite() {
+	
+	var popWriteX = (window.screen.width / 2) - (1000 / 2);
+	window.open('post_write.jsp', 'popWrite', 'top=10, left='+ popWriteX +', width=1000, height=800, status=no, menubar=no, toolbar=no, resizable=no');
+
+}
 
 </script>
 </body>
