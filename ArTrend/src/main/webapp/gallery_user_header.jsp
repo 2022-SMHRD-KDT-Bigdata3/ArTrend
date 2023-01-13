@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@page import="com.smhrd.model.SubscribeVO"%>
 <%@page import="com.smhrd.model.SubscribeDAO"%>
 <%@page import="com.smhrd.model.JoinVO"%>
@@ -53,6 +54,16 @@
    String user_email_header = request.getParameter("getUser_email"); //글쓴사람의 이메일
    String user_nick_header = request.getParameter("getUser_nick"); //글쓴사람의 닉
    
+   
+   //글쓴사람 프로필사진 가져오기 
+   UserDAO user_pic_dao = new UserDAO();
+   UserVO user_pic_vo = user_pic_dao.userSelectOne(user_email_header);
+   if(user_pic_vo !=null){
+	   System.out.println("글쓴사람 정보(프로필사진) 가져오기 성공");
+   }else{
+	   System.out.println("글쓴사람 정보(프로필사진) 가져오기 실패");
+   }
+   
    //확인용콘솔출력
    System.out.print(user_nick_header);
    int board_user_cnt = 0;
@@ -60,7 +71,6 @@
       if((boards_user_header.get(i).getUser_email()).equals(user_email_header)){
          board_user_cnt++; } 
             }
-
   
 %>
 
@@ -77,7 +87,7 @@
 				<div class="mainVisual">
 					<div class="profile">
 						<div class="pic">
-							<img class="profile_pic" src="./assets/img_gallery/정사각형.jpg"
+							<img class="profile_pic" src="uimges/<%= user_pic_vo.getUser_pic() %>"
 								alt="" style="width: 150px; height: 150px;">
 						</div>
 						<div class="info">

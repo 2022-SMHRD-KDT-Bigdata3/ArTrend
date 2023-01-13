@@ -102,7 +102,7 @@
 				<h5></h5>
 			</div>
 
-			<div class="support_div_sub support_img" style="width: 40%">
+			<div class="support_div_sub support_img" style="width: 500px">
 				<div class="support_div support_post">
 					<div class="support_div support_btn">
 
@@ -111,7 +111,7 @@
 						
 							
 							<%if(support == null){ %>
-						<button data-remote="support_write.jsp" style="border: none; background-color: white; margin: 0 60px 0 0;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite"
+						<button data-remote="support_write.jsp" style="border: none; background-color: white; padding: 0 200px 0 0;" type="button" data-bs-toggle="modal" data-bs-target="#supportWrite"
 						onclick="popSupport()">
 							<i class="fa-regular fa-square-plus fa-2x post_append"></i>
 						</button>		
@@ -149,7 +149,7 @@
 					</p>
 				</div>
 			
-				<a href="SupportDeleteService?user_email=<%= user_email%>"><i class="fa-regular fa-square-minus fa-2x" style="color: rgb(132, 132, 132)"></i></a>
+				<a href="SupportDeleteService?user_email=<%= user_email%>"><i class="fa-regular fa-square-minus fa-2x" style="color: black"></i></a>
 				<%} %>
 			</div>
 		</div>

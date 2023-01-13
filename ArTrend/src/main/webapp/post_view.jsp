@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.CmtVO"%>
 <%@page import="com.smhrd.model.CmtDAO"%>
@@ -74,6 +75,11 @@ if(boards != null) {
 }else {
    System.out.println("정보 받아오기 실패");
 }
+
+
+
+
+
 %>
    
    <% for(int i=0 ; i<boards.size() ; i++) { %>
@@ -121,7 +127,7 @@ if(boards != null) {
 						<!-- 게시판 상세 - 유저 -->
                            <div class="post-user-container">   
                               <span style="text-decoration: none; color: black;"></span>
-                                       <img class="user-card-img"    src="<%= info1.getUser_pic() %>" alt="">
+                                       <img class="user-card-img" src="uimges/<%=boards.get(i).getUser_pic()%>" alt="">
                                        <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>&getUser_nick=<%=boards.get(i).getUser_nick()%>'">
                                           <%= boards.get(i).getUser_nick() %>
                                           </span>

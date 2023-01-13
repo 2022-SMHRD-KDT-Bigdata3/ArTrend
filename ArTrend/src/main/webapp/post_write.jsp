@@ -32,7 +32,7 @@ UserVO write_post = (UserVO) session.getAttribute("info");
                 <div class="write-info-container">
                     <div class="writer-info-padding">
                         <div class="writer-info-container">
-                            <img src="<%=write_post.getUser_pic() %>" alt="">
+                            <img src="uimges/<%=write_post.getUser_pic()%>" alt="">
                             <span class="writer-info-name"><%=write_post.getUser_nick() %></span>
                         </div>
                     </div>

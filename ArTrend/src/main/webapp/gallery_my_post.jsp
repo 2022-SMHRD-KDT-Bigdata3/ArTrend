@@ -234,7 +234,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 
    
 	<div class="btnWrap post_append_btn" >
-		<button data-remote="post_write.jsp" style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite" onclick ="popWrite()">
+		<button data-remote="post_write.jsp" style="border: none; background-color: white; " type="button" data-bs-toggle="modal" data-bs-target="#postWrite" onclick ="popWrite()">
 			<i class="post_append fa-regular fa-square-plus"></i>
 		</button>
 	</div>

@@ -45,7 +45,7 @@
                         <div class="writer-info-container">
                         
                         <!-- 해당 게시글 작성자의 프사, 닉네임 뿌려주기 -->
-                            <img src="<%= info.getUser_pic() %>" alt="">
+                            <img src="uimges/<%=info.getUser_pic()%>" alt="">
                             <span class="writer-info-name"> <%= selectedBoard.getUser_email() %></span>
                         </div>
                     </div>
