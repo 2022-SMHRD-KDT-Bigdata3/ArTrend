@@ -42,6 +42,13 @@ public class UserVO {
 		this.user_pw = user_pw;
 	}
 	
+	// 유저포인트용 
+		public UserVO(String user_email, int user_point) {
+			this.user_email = user_email;
+			this.user_point = user_point;
+		}
+	
+	
 	
 
 	// 기본 생성자

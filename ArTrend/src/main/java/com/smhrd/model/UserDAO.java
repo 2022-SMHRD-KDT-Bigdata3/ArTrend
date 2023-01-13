@@ -49,6 +49,7 @@ public class UserDAO {
 			return 0;
 		}
 
+		// 회원프로필 수정 메서드
 		public int uPicUpdate(UserVO vo) {
 			
 			session = sqlSessionFactory.openSession(true);
@@ -64,6 +65,15 @@ public class UserDAO {
 			session.close();
 			return vo;
 
+		}
+		
+		 // 회원포인트 업데이트 메서드
+		public int user_pointup(UserVO vo) {
+			session = sqlSessionFactory.openSession(true);
+			int cnt = session.update("user_pointup", vo);
+			session.close();
+			
+			return cnt;
 		}
 	
 }
