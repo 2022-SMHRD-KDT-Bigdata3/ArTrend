@@ -31,7 +31,8 @@
   <h5>포인트 충전</h5>
   <br>
   <div class="pay_box">
-    <form>
+  <%  String email = ""; // 내가 보고 있었던 사용자의 이메일 @ 앞부분까지만 가져오기  %>
+    <form action="gallery_user_support.jsp?getUser_email=<%=email %>" method="get">
       <div class="recharge">
         <div class="point1">
           <p>충전할 포인트</p>
@@ -113,7 +114,7 @@
     <div class="row mb-3">
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm" ><strong>결제 금액</strong></label>
     <div class="col-sm-4">
-        받아와야된는딩?
+        0000원
         </div>
     </div>
 
@@ -123,7 +124,7 @@
         </label>
     </div>
     <br>
-    <input class="input-btn" type="submit" value="결제하기" style="font-weight:bold;">
+    <input class="input-btn" type="button" value="결제하기" style="font-weight:bold;">
     <br>
     <br>
     <p>유의사항이 적혀있는 줄글,무엇을 위하여 설산에서 <br>고행을 하였으며, 예수는 무엇을 위하여
