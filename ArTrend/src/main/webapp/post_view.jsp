@@ -309,32 +309,6 @@ $('#likeCheck').click(function(){
    })
 })
 
-//좋아요 클릭 시, 추가 or 제거 비동기
-
-   $('#likeCheck').click(function(){
-      var board_num = $('#board_num').text();
-      var user_email = '<%= info1.getUser_email() %>';
-      var user_nick = '<%= info1.getUser_nick()%>';
-      
-      $.ajax({
-         url : "LikeCheckService",
-         method : "POST",
-         data : {"board_num" : board_num, "user_email" : user_email, "user_nick" : user_nick},
-         
-         success : function(icon){
-            likeCount();
-            $("#heartIcon").attr("src", icon);
-            $("#heartIcon").css("filter","invert(41%) sepia(94%) saturate(705%) hue-rotate(78deg) brightness(81%) contrast(81%)");
-            $("#heartIcon").css("width","25px");
-            
-         },
-         error : function(){
-            console.log("통신 실패")
-         },
-         
-      })
-   })
-
 // 게시글 추천수 비동기
 function likeCount(){
    var board_num = $('#board_num').text();

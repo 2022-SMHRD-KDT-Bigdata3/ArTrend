@@ -117,8 +117,8 @@
           orderId: 'fiqdmSdmz2JdmCI5lPUuK',
           orderName: '포인트 충전',
           customerName: '박토스',
-          successUrl: 'http://localhost:8082/ArTrend/pay_success.jsp',
-          failUrl: 'http://localhost:8082/ArTrend/fail',
+          successUrl: 'http://localhost:8088/ArTrend/pay_success.jsp',
+          failUrl: 'http://localhost:8088/ArTrend/fail',
         })
       })
     </script>

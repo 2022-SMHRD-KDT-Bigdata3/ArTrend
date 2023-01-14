@@ -15,7 +15,7 @@ public class MessageDAO {
 
 	// 메세지 불러오기
 	public ArrayList<MessageVO> MessageAll(String my_email) {		
-		session = sqlSessionFactory.openSession();
+		session = sqlSessionFactory.openSession(true);
 		List<MessageVO> list = session.selectList("myMessage", my_email);
 		session.close();
 		
@@ -24,7 +24,7 @@ public class MessageDAO {
 
 	// 메세지 삭제
 	public int messageDelete(int msg_num) {
-		session = sqlSessionFactory.openSession();
+		session = sqlSessionFactory.openSession(true);
 		int res = session.delete("removeMessage", msg_num);
 		return res;
 	}

@@ -234,14 +234,10 @@
 					</li>
 					
 					<!-- 메세지 화면 이동  -->
-<<<<<<< HEAD
-					<li class="nav-item"><a class="nav-link" href="MessageSelectAll">
-							📩️ </a></li>
-=======
-					<li class="nav-item"><a class="nav-link" href="MessageSystem.jsp" style="padding: 8px 8px 0 0;">
+
+					<li class="nav-item"><a class="nav-link" href="MessageSelectAll" style="padding: 8px 8px 0 0;">
 							<i class="fa-regular fa-comments nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i></a></li>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-Bigdata3/ArTrend.git
-							
+			
 					<!-- 마이갤러리 이동  -->
 					<li class="nav-item dropdown">
 					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0 0 0 8px;">

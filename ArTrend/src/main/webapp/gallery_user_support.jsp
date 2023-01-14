@@ -56,13 +56,10 @@
 	System.out.println("후원목록 가져오기 실행(usersupport)");
 	UserVO user_support = (UserVO) session.getAttribute("info"); //로그인한사람 이메일
 	String user_nick_support = request.getParameter("getUser_nick"); //글쓴사람의 닉
-
-	
-	
-	
 	
 	//갤러리 유저의 정보 받아오기
 	String user_email_support = request.getParameter("getUser_email"); //글쓴사람의 이메일
+
 	//support 정보 받아오기 
 	SupportDAO user_support_dao = new SupportDAO();
 	SupportVO user_support_vo = user_support_dao.getSupport(user_email_support);
@@ -96,12 +93,7 @@
 			<h2>
 				@<%=user_nick_support%>님의 후원이벤트가 진행중입니다!
 			</h2> 
-			<%}else{ %>
-			<h2>
-				@<%=user_nick_support%>님의 후원이벤트가 진행중이지 않습니다!
-			</h2> <%} %>
-		</header>
-		
+			
 		<div class="container container1" align="center">
 
 
@@ -207,6 +199,12 @@
 				</div>
 			</div>
 		</div>
+		<%}else{ %>
+			<h2>
+				@<%=user_nick_support%>님의 후원이벤트가 진행중이지 않습니다!
+			</h2> <%} %>
+		</header>
+		
 	</div> 
 	<!--부트스트랩 js-->
 	<script

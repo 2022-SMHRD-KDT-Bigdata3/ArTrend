@@ -20,6 +20,7 @@ public class removeMessageService extends HttpServlet {
 		
 		MessageDAO dao = new MessageDAO();
 		int cnt = dao.messageDelete(msg_num);
+		System.out.println(cnt);
 		
 		if(cnt > 0) {
 			System.out.println("메세지 삭제 성공");
