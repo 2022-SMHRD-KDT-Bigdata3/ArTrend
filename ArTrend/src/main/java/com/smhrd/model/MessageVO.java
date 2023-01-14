@@ -23,9 +23,6 @@ public class MessageVO {
 		this.receive_email = receive_email;
 	}
 
-<<<<<<< HEAD
-
-=======
 	// 메세지 보내기용
 	public MessageVO(String send_email, String receive_email,String contents ) {
 		super();
@@ -34,7 +31,6 @@ public class MessageVO {
 		this.contents = contents;
 		
 	}
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-Bigdata3/ArTrend.git
 
 	public MessageVO() {
 		super();
