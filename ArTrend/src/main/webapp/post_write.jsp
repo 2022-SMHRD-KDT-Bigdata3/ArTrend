@@ -11,10 +11,12 @@
 </head>
 <body>
 
+<%
+//유저의 정보 가져오기
+UserVO write_post = (UserVO) session.getAttribute("info");
+%>
+
   <!-- Modal -->
-  <div class="modal fade" id="postWrite" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="postWriteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content" style="width:100vh">
         <form action="PostWriteService" method="post" onsubmit="return getContent()" enctype="multipart/form-data">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="postWriteLabel">새 게시물 만들기</h1>
@@ -24,14 +26,15 @@
             <div class="write-container">
                 <div class="write-img-container">
                     <img id="write-img" src="" alt="">
-                    <input type="file" id="write-img-input" name="board_pic" onchange="imgPreview(this);" style="display:none" accept=".jpg,.png">
+                    <input type="file" id="write-img-input" name="board_pic" onchange="imgPreview(this);" style="display:none;" accept=".jpg,.png">
                     <label class="write-img-btn" for="write-img-input"><img src="./assets/kjh/icon/plus.svg" alt=""></label>
                 </div>
                 <div class="write-info-container">
                     <div class="writer-info-padding">
                         <div class="writer-info-container">
-                            <img src="./assets/kjh/img/poke01.jpg" alt="">
-                            <span class="writer-info-name">poke</span>
+                        <!-- 로그아웃했다가 다시 로그인 해야지 바뀌어있음 -->
+                            <img src="uimges/<%=write_post.getUser_pic()%>" alt="">
+                            <span class="writer-info-name"><%=write_post.getUser_nick() %></span>
                         </div>
                     </div>
                     <div class="write-title-container">
@@ -56,9 +59,7 @@
           <button type="submit" class="post_write_btn" data-bs-dismiss="modal">만들기</button>
         </div>
         </form>
-      </div>
-    </div>
-  </div>
+        
     <script src="./assets/kjh/js/postWrite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

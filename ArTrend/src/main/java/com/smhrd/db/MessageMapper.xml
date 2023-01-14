@@ -3,12 +3,19 @@
 <mapper namespace="MessageMapper">
    <!-- namespace : mapper 구별 / id : 각 sql 구별 -->
    
-   <select id="myMessage" resultType="MessageVO">
-   	select * from MESSAGES where receive_email = #{my_email} order by day desc 
+   <!-- 전체 메세지 최신순으로 불러오기 -->
+   <select id="myMessage" resultType="MessageVO" >
+   select * from MESSAGES where receive_email = #{my_email} order by day desc 
    </select>
-  	
-  	<!-- 선택 한 메세지 삭제_ajax 사용 -->
-	<delete id="removeMessage">
-		delete from MESSAGES where msg_num= #{msg_num}
-	</delete>
+
+   <!-- 선택 한 메세지 삭제_ajax 사용 -->
+   <delete id="removeMessage">
+   delete from MESSAGES where msg_num= #{msg_num} 
+   </delete>
+   
+   <!-- 메세지 보내기 -->
+   <insert id="sendMessage" parameterType="com.smhrd.model.MessageVO">
+		insert into messages values(messages_seq.nextVal, #{send_email}, #{receive_email},#{contents},sysdate )
+   </insert>
+ 
 </mapper>

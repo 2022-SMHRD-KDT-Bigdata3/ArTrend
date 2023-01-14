@@ -64,7 +64,7 @@
 }
 
 .modal-title{
-	margin-left:42%;
+	margin-left: 20px;
 }
 
 .form-switch{
@@ -73,4 +73,9 @@
 
 .me-2{
 	margin-top:3px;
+}
+
+
+.nav_icon{
+	margin : 0 0 0 20px;
 }

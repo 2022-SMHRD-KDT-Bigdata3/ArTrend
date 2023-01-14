@@ -8,10 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title> galley </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<<<<<<< HEAD
 	
 	<!-- 템플릿 css -->
 	<link rel="stylesheet" href="./assets2/css/main.css" />
 	<noscript><link rel="stylesheet" href="./assets2/css/noscript.css" /></noscript>
+=======
+
+   <!-- 현아 헤더 css -->
+    <link href="./assets/css/header.css" rel="stylesheet">
+   
+   <!-- 템플릿 css -->
+   <link rel="stylesheet" href="./assets2/css/main.css" />
+   <noscript><link rel="stylesheet" href="./assets2/css/noscript.css" /></noscript>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-Bigdata3/ArTrend.git
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   </head>
@@ -22,48 +32,50 @@
 
 
 
-		<!-- Wrapper-->
-			<div id="wrapper">
+      <!-- Wrapper-->
+         <div id="wrapper">
 
-				<!-- Nav -->
-					<nav id="nav">
-						<a href="#" class="icon solid fa-home"><span> POST </span></a>
-						<a href="#work" class="icon solid fa-folder"><span> INFO </span></a>
-						<a href="#contact" class="icon solid fa-chevron-right"><span> SUPPORT </span></a>
-												
-					</nav>
+            <!-- Nav -->
+               <nav id="nav">
+                  <a href="#" class="icon solid fa-home"><span> POST </span></a>
+                  <a href="#work" class="icon solid fa-folder"><span> INFO </span></a>
+                  <a href="#contact" class="icon solid fa-chevron-right"><span> SUPPORT </span></a>
+                                    
+               </nav>
 
-				<!-- Main -->
-					<div id="main">
+            <!-- Main -->
+               <div id="main">
 
-						<!-- post -->
-							<div id="home" class="panel intro">
-								<%@include file="gallery_my_post.jsp" %>
-								
-							</div>
+                  <!-- post -->
+                     <div id="home" class="panel intro">
+                        <%@include file="gallery_my_post.jsp" %>
+                        
+                     </div>
 
-						<!-- info 경원 수정 완-->
-							<div id="work" class="panel">
-								<%@include file="gallery_my_info.jsp" %>
-								
-							</div>
-						
+                  <!-- info 경원 수정 완-->
+                     <div id="work" class="panel">
+                        <%@include file="gallery_my_info.jsp" %>
+                        
+                     </div>
+                  
 
-						<!-- support 경원수정완료-->
-							<div id="contact" class="panel">
-								<%@include file="gallery_my_support.jsp" %>
-							</div>
-					</div>
+                  <!-- support 경원수정완료-->
+                     <div id="contact" class="panel">
+                        <%@include file="gallery_my_support.jsp" %>
+                     </div>
+                     
+                    
+               </div>
 
-				
-			</div>
+            
+         </div>
 
-		<!-- Scripts -->
-			<script src="./assets2/js/jquery.min.js"></script>
-			<script src="./assets2/js/browser.min.js"></script>
-			<script src="./assets2/js/breakpoints.min.js"></script>
-			<script src="./assets2/js/util.js"></script>
-			<script src="./assets2/js/main.js"></script>
+      <!-- Scripts -->
+         <script src="./assets2/js/jquery.min.js"></script>
+         <script src="./assets2/js/browser.min.js"></script>
+         <script src="./assets2/js/breakpoints.min.js"></script>
+         <script src="./assets2/js/util.js"></script>
+         <script src="./assets2/js/main.js"></script>
 
-	</body>
+   </body>
 </html>

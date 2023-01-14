@@ -20,6 +20,11 @@
 <link href="./assetes/css/main.css" rel="stylesheet">
 <link href="./assetes/css/header.css" rel="stylesheet">
 
+<!--아이콘-->
+<script src="https://kit.fontawesome.com/fa92a52c34.js"
+	crossorigin="anonymous"></script>
+
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body class="header_body">
@@ -28,7 +33,7 @@
 	<%
 	UserVO info = (UserVO) session.getAttribute("info");
 	%>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="main.jsp"> <img
 				src="./assets/images/logo_green.png" alt="ArTrend" width="200px"
@@ -42,7 +47,7 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute; right: 20px;">
-				<form class="d-flex" role="search">
+				<form class="d-flex" role="search" style="margin-bottom: 0;">
 					<input class="form-control me-2" type="search" placeholder="Search"
 						aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
@@ -188,17 +193,17 @@
 					%>
 					<!-- 로그인 후 화면 네비게이션 메뉴 -->
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="main.jsp"> 🏚 </a></li>
+						aria-current="page" href="main.jsp" style="padding: 8px 14px 0 14px;"> <i class="fa-solid fa-house nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i> </a></li>
 
-					<li class="nav-item"><a class="nav-link" href="main_sub.jsp">
-							⭐️ </a></li>
+					<li class="nav-item"><a class="nav-link" href="main_sub.jsp" style="padding: 8px 14px 0 0;">
+							<i class="fa-solid fa-star nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i></a></li>
 
 					<!-- 알림 버튼 -->
 					<li class="nav-item">
 						<!-- Button trigger modal -->
 						<button type="button" id="alarmBtn" class="btn position-relative"
-							data-bs-toggle="modal" data-bs-target="#exampleModal1">
-							🔔 <span
+							data-bs-toggle="modal" data-bs-target="#exampleModal1" style="padding: 8px 14px 0 0; border: none;">
+							<i class="fa-regular fa-bell nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i> <span
 								class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 								new <span class="visually-hidden">unread messages</span>
 							</span>
@@ -229,13 +234,18 @@
 					</li>
 					
 					<!-- 메세지 화면 이동  -->
+<<<<<<< HEAD
 					<li class="nav-item"><a class="nav-link" href="MessageSelectAll">
 							📩️ </a></li>
+=======
+					<li class="nav-item"><a class="nav-link" href="MessageSystem.jsp" style="padding: 8px 8px 0 0;">
+							<i class="fa-regular fa-comments nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i></a></li>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-Bigdata3/ArTrend.git
 							
 					<!-- 마이갤러리 이동  -->
 					<li class="nav-item dropdown">
-					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          			<img src="./assets/images/KakaoTalk_20221209_120050427.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0 0 0 8px;">
+          			<img src="uimges/<%= info.getUser_pic() %>" alt="mdo" width="32" height="32" class="rounded-circle">
        			    </a>
 					
           			<ul class="dropdown-menu text-small" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);" data-popper-placement="bottom-end">

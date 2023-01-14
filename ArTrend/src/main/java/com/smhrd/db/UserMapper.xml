@@ -14,11 +14,38 @@
    </select>
    
     
-   <!-- 정보수정-->
+   <!-- 정보 수정 -->
    <update id="user_update" parameterType ="UserVO">
    		update users
 		set user_nick = #{user_nick}, user_pw = #{user_pw}
 		where user_email = #{user_email}
 	</update>
-   
+	
+	<!-- 프로필사진 업데이트 -->
+	<update id="uPicUpdate" parameterType = "UserVO">
+		update users set user_pic = #{user_pic} where user_email=#{user_email}	
+	</update>
+	
+	<!--  -->
+	<select id="userSelectOne" resultType="UserVO">
+		select * from users where user_email = #{user_email}
+	</select>
+	
+	<!-- 회원 포인트 충전 -->
+	<update id="user_pointup" parameterType = "UserVO">
+		update users set user_point = user_point + #{user_point} where user_email=#{user_email}	
+	</update>
+
+
+   <!-- 소개글 수정 -->
+   <update id="info_update" parameterType ="UserVO">
+   		update users
+		set  user_info = #{user_info}
+		where user_email = #{user_email}
+	</update>
+	
+	<select id="getinfo" resultType="UserVO">
+		select * from users where user_email = #{user_email}
+	</select>
+
 </mapper>

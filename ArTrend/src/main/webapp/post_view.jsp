@@ -1,18 +1,18 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@page import="com.smhrd.model.JoinVO"%>
-<%@page import="com.smhrd.model.LikesVO"%>
 <%@page import="com.smhrd.model.CmtVO"%>
 <%@page import="com.smhrd.model.CmtDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%
    UserVO info1=new UserVO();
-   if(session.getAttribute("info")!=null){	
+   if(session.getAttribute("info")!=null){   
      info1 = (UserVO) session.getAttribute("info");
    } 
-	%>
+   %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>post_view</title>
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-	crossorigin="anonymous">
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+   crossorigin="anonymous">
 
 <link href="./assetes/css/main.css" rel="stylesheet">
 <link href="./assetes/css/header.css" rel="stylesheet">
@@ -31,32 +31,29 @@
 <!-- 장호 css view css -->
 <link rel="stylesheet" href="./assets/kjh/css/postModal.css">
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-	
-	<!-- 게시글 수정 css -->
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+   crossorigin="anonymous">
+   
+   <!-- 게시글 수정 css -->
 <link rel="stylesheet" href="./assets/kjh/css/postModify.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-<!-- jQuery 쓰기 위한 라이브러리 로딩 -->
-
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-	<!-- 로그인 상태 확인해서 게시글 상세 or 로그인 모달 띄우기 -->
-	
-	<script type="text/javascript">
-			// body에서 for문 i 활용 -- checkModel() 의 매개변수로
-		  function checkModel(i){
-			  if(<%=info1.getUser_email()!=null%>){
-			// 내가 클릭한 게시글과 mapping
-			     $('#postModal'+i).modal("show");
-			  }else{
-				  $('#LoginModal').modal('show'); 
-			  }
-		}
-	  
-	</script>
+   <!-- 로그인 상태 확인해서 게시글 상세 or 로그인 모달 띄우기 -->
+   
+   <script type="text/javascript">
+         // body에서 for문 i 활용 -- checkModel() 의 매개변수로
+        function checkModel(i){
+           if(<%=info1.getUser_email()!=null%>){
+         // 내가 클릭한 게시글과 mapping
+              $('#postModal'+i).modal("show");
+           }else{
+              $('#LoginModal').modal('show'); 
+           }
+      }
+     
+   </script>
 </head>
 <body>
 
@@ -70,168 +67,161 @@ ArrayList<CmtVO> cmtView = cmtdao.cmtView();
 response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
 
 if(boards != null) {
-	System.out.println("boards 정보 받아오기 성공");
-	System.out.println(boards.toString()); //확인용출력
-	//세션에저장
-	session.setAttribute("boards", boards);
-	
+   System.out.println("boards 정보 받아오기 성공");
+   System.out.println(boards.toString());//확인용출력
+   //세션에저장
+   session.setAttribute("boards", boards);
+   
 }else {
-	System.out.println("정보 받아오기 실패");
+   System.out.println("정보 받아오기 실패");
 }
-%>
-	
-	<% for(int i=0 ; i<boards.size() ; i++) { %>
-	
-	<!-- 전체 반복 하면 메인에 그 만큼 출력 됨 -->
-	<div class="col-lg-4 col-md-6">
-		<div class="card text-bg-light">
 
-			<a href="javascript:checkModel(<%=i%>)" class="banner_img">
-			 <img class="img_post"
-				src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
-				<p class="hover_text">
-					<%= boards.get(i).getBoard_title()%>
-				</p>
-			</a>
-			
-			<div class="modal fade" id="postModal<%=i%>" data-bs-backdrop="static"
-				data-bs-keyboard="false" tabindex="-1" aria-labelledby="postModal"
-				aria-hidden="true">
-				<button class="modal-close-btn" data-bs-dismiss="modal">
-					<img src="./assets/kjh/icon/x.svg" alt="">
-				</button>
-				<button class="modal-next-btn" data-bs-dismiss="modal">
-					<img src="./assets/kjh/icon/arrow-right-circle.svg" alt="">
-				</button>
-				<button class="modal-prev-btn" data-bs-dismiss="modal">
-					<img src="./assets/kjh/icon/arrow-left-circle.svg" alt="">
-				</button>
-				<div class="modal-dialog modal-xl">
-					<div class="modal-content" style="overflow: auto;">
-						<div class="modal-body">
-							<div class="post-container">
-								<div class="post-img-container">
-								
-								<!-- 게시판 상세 - 이미지 -->
-									<img class="img_post" src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
-									
-								</div>
-								
-								<!-- 게시글 상세보기  -->
-								<div class="post-rest-container">
-									<div class="post-rest-header">
-									
-									<!-- 게시판 상세 - 유저 -->
-									<div class="post-user-container">	
-										<span style="text-decoration: none; color: black;"></span>
-	                                    <img class="user-card-img" 	src="<%= info1.getUser_pic() %>" alt="">
+
+
+
+
+%>
+   
+   <% for(int i=0 ; i<boards.size() ; i++) { %>
+   
+   <!-- 전체 반복 하면 메인에 그 만큼 출력 됨 -->
+   <div class="col-lg-4 col-md-6">
+      <div class="card text-bg-light">
+
+         <a href="javascript:checkModel(<%=i%>)" class="banner_img">
+          <img class="img_post"
+            src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
+            <p class="hover_text">
+               <%= boards.get(i).getBoard_title()%>
+               
+               </p>
+         </a>
+         
+         <div class="modal fade" id="postModal<%=i%>" data-bs-backdrop="static"
+            data-bs-keyboard="false" tabindex="-1" aria-labelledby="postModal"
+            aria-hidden="true">
+            <button class="modal-close-btn" data-bs-dismiss="modal">
+               <img src="./assets/kjh/icon/x.svg" alt="">
+            </button>
+            <button class="modal-next-btn" data-bs-dismiss="modal">
+               <img src="./assets/kjh/icon/arrow-right-circle.svg" alt="">
+            </button>
+            <button class="modal-prev-btn" data-bs-dismiss="modal">
+               <img src="./assets/kjh/icon/arrow-left-circle.svg" alt="">
+            </button>
+            <div class="modal-dialog modal-xl">
+               <div class="modal-content" style="overflow: auto;">
+                  <div class="modal-body">
+                     <div class="post-container">
+                        <div class="post-img-container">
+                        
+                        <!-- 게시판 상세 - 이미지 -->
+                           <img class="img_post" src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
+                           <p class="hover_text">몽크 - 절규</p>
+                        </div>
+                        
+                        <!-- 게시글 상세보기  -->
+                        <div class="post-rest-container">
+                           <div class="post-rest-header">
+                           
+                  <!-- 게시판 상세 - 유저 -->
+                           <div class="post-user-container">   
+                              <span style="text-decoration: none; color: black;"></span>
+                              
+                                       <!-- 해당 유저의 프로필 사진이 떠야하는데.. 안뜸.... why.... -->
+                                       <img class="user-card-img" src="uimges/<%=boards.get(i).getUser_pic()%>" alt="">
                                        <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>&getUser_nick=<%=boards.get(i).getUser_nick()%>'">
                                           <%= boards.get(i).getUser_nick() %>
                                           </span>
-									</div>
-									
-										<!-- 게시글 수정/삭제 버튼 삭제 -->
-									</div>
-									
-									<div class="post-info-padding">
-										<div class="post-info">
-										
-										<!-- 게시글 상세 페이지 타이틀 -->
-											<p class="post-title">
-											<%=  boards.get(i).getBoard_title()%>
-											</p>
-											
-										<!-- 게시글 상세 페이지 내용 -->
-											<p class="post-des">
-											<%= boards.get(i).getBoard_content()%>
-										
-											</p>
-										</div>
-									</div>
-									<div class="comment-container-padding">
-										<div class="post-comment-container">
-											<%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
-												if (cmtView.get(allCmt).getBoard_num() == boards.get(i).getBoard_num()) {%>
-											<div class="post-comment-card">
-												<span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
-												<span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
-											</div>
-												<% }
-												}
-												%>
-										</div>
-									</div>
-									<div class="post-btn-padding">
-										<div class="post-list-btn">
-											<div class="post-left-btn">
-											<!-- 좋아요 버튼 -->
-											<button id="likeCheck" type="button" style="border:none; background-color : white;">
-											<img id="heartIcon" src="./assets/kjh/icon/heart-nofill.svg" alt="">
-												<span id="board_num" style="display:none;"><%=boards.get(i).getBoard_num() %></span>
-												
-<%-- 											<% LikesVO likeRes = (LikesVO)request.getAttribute("likeRes");  --%>
-<%-- 												if(likeRes == null){%> --%>
-<%-- 													<img src="./assets/kjh/icon/heart-fill.svg" alt="" onclick="location.href='LikeCheckService?getUser_email=<%= info1.getUser_email() %>&getBoard_num=<%= boards.get(i).getBoard_num() %>'"> --%>
-													
-<%-- 												<%} else {%> --%>
-<%-- 													<img src="./assets/kjh/icon/heart-fill.svg" alt="" onclick="location.href='LikeCheckService?getUser_email=<%= info1.getUser_email() %>&getBoard_num=<%= boards.get(i).getBoard_num() %>'"> --%>
-<%-- 															<% String likeCancel = (String)request.getAttribute("likeCancel"); --%>
-<!-- // 															   String likeIt = (String)request.getAttribute("likeIt"); -->
-														
-<%-- 																if(likeCancel.equals("1")){%>															 --%>
-<!-- 																<img src="./assets/kjh/icon/heart-nofill.svg" alt=""> -->
-<%-- 															<%} else if(likeIt.equals("1")) {%>											 --%>
-<!-- 																<img src="./assets/kjh/icon/heart-fill.svg" alt=""> -->
-<%-- 															<%}%> --%>
-<%-- 												<%} %> --%>
-											
-												</button>
-												
-												
-												<button class="normal-btn">
-													<img src="./assets/kjh/icon/journal.svg" alt="">
-												</button>
-											</div>
-											<div class="post-right-btn">
-												<button class="normal-btn">
-													<img src="./assets/kjh/icon/coin.svg" alt="">
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="post-view-padding">
-										<div class="post-view-info">
-										<!-- 좋아요 수 -->
-											<span class="likes"> </span>
-											
-										<!-- 조회수 -->
-											<span class="views">10k views</span>
-										</div>
-									</div>
-									<div class="comment-box-padding">
-									<form action="CmtWriteService">
-									<input type="text" style="display:none;" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
-									<input type="text" style="display:none;" name="redirecto" value="main">
-										<div class="comment-box">
-											<input type="text" class="comment-input"
-												placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
-											<button class="add-comment-btn" type="submit">
-												<img class="add-comment-icon"
-													src="./assets/kjh/icon/envelope.svg" alt="">
-											</button>			
-										</div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                           </div>
+                           
+                              <!-- 게시글 수정/삭제 버튼 삭제 -->
+                           </div>
+                           
+                           <div class="post-info-padding">
+                              <div class="post-info">
+                              
+                              <!-- 게시글 상세 페이지 타이틀 -->
+                                 <p class="post-title">
+                                 <%=  boards.get(i).getBoard_title()%>
+                                 </p>
+                                 
+                              <!-- 게시글 상세 페이지 내용 -->
+                                 <p class="post-des">
+                                 <%= boards.get(i).getBoard_content()%>
+                              
+                                 </p>
+                              </div>
+                           </div>
+                           <div class="comment-container-padding">
+                              <div class="post-comment-container comment-container-ajax<%=i%>">
+                                 <%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
+                                    if (cmtView.get(allCmt).getBoard_num() == boards.get(i).getBoard_num()) {%>
+                                 <div class="post-comment-card">
+                                    <span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
+                                    <span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
+                                 </div>
+                                    <% }
+                                    }
+                                    %>
+                              </div>
+                           </div>
+                           
+                           
+                           
+                           <div class="post-btn-padding">
+                              <div class="post-list-btn">
+                                 <div class="post-left-btn">
+
+                                    <!-- 좋아요 버튼 -->
+                                    <button id="likeCheck" type="button" style="border: none; background-color: white;">
+                                       <img id="heartIcon"
+                                          src="./assets/kjh/icon/heart-nofill.svg" alt=""> 
+                                          <span id="board_num" style="display: none;"><%=boards.get(i).getBoard_num()%></span>
+                                    </button>
+                           
+
+                                    <button class="normal-btn">
+                                       <img src="./assets/kjh/icon/journal.svg" alt="">
+                                    </button>
+                                 </div>
+                                 <div class="post-right-btn">
+                                    <button class="normal-btn">
+                                       <img src="./assets/kjh/icon/coin.svg" alt="">
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="post-view-padding">
+                              <div class="post-view-info">
+                                 <span class="likes">3.2k likes</span><span class="views">10k
+                                    views</span>
+                              </div>
+                           </div>
+                           <div class="comment-box-padding">
+<!--                            <form action="CmtWriteService"> -->
+                           <input type="text" class="cmt_board_num cmt_board_num_ajax<%=i%>" style="display:none;" name="board_num" value="<%=boards.get(i).getBoard_num()%>">
+                           <input type="text" style="display:none;" name="redirecto" value="main">
+                              <div class="comment-box">
+                                 <input type="text" class="comment-input cmt_content_ajax<%=i%>"
+                                    placeholder="소중한 댓글을 남겨주세요" name="cmt_content">
+                                 <button class="add-comment-btn cmt_btn_ajax<%=i%>" type="submit">
+                                    <img class="add-comment-icon"
+                                       src="./assets/kjh/icon/envelope.svg" alt="">
+                                 </button>         
+                              </div>
+<!--                               </form> -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 <%} %>
-	
+   
 <script type="text/javascript">
 //Bootstrap multiple modal
 
@@ -263,74 +253,106 @@ $(document).on('hidden.bs.modal', '.modal', function () {
 
 });
 
+<% for(int i=0 ; i<boards.size() ; i++) { %>
+$('.cmt_btn_ajax<%=i%>').click(function(){
+   var cmt_board_num = $('.cmt_board_num_ajax<%=i%>').val();
+   var cmt_content = $('.cmt_content_ajax<%=i%>').val();
+   var user_email = '<%= info1.getUser_email() %>';
+   console.log(cmt_board_num);
+   console.log(cmt_content);
+   console.log(cmt_content);
+   
+   $.ajax({
+      url : "CmtWriteServiceAjax",
+      method : "POST",
+      data : {"cmt_content" : cmt_content, "user_email" : user_email, "board_num" : cmt_board_num},
+      dataType : "JSON",
+      success : function(data){
+         
+            console.log("통신성공");
+            console.log(data.cmtCheck);
+            
+              $('<div class=\"post-comment-card\"><span class=\"card-user-name\"><%=info1.getUser_nick()%></span><span class=\"comment-body\"> ' + cmt_content + '</span></div>').appendTo('.comment-container-ajax<%=i%>');
+              $('.cmt_content_ajax<%=i%>').val("");
+
+         },
+         error : function(err){
+            console.log("통신 실패")
+         }
+   });
+});
+<%} %>
+
 //좋아요 클릭 시, 추가 or 제거
 
 $('#likeCheck').click(function(){
-	var board_num = $('#board_num').text();
-	var user_email = '<%= info1.getUser_email() %>';
-	var user_nick = '<%= info1.getUser_nick()%>';
-	
-	$.ajax({
-		url : "LikeCheckService",
-		method : "POST",
-		data : {"board_num" : board_num, "user_email" : user_email, "user_nick" : user_nick},
-		
-		success : function(icon){
-			likeCount();
-			$("#heartIcon").attr("src", icon);
-			$("#heartIcon").css("filter","invert(41%) sepia(94%) saturate(705%) hue-rotate(78deg) brightness(81%) contrast(81%)");
-			$("#heartIcon").css("width","25px");
-			
-		},
-		error : function(){
-			console.log("통신 실패")
-		},
-		
-	})
+   var board_num = $('#board_num').text();
+   var user_email = '<%= info1.getUser_email() %>';
+   var user_nick = '<%= info1.getUser_nick()%>';
+   
+   $.ajax({
+      url : "LikeCheckService",
+      method : "POST",
+      data : {"board_num" : board_num, "user_email" : user_email, "user_nick" : user_nick},
+      
+      success : function(icon){
+         likeCount();
+         $("#heartIcon").attr("src", icon);
+         $("#heartIcon").css("filter","invert(41%) sepia(94%) saturate(705%) hue-rotate(78deg) brightness(81%) contrast(81%)");
+         $("#heartIcon").css("width","25px");
+         
+      },
+      error : function(){
+         console.log("통신 실패")
+      },
+      
+   })
 })
 
-// 게시글 추천수
+//좋아요 클릭 시, 추가 or 제거 비동기
+
+   $('#likeCheck').click(function(){
+      var board_num = $('#board_num').text();
+      var user_email = '<%= info1.getUser_email() %>';
+      var user_nick = '<%= info1.getUser_nick()%>';
+      
+      $.ajax({
+         url : "LikeCheckService",
+         method : "POST",
+         data : {"board_num" : board_num, "user_email" : user_email, "user_nick" : user_nick},
+         
+         success : function(icon){
+            likeCount();
+            $("#heartIcon").attr("src", icon);
+            $("#heartIcon").css("filter","invert(41%) sepia(94%) saturate(705%) hue-rotate(78deg) brightness(81%) contrast(81%)");
+            $("#heartIcon").css("width","25px");
+            
+         },
+         error : function(){
+            console.log("통신 실패")
+         },
+         
+      })
+   })
+
+// 게시글 추천수 비동기
 function likeCount(){
-	var board_num = $('#board_num').text();
-	$.ajax({
-		url : "LikeCountService",
-		type : "POST",
-		data : {"board_num" : board_num},
-		success : function(count){
-			$(".likes").text(count + "likes");
-		},
-	})
+   var board_num = $('#board_num').text();
+   $.ajax({
+      url : "LikeCountService",
+      type : "POST",
+      data : {"board_num" : board_num},
+      success : function(count){
+         $(".likes").text(count + "likes");
+      },
+   })
 };
 
 likeCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
-	
-// 	// 게시글 좋아요 알람
-// 	$('#alarmBtn').click(function(){
-<%-- 		var user_email = '<%= info1.getUser_email() %>'; --%>
-// 		likeAlarm();
-// 	});
-	
-// 	function likeAlarm(){
-// 		$.ajax({
-// 			url : "LikeSelectAll",
-// 			type : "POST",
-// 			data : {"user_email" : user_email},
-// 			dataType : "JSON",
-// 			success : resultJson,
-// 			error : errFun
-// 		});
-// 	}
-	
-// 	function resultJson(data){
-// 		var html = "";
-// 		for(var i = 0; i < data.length; i++){
-<%-- 			$(".modal-body").append("<p><%=data[i].user_email%>") --%>
-// 		}
-// 	}
-	
-// 	function errFun(err){
-// 		console.log(err);
-// 	}
+
+
+
+
 
 </script>
 </body>
