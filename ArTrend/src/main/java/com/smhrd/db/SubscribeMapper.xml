@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.SubscribeMapper">
+
+<!-- 구독하기 기능 -->
+<insert id="subscribe_insert" parameterType="SubscribeVO">
+	 insert into subscribes
+      values(subscribes_seq.nextVal,#{user_email},#{subscriber_email})
+</insert>
+
+<!-- 구독자정보 모두 가져오는 기능 -->
+  <select id="sub_select" parameterType="SubscribeVO">
+      select count(*) from subscribes where subscriber_email = #{user_email} and user_email = #{loginEmail}
+   </select>
+
+</mapper>

@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.UserVO"%>
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,26 +39,37 @@
 </head>
 <body>
 <!-- header include -->
+<%
+System.out.println("소개글 가져오기 실행(user_info)");
 
+String user_email_info = request.getParameter("getUser_email"); //글쓴사람의 이메일
+
+UserDAO user_info_dao = new UserDAO();
+UserVO user_info_vo = user_info_dao.getinfo(user_email_info);
+
+response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
+
+if (user_info_vo != null) {
+	System.out.println("info3 정보 받아오기 성공");
+	System.out.println(user_info_vo.toString());//확인용출력
+	//세션에저장
+	session.setAttribute("info3", user_info_vo);
+} else {
+	System.out.println("정보 받아오기 실패");
+}
+
+
+%>
    
         <br>
         <!--소개글이 나올 디브-->
         <div class="gallery_info_div">
             <div class="gallery_info_title">
-                <h3>블랙 햅쌀 고봉 라떼</h3>
+                <h3><%=user_info_vo.getUser_nick() %>님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
                 <span>
-                    검은 토끼의 해에 새롭게 돌아온 햅쌀 라떼
-                    에스프레소 샷과 어우러진 쌀, 흑임자가 더해져 더욱 고소해지고 입에서 톡톡 터지는 흑미 토핑이 소복하게 쌓여 건강하게 즐기는 라떼 음료
-                </span><br><br>
-                <span>
-                    몸도 마음도 든든하게 채워줄 #블랙햅쌀고봉라떼 한 잔으로
-                    2023년도 힘차게 출발해 보자구요. 🏃
-                </span><br><br>   
-                <span>
-                    ✅ 에스프레소 샷과 블랙 햅쌀이 만나 더욱 고소하고,
-                    흑미 토핑이 팝콘처럼 소복이 쌓인 블랙 햅쌀 고봉 라떼는 1월 1일 출시합니다.
+                   <%=user_info_vo.getUserInfo() %>
                 </span>
             </div>
         </div><br><br>

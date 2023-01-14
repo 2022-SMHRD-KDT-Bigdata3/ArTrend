@@ -1,7 +1,8 @@
+<%@page import="com.smhrd.model.BoardsDAO"%>
+<%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.CmtVO"%>
 <%@page import="com.smhrd.model.CmtDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
-<%@page import="com.smhrd.model.BoardsVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
@@ -86,11 +87,15 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
    
    
 
-<%   //post_view에서 세션에 저장한 boards를 가져온다
-   ArrayList<BoardsVO> boards_my_post = (ArrayList<BoardsVO>) session.getAttribute("boards");
+<%   
+
+	//boards에서 게시물을 가져온다
+	BoardsDAO dao1 = new BoardsDAO();
+	ArrayList<JoinVO> boards_my_post = dao1.getBoardNick();
 
    //로그인할때 저장된 user의 info를 가져옴
    UserVO info_my_post = (UserVO) session.getAttribute("info");
+   
    
    // 댓글
    CmtDAO cmtdao = new CmtDAO();
@@ -98,7 +103,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
    
    
    for(int i=0 ; i<boards_my_post.size() ; i++) { 
-      if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_nick())){%>
+	      if((boards_my_post.get(i).getUser_email()).equals(info_my_post.getUser_email())){%>
       
       <div class="sub_img sub_img<%=i%>">
       <a href="javascript:MyPost(<%=i%>)" class="sub_img sub_img<%=i%>">
@@ -132,20 +137,20 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
                            <div class="post-rest-header">
                               <div class="post-user-container">
                               
-                           <!-- 게시판 상세 - 유저 -->
+						<!-- 게시판 상세 - 유저 -->
                            <a style="text-decoration: none; color: black;"
                            href ="gallery_user.jsp?getUser_email=<%= boards_my_post.get(i).getUser_email()%>"></a>
-                                    <img class="user-card-img"    src="<%= info_my_post.getUser_pic() %>" alt="">
+                                    <img class="user-card-img" src="uimges/<%=boards_my_post.get(i).getBoard_pic()%>" alt="">
                                        <span class="card-user-name">
-                                          <%= boards_my_post.get(i).getUser_email() %>
+                                          <%= boards_my_post.get(i).getUser_nick() %>
                                           </span>
                               </div>
                                  
 
                                     <!-- 게시글 수정 / 삭제 -->
                                     <div class="postBtn_all">
-                                       <button class="postBtn" onclick="location.href='BoardSelectService?getBoard_num=<%= boards_my_post.get(i).getBoard_num()%>'"> 수정 </button>
-                                       <button class="postBtn" onclick="location.href='BoardSelectService?getBoard_num=<%= boards_my_post.get(i).getBoard_num()%>'"> 삭제 </button>                        
+                                       <button class="postBtn" onclick="location.href='post_modify.jsp?getBoard_num=<%= boards_my_post.get(i).getBoard_num()%>'"> 수정 </button>
+                                       <button class="postBtn" onclick="location.href='BoardDeleteService?getBoard_num=<%= boards_my_post.get(i).getBoard_num()%>'"> 삭제 </button>                        
                                     </div>
                            
                            </div>
@@ -226,18 +231,13 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
       <%} %>
       <%} %>      
      </div>
-     
-     
-  
-   <div class="btnWrap post_append_btn" >
-   <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#postWrite">
-   <i class="post_append fa-regular fa-square-plus"></i>
-   </button>
-   </div>
-   
-   <%@include file="post_write.jsp" %>
 
-  
+   
+	<div class="btnWrap post_append_btn" >
+		<button data-remote="post_write.jsp" style="border: none; background-color: white; " type="button" data-bs-toggle="modal" data-bs-target="#postWrite" onclick ="popWrite()">
+			<i class="post_append fa-regular fa-square-plus"></i>
+		</button>
+	</div>
   
 <!--부트스트랩 js 현아-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -276,6 +276,13 @@ $(document).on('hidden.bs.modal', '.modal', function () {
     $('.modal:visible').length && $(document.body).addClass('modal-open');
 
 });
+
+function popWrite() {
+	
+	var popWriteX = (window.screen.width / 2) - (1000 / 2);
+	window.open('post_write.jsp', 'popWrite', 'top=10, left='+ popWriteX +', width=1000, height=800, status=no, menubar=no, toolbar=no, resizable=no');
+
+}
 
 </script>
 </body>

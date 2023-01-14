@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.SupportVO"%>
+<%@page import="com.smhrd.model.SupportDAO"%>
+<%@page import="com.smhrd.model.UserDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -39,45 +42,65 @@
 <body>
 <!-- header include -->
 
-<%UserVO my_info = (UserVO) session.getAttribute("info");%>    
+<%UserVO my_info = (UserVO) session.getAttribute("info");
+System.out.println(my_info.getUserInfo());%>   
+
+
+	<%
+	//로그인된 정보 받아오기
+	System.out.println("소개글 가져오기 실행(my_info)");
+	UserVO my_info13 = (UserVO) session.getAttribute("info");
+	String user_email1 = my_info13.getUser_email();
+
+	//user 정보 받아오기 
+	UserDAO dao_my_info1996 = new UserDAO();
+
+	UserVO info_my1996 = dao_my_info1996.getinfo(user_email1);
+	response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
+	
+	if (info_my1996 != null) {
+		System.out.println("info3 정보 받아오기 성공");
+		System.out.println(info_my1996.toString());//확인용출력
+		//세션에저장
+		session.setAttribute("info3", info_my1996);
+	} else {
+		System.out.println("정보 받아오기 실패");
+	}
+	%>
+
 
         <br>
         <!--소개글이 나올 디브-->
         
         <div class="gallery_info_div">
             <div class="gallery_info_title">
-                <h3><%=my_info.getUser_nick() %>님의 소개글입니다!</h3>
+                <h3><%=info_my1996.getUser_nick() %>님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
                 <span> 
-                	<%=my_info.getUserInfo() %>
+                	<%=info_my1996.getUserInfo() %>
                 </span>
             </div>
-        </div><br><br>
+            <br><br><br><br>
+       
 
         <!-- 소개글 수정하기(소개글이 있을 경우) or 소개글 추가하기(소개글이 없을 경우) 버튼-->
         <div>
         
-        <%if(my_info.getUserInfo().equals("-")) {%>
+      
             <div class="gallery_info_btn">
-                 <div class=" gallery_info_pen">
-                    <!-- 소개글 수정하기(소개글이 있을 경우)-->
-                    <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#introModify">
-                    <i class="gallery_info_btn1 fa-regular fa-pen-to-square"></i>
-                    </button>
-                    	<%@include file="intro_modify.jsp" %>
-                    <%}else{%>	
+                 <div class=" gallery_info_pen" style=" margin: 0 0 0 220px; padding: 0;">
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
                     <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
-                    <i class="gallery_info_btn1 fa-regular fa-square-plus"></i>
+                    <i class="gallery_info_btn1 fa-regular fa-square-plus post_append" style="font-size: 2rem; "> </i>
                     </button>
                     	<%@include file="intro_modify.jsp"%>
-                    	
-                    	<%} %>
+                  
+                    
                  </div>
             </div>
          </div> 
         <br><br>
-
+ </div><br><br>
 </body>
 </html>

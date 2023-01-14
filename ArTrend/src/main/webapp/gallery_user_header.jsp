@@ -1,4 +1,7 @@
-<%@page import="com.smhrd.model.BoardsVO"%>
+<%@page import="com.smhrd.model.UserDAO"%>
+<%@page import="com.smhrd.model.SubscribeVO"%>
+<%@page import="com.smhrd.model.SubscribeDAO"%>
+<%@page import="com.smhrd.model.JoinVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,19 +49,36 @@
 	
 
 
-<%	//post_view에서 세션에 저장한 boards를 가져온다
-	ArrayList<BoardsVO> boards_user_header = (ArrayList<BoardsVO>) session.getAttribute("boards");
-	String user_nick_header = request.getParameter("getUser_email");
 
-	
-	//확인용콘솔출력
-	System.out.print(user_nick_header);
-	int board_user_cnt = 0;
-	for(int i=0 ; i<boards_user_header.size() ; i++) { 
-		if((boards_user_header.get(i).getUser_email()).equals(user_nick_header)){
-			board_user_cnt++; } 
-   			}%>   
-	
+<%   //post_view에서 세션에 저장한 boards를 가져온다
+   ArrayList<JoinVO> boards_user_header = (ArrayList<JoinVO>) session.getAttribute("boards");
+   String user_email_header = request.getParameter("getUser_email"); //글쓴사람의 이메일
+   String user_nick_header = request.getParameter("getUser_nick"); //글쓴사람의 닉
+   
+   
+   //글쓴사람 프로필사진 가져오기 
+   UserDAO user_pic_dao = new UserDAO();
+   UserVO user_pic_vo = user_pic_dao.userSelectOne(user_email_header);
+   if(user_pic_vo !=null){
+	   System.out.println("글쓴사람 정보(프로필사진) 가져오기 성공");
+   }else{
+	   System.out.println("글쓴사람 정보(프로필사진) 가져오기 실패");
+   }
+   
+   //확인용콘솔출력
+   System.out.print(user_nick_header);
+   int board_user_cnt = 0;
+   for(int i=0 ; i<boards_user_header.size() ; i++) { 
+      if((boards_user_header.get(i).getUser_email()).equals(user_email_header)){
+         board_user_cnt++; } 
+            }
+  
+%>
+
+
+
+
+
 
 	<div class="wrapper">
 		<br> <br> <br>
@@ -69,14 +89,14 @@
 				<div class="mainVisual">
 					<div class="profile">
 						<div class="pic">
-							<img class="profile_pic" src="./assets/img_gallery/정사각형.jpg"
+							<img class="profile_pic" src="uimges/<%= user_pic_vo.getUser_pic() %>"
 								alt="" style="width: 150px; height: 150px;">
 						</div>
 						<div class="info">
 							<div class="username">
 								<h2 class="name">@<%=user_nick_header %></h2>
 								<div class="sub_msg_btn">
-									<button id="subscrib_btn" onclick = "location.href='#'"><span>구독하기</span></button>
+								<button id="subscrib_btn" onclick = "location.href='SubscribeService?gallery_user_email=<%=user_email_header%>'"><span>구독하기</span></button>
                                     
                                     <!-- 메세지 보내기 모달창 -->
                                     <button type="button" id="message_send_btn" style="border:hidden;background: white;" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>메세지</span></button>
@@ -109,6 +129,7 @@
                                        </div>
                                    </div>
                                 </div>
+
 							<div class="subinfo">
 								<div class="con">
 									<p class="a">게시글 수</p>
@@ -121,26 +142,30 @@
 								<!-- 구독자 목록 버튼 -->
 								<div class="con">
                                     <p class="a">구독자</p>
-                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">500</a></p>
+                                    
+                              <!-- for(구독자정보.size만큼 포문)
+                                    		구독자정보cnt++ -->      
+									
+                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">0</a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribed_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="width:80%;">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@dooboo 님을 구독하고있는 유저</h1>
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@ 님을 구독하고있는 유저</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <!--구독자가 들어가야할 모달의 body-->
                                                 <div class="subscrib_div wrapper">
                                                     <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_nick"><p>@</p></div>
                                                     <div class="class5 subscrib_btn"><button>구독하기</button></div>
                                                 </div><br>
                                                 <div class="subscrib_div wrapper">
                                                     <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_nick"><p>@</p></div>
                                                     <div class="class5 subscrib_btn"><button>구독하기</button></div>
                                                 </div><br>
                                                 <div class="subscrib_div wrapper">
@@ -167,7 +192,7 @@
 
 								<!--  구독중 -->
 								<div class="con">
-                                    <p class="a">구독자</p>
+                                    <p class="a">구독중</p>
                                     <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">400</a></p>
                                     
                                     <!-- Modal -->
@@ -175,7 +200,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="width:80%;">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@dooboo 님이 구독하고있는 유저</h1>
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@ 님이 구독하고있는 유저</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -219,5 +244,9 @@
 			</main>
 		</div>
 	</div>
+	
+
+	
+
 </body>
 </html>

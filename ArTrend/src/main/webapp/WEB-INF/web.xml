@@ -104,29 +104,49 @@
      <servlet-class>com.smhrd.controller.UpdateService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>UserPicService</servlet-name>
-  	<display-name>UserPicService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.UserPicService</servlet-class>
+     <servlet-name>UserPicService</servlet-name>
+     <display-name>UserPicService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.UserPicService</servlet-class>
   </servlet>
-  
+
+   <servlet>
+     <servlet-name>InfoUpdateService</servlet-name>
+     <display-name>InfoUpdateService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.InfoUpdateService</servlet-class>
+  </servlet>
+
   <servlet>
-  	<servlet-name>PointUpService</servlet-name>
-  	<display-name>PointUpService</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.PointUpService</servlet-class>
-  </servlet>
-  
+       <servlet-name>SupportUpdateService</servlet-name>
+       <display-name>SupportUpdateService</display-name>
+       <description></description>
+       <servlet-class>com.smhrd.controller.SupportUpdateService</servlet-class>
+    </servlet>
+
+    <servlet>
+       <servlet-name>SupportDeleteService</servlet-name>
+       <display-name>SupportDeleteService</display-name>
+       <description></description>
+       <servlet-class>com.smhrd.controller.SupportDeleteService</servlet-class>
+    </servlet>
+
+
+    <servlet>
+       <servlet-name>SubscribeService</servlet-name>
+       <display-name>SubscribeService</display-name>
+       <description></description>
+       <servlet-class>com.smhrd.controller.SubscribeService</servlet-class>
+    </servlet>
+
   <servlet>
-  	<servlet-name>SendMessage</servlet-name>
-  	<display-name>SendMessage</display-name>
-  	<description></description>
-  	<servlet-class>com.smhrd.controller.SendMessage</servlet-class>
+     <servlet-name>PointUpService</servlet-name>
+     <display-name>PointUpService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PointUpService</servlet-class>
   </servlet>
   
-  
-  
-  
+   
   
   <servlet-mapping>
      <servlet-name>Main</servlet-name>
@@ -141,11 +161,6 @@
   <servlet-mapping>
      <servlet-name>JoinService</servlet-name>
      <url-pattern>/JoinService</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>UpdateService</servlet-name>
-  	<url-pattern>/UpdateService</url-pattern>
   </servlet-mapping>
   
  <servlet-mapping>
@@ -177,18 +192,33 @@
      <servlet-name>CmtWriteService</servlet-name>
      <url-pattern>/CmtWriteService</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+    
+  <servlet>
      <servlet-name>CmtWriteServiceAjax</servlet-name>
      <display-name>CmtWriteServiceAjax</display-name>
      <description></description>
      <servlet-class>com.smhrd.controller.CmtWriteServiceAjax</servlet-class>
   </servlet>
-    
-  <servlet-mapping>
+  
+  <servlet>
      <servlet-name>PostModifyService</servlet-name>
-     <url-pattern>/PostModifyService</url-pattern>
-  </servlet-mapping>
+     <display-name>PostModifyService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.PostModifyService</servlet-class>
+  </servlet>
+  <servlet>
+     <servlet-name>BoardDeleteService</servlet-name>
+     <display-name>BoardDeleteService</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.BoardDeleteService</servlet-class>
+  </servlet>
+  
+    <servlet>
+     <servlet-name>SendMessage</servlet-name>
+     <display-name>SendMessage</display-name>
+     <description></description>
+     <servlet-class>com.smhrd.controller.SendMessage</servlet-class>
+  </servlet>
   
   <servlet-mapping>
      <servlet-name>BoardSelect</servlet-name>
@@ -204,31 +234,59 @@
      <servlet-name>UserInfoCheck</servlet-name>
      <url-pattern>/UserInfoCheck</url-pattern>
   </servlet-mapping>
-  
+
   <servlet-mapping>
-  	<servlet-name>UserPicService</servlet-name>
-  	<url-pattern>/UserPicService</url-pattern>
+     <servlet-name>UpdateService</servlet-name>
+     <url-pattern>/UpdateService</url-pattern>
   </servlet-mapping>
   
-   <servlet-mapping>
+
+  <servlet-mapping>
+     <servlet-name>UserPicService</servlet-name>
+     <url-pattern>/UserPicService</url-pattern>
+  </servlet-mapping>
+  
+      <servlet-mapping>
+       <servlet-name>SupportUpdateService</servlet-name>
+       <url-pattern>/SupportUpdateService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+       <servlet-name>SupportDeleteService</servlet-name>
+       <url-pattern>/SupportDeleteService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+       <servlet-name>SubscribeService</servlet-name>
+       <url-pattern>/SubscribeService</url-pattern>
+    </servlet-mapping>
+  
+    <servlet-mapping>
      <servlet-name>CmtWriteServiceAjax</servlet-name>
      <url-pattern>/CmtWriteServiceAjax</url-pattern>
   </servlet-mapping>
   
-  
   <servlet-mapping>
-  	<servlet-name>PointUpService</servlet-name>
-  	<url-pattern>/PointUpService</url-pattern>
+     <servlet-name>PointUpService</servlet-name>
+     <url-pattern>/PointUpService</url-pattern>
   </servlet-mapping>
   
-  <servlet-mapping>
-  	<servlet-name>SendMessage</servlet-name>
-  	<url-pattern>/SendMessage</url-pattern>
+      <servlet-mapping>
+     <servlet-name>InfoUpdateService</servlet-name>
+     <url-pattern>/InfoUpdateService</url-pattern>
   </servlet-mapping>
-
-  	
-
+  
+    <servlet-mapping>
+     <servlet-name>PostModifyService</servlet-name>
+     <url-pattern>/PostModifyService</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+       <servlet-name>BoardDeleteService</servlet-name>
+       <url-pattern>/BoardDeleteService</url-pattern>
+    </servlet-mapping>
+    
+      <servlet-mapping>
+     <servlet-name>SendMessage</servlet-name>
+     <url-pattern>/SendMessage</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
-
-  

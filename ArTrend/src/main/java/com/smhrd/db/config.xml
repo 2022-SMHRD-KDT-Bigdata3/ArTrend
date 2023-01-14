@@ -12,7 +12,13 @@
 	<typeAlias type= "com.smhrd.model.LikesVO" alias="LikesVO"/>
 	<typeAlias type= "com.smhrd.model.BoardsVO" alias="BoardsVO"/>
 	<typeAlias type= "com.smhrd.model.CmtVO" alias="CmtVO"/>
+
 	<typeAlias type= "com.smhrd.model.MessageVO" alias="MessageVO"/>
+
+	<typeAlias type= "com.smhrd.model.SupportVO" alias="SupportVO"/>
+	<typeAlias type= "com.smhrd.model.SubscribeVO" alias="SubscribeVO"/>
+	<typeAlias type= "com.smhrd.model.JoinVO" alias="JoinVO"/>
+
 	</typeAliases>
 	
   <environments default="development">
@@ -31,6 +37,11 @@
     <mapper resource="com/smhrd/db/LikesMapper.xml"/>
     <mapper resource="com/smhrd/db/BoardsMapper.xml"/>
     <mapper resource="com/smhrd/db/CmtMapper.xml"/>
+
     <mapper resource="com/smhrd/db/MessageMapper.xml"/>
+
+    <mapper resource="com/smhrd/db/SupportMapper.xml"/>
+    <mapper resource="com/smhrd/db/SubscribeMapper.xml"/>
+
   </mappers>
 </configuration>

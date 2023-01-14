@@ -18,7 +18,7 @@
             <div class="cmd">
                 <p>결제가 완료되었습니다 !</p>
                 <br><br>
-                <input type="button"  name="btnclose" class="button" value="닫기" onclick="location.href='http://localhost:8082/ArTrend-copy/gallery_user_support.jsp';">
+                <input type="button"  name="btnclose" class="button" value="닫기" onclick="location.href='main.jsp';">
             </div>
         </div>
     </body>

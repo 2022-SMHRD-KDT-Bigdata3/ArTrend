@@ -56,6 +56,8 @@
                      <div id="contact" class="panel">
                         <%@include file="gallery_my_support.jsp" %>
                      </div>
+                     
+                    
                </div>
 
             
