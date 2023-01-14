@@ -20,14 +20,17 @@ public class UserInfoCheck extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		String user_nick = request.getParameter("getUser_email");
+		String user_email = request.getParameter("getUser_email"); // 게시글 작성자의 이메일
 		UserVO userInfo = (UserVO)session.getAttribute("info");
-		String loginEmail = (userInfo.getUser_email()).split("@")[0];
+		String loginEmail = userInfo.getUser_email();	// 로그인 한 사람의 이메일
 		
-		if(user_nick.equals(loginEmail)) {
+		String user_nick = request.getParameter("getUser_nick");
+		
+		if(user_email.equals(loginEmail)) {
 			RequestDispatcher re = request.getRequestDispatcher("gallery_my.jsp");
 			re.forward(request, response);
 		} else {
+			request.setAttribute("user_nick", user_nick);
 			RequestDispatcher re = request.getRequestDispatcher("gallery_user.jsp");
 			re.forward(request, response);	
 		}

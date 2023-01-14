@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.model.BoardsVO"%>
+<%@page import="com.smhrd.model.JoinVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -45,18 +45,17 @@
 	
 	
 
-
 <%	//post_view에서 세션에 저장한 boards를 가져온다
-	ArrayList<BoardsVO> boards_user_header = (ArrayList<BoardsVO>) session.getAttribute("boards");
-	String user_nick_header = request.getParameter("getUser_email");
+ArrayList<JoinVO> boards_user_header = (ArrayList<JoinVO>) session.getAttribute("boards");
+String user_nick_header = (String)request.getAttribute("user_nick");
+String user_email_header = request.getParameter("getUser_email");
 	//확인용콘솔출력
 	System.out.print(user_nick_header);
 	int board_user_cnt = 0;
 	for(int i=0 ; i<boards_user_header.size() ; i++) { 
-		if((boards_user_header.get(i).getUser_email()).equals(user_nick_header)){
+		if((boards_user_header.get(i).getUser_email()).equals(user_email_header)){
 			board_user_cnt++; } 
-   			}%>   
-	
+   			}%>  
 
 	<div class="wrapper">
 		<br> <br> <br>
@@ -72,7 +71,7 @@
 						</div>
 						<div class="info">
 							<div class="username">
-								<h2 class="name">@<%=user_nick_header %></h2>
+								<h2 class="name">@<%= user_nick_header %></h2>
 								<div class="sub_msg_btn">
 									<button id="subscrib_btn" onclick = "location.href='#'"><span>구독하기</span></button>
                                     <button id="msg_btn" onclick = "location.href = 'MessageSystem.jsp'"><span>메세지</span></button>

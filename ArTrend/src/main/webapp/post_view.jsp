@@ -1,7 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.JoinVO"%>
+<%@page import="com.smhrd.model.LikesVO"%>
 <%@page import="com.smhrd.model.CmtVO"%>
 <%@page import="com.smhrd.model.CmtDAO"%>
-<%@page import="com.smhrd.model.BoardsVO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -38,6 +39,9 @@
 	<!-- 게시글 수정 css -->
 <link rel="stylesheet" href="./assets/kjh/css/postModify.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<!-- jQuery 쓰기 위한 라이브러리 로딩 -->
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<!-- 로그인 상태 확인해서 게시글 상세 or 로그인 모달 띄우기 -->
 	
@@ -58,7 +62,8 @@
 
 <!-- 게시물 정보 가져오기  -->
 <% BoardsDAO dao = new BoardsDAO();
-ArrayList<BoardsVO> boards =dao.getBoardNick();
+ArrayList<JoinVO> boards = dao.getBoardNick();
+
 CmtDAO cmtdao = new CmtDAO();
 ArrayList<CmtVO> cmtView = cmtdao.cmtView();
 
@@ -66,7 +71,7 @@ response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인�
 
 if(boards != null) {
 	System.out.println("boards 정보 받아오기 성공");
-	System.out.println(boards.toString());//확인용출력
+	System.out.println(boards.toString()); //확인용출력
 	//세션에저장
 	session.setAttribute("boards", boards);
 	
@@ -86,8 +91,7 @@ if(boards != null) {
 				src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
 				<p class="hover_text">
 					<%= boards.get(i).getBoard_title()%>
-					
-					</p>
+				</p>
 			</a>
 			
 			<div class="modal fade" id="postModal<%=i%>" data-bs-backdrop="static"
@@ -110,7 +114,7 @@ if(boards != null) {
 								
 								<!-- 게시판 상세 - 이미지 -->
 									<img class="img_post" src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
-									<p class="hover_text">몽크 - 절규</p>
+									
 								</div>
 								
 								<!-- 게시글 상세보기  -->
@@ -121,8 +125,8 @@ if(boards != null) {
 									<div class="post-user-container">	
 										<span style="text-decoration: none; color: black;"></span>
 	                                    <img class="user-card-img" 	src="<%= info1.getUser_pic() %>" alt="">
-                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>'">
-                                          <%= boards.get(i).getUser_email() %>
+                                       <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>&getUser_nick=<%=boards.get(i).getUser_nick()%>'">
+                                          <%= boards.get(i).getUser_nick() %>
                                           </span>
 									</div>
 									
@@ -160,9 +164,30 @@ if(boards != null) {
 									<div class="post-btn-padding">
 										<div class="post-list-btn">
 											<div class="post-left-btn">
-												<button class="normal-btn">
-													<img src="./assets/kjh/icon/heart-nofill.svg" alt="">
+											<!-- 좋아요 버튼 -->
+											<button id="likeCheck" type="button" style="border:none; background-color : white;">
+											<img id="heartIcon" src="./assets/kjh/icon/heart-nofill.svg" alt="">
+												<span id="board_num" style="display:none;"><%=boards.get(i).getBoard_num() %></span>
+												
+<%-- 											<% LikesVO likeRes = (LikesVO)request.getAttribute("likeRes");  --%>
+<%-- 												if(likeRes == null){%> --%>
+<%-- 													<img src="./assets/kjh/icon/heart-fill.svg" alt="" onclick="location.href='LikeCheckService?getUser_email=<%= info1.getUser_email() %>&getBoard_num=<%= boards.get(i).getBoard_num() %>'"> --%>
+													
+<%-- 												<%} else {%> --%>
+<%-- 													<img src="./assets/kjh/icon/heart-fill.svg" alt="" onclick="location.href='LikeCheckService?getUser_email=<%= info1.getUser_email() %>&getBoard_num=<%= boards.get(i).getBoard_num() %>'"> --%>
+<%-- 															<% String likeCancel = (String)request.getAttribute("likeCancel"); --%>
+<!-- // 															   String likeIt = (String)request.getAttribute("likeIt"); -->
+														
+<%-- 																if(likeCancel.equals("1")){%>															 --%>
+<!-- 																<img src="./assets/kjh/icon/heart-nofill.svg" alt=""> -->
+<%-- 															<%} else if(likeIt.equals("1")) {%>											 --%>
+<!-- 																<img src="./assets/kjh/icon/heart-fill.svg" alt=""> -->
+<%-- 															<%}%> --%>
+<%-- 												<%} %> --%>
+											
 												</button>
+												
+												
 												<button class="normal-btn">
 													<img src="./assets/kjh/icon/journal.svg" alt="">
 												</button>
@@ -176,8 +201,11 @@ if(boards != null) {
 									</div>
 									<div class="post-view-padding">
 										<div class="post-view-info">
-											<span class="likes">3.2k likes</span><span class="views">10k
-												views</span>
+										<!-- 좋아요 수 -->
+											<span class="likes"> </span>
+											
+										<!-- 조회수 -->
+											<span class="views">10k views</span>
 										</div>
 									</div>
 									<div class="comment-box-padding">
@@ -235,7 +263,74 @@ $(document).on('hidden.bs.modal', '.modal', function () {
 
 });
 
+//좋아요 클릭 시, 추가 or 제거
 
+$('#likeCheck').click(function(){
+	var board_num = $('#board_num').text();
+	var user_email = '<%= info1.getUser_email() %>';
+	var user_nick = '<%= info1.getUser_nick()%>';
+	
+	$.ajax({
+		url : "LikeCheckService",
+		method : "POST",
+		data : {"board_num" : board_num, "user_email" : user_email, "user_nick" : user_nick},
+		
+		success : function(icon){
+			likeCount();
+			$("#heartIcon").attr("src", icon);
+			$("#heartIcon").css("filter","invert(41%) sepia(94%) saturate(705%) hue-rotate(78deg) brightness(81%) contrast(81%)");
+			$("#heartIcon").css("width","25px");
+			
+		},
+		error : function(){
+			console.log("통신 실패")
+		},
+		
+	})
+})
+
+// 게시글 추천수
+function likeCount(){
+	var board_num = $('#board_num').text();
+	$.ajax({
+		url : "LikeCountService",
+		type : "POST",
+		data : {"board_num" : board_num},
+		success : function(count){
+			$(".likes").text(count + "likes");
+		},
+	})
+};
+
+likeCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
+	
+// 	// 게시글 좋아요 알람
+// 	$('#alarmBtn').click(function(){
+<%-- 		var user_email = '<%= info1.getUser_email() %>'; --%>
+// 		likeAlarm();
+// 	});
+	
+// 	function likeAlarm(){
+// 		$.ajax({
+// 			url : "LikeSelectAll",
+// 			type : "POST",
+// 			data : {"user_email" : user_email},
+// 			dataType : "JSON",
+// 			success : resultJson,
+// 			error : errFun
+// 		});
+// 	}
+	
+// 	function resultJson(data){
+// 		var html = "";
+// 		for(var i = 0; i < data.length; i++){
+<%-- 			$(".modal-body").append("<p><%=data[i].user_email%>") --%>
+// 		}
+// 	}
+	
+// 	function errFun(err){
+// 		console.log(err);
+// 	}
 
 </script>
 </body>

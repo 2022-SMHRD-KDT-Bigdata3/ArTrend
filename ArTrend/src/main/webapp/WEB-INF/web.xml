@@ -86,6 +86,49 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.UserInfoCheck</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateService</servlet-name>
+  	<display-name>UpdateService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.UpdateService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LikeCheckService</servlet-name>
+  	<display-name>LikeCheckService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.LikeCheckService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LikeInsertService</servlet-name>
+  	<display-name>LikeInsertService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.LikeInsertService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LikeUpdate</servlet-name>
+  	<display-name>LikeUpdate</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.LikeUpdate</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LikeCountService</servlet-name>
+  	<display-name>LikeCountService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.LikeCountService</servlet-class>
+  </servlet>
+
+  <servlet>
+  	<servlet-name>MessageSelectAll</servlet-name>
+  	<display-name>MessageSelectAll</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.MessageSelectAll</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>removeMessageService</servlet-name>
+  	<display-name>removeMessageService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.removeMessageService</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>Main</servlet-name>
@@ -142,6 +185,35 @@
   <servlet-mapping>
   	<servlet-name>UserInfoCheck</servlet-name>
   	<url-pattern>/UserInfoCheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateService</servlet-name>
+  	<url-pattern>/UpdateService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LikeCheckService</servlet-name>
+  	<url-pattern>/LikeCheckService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LikeInsertService</servlet-name>
+  	<url-pattern>/LikeInsertService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LikeUpdate</servlet-name>
+  	<url-pattern>/LikeUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LikeCountService</servlet-name>
+  	<url-pattern>/LikeCountService</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+  	<servlet-name>MessageSelectAll</servlet-name>
+  	<url-pattern>/MessageSelectAll</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>removeMessageService</servlet-name>
+  	<url-pattern>/removeMessageService</url-pattern>
   </servlet-mapping>
 
 </web-app>

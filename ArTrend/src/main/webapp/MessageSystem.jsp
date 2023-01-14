@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.MessageVO"%>
+<%@page import="com.smhrd.model.MessageDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,39 +24,74 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<style>
+
+.msgWrapper>div {
+	background-color: rgba(255, 255, 255, 0.681);
+	padding: 20px;
+	border: 1px solid rgb(181, 179, 179);
+	border-radius: 10px;
+	width : 70%;
+	margin-top : 3%;
+}
+.msgHeader, .msg_header>span{
+	width : 70%;
+	font-size : 20px;
+	font-weight : bold;
+
+}
+
+</style>
+
 </head>
 <body>
 	<!-- 현아 헤더  -->
 	<%@include file="header.jsp"%>
 
+	<% ArrayList<MessageVO> list = (ArrayList<MessageVO>)request.getAttribute("my_msg"); %>
 
-	<div class="container">
-        <div class="chat_top"> 
-            <a class="chat_my" href="#"> hy0na </a>
-        </div>
 
-        <div class="chat_header"> 
-            <div> <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_03.jpg" class="chat_pic"> </div>    
-            <a class="chat_user" href="#"> dooboo </a>
-        </div>
+	<div class="msgWrapper" align="center">
+       
+        <div class="msg_header"> 
+            <span> ❤ 나에게 온 메세지 ❤</span>
+           
+        </div>    
 
-        <div class="chat_aside" style="height: 100%; overflow: hidden auto;">
-            <div class="chat_list" style="cursor: pointer;" onclick="location.href='#';">
-                
-                    <img src="./assets/img_gallery/KakaoTalk_20221201_141427224_03.jpg" class="chat_pic_list">
-                    <p class="chat_list_nick"> dooboo </p>
-                
-            </div>
+        <div class="chat_main"> 
+		<table style="text-align : center; width : 100%;">
+			<tbody class="msgHeader">
+				<tr>
+					<td> 번호 </td>
+					<td> 보낸 사람 </td>
+					<td> 내용 </td>
+					<td> 날짜 </td>
+					<td> 삭제 </td>
+				</tr>
+			</tbody>
+			
+			<% if(list != null){
+				for(int i = 0; i<list.size(); i++){ %>
+				<tr>
+				<td> <%= (i+1) %>
+				<td> <%= list.get(i).getSend_email() %> </td>
+				<td> <%= list.get(i).getContents() %> </td>
+				<td> <%= list.get(i).getDay() %> </td>
+				<td> <a href="removeMessageService?msg_num=<%=list.get(i).getMsg_num()%>" style="text-decoration : none;"> ✖ </a></td>	
+				</tr>
+				<%}
+				}else{%>
+					
+					<tr> 
+					<td colspan="5">메세지가 없습니다.</td>
+					</tr>
+				<%}%>
+			
+		</table>
 
-        </div>
-
-        <div class="chat_main" style="height: 100%; overflow: hidden auto;" > main </div>
-
-        <div class="chat_bottom"> 
-            <input type="text" name="message" class="chat_input" placeholder="메세지를 입력해주세요... ">    
-            <input type="submit" class="chat_send" value="send">
-        </div>
-
+ </div>
     </div>
-
+    
+</body>
 </html>

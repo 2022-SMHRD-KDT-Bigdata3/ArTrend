@@ -200,7 +200,7 @@
 							data-bs-toggle="modal" data-bs-target="#exampleModal1">
 							🔔 <span
 								class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-								2 <span class="visually-hidden">unread messages</span>
+								new <span class="visually-hidden">unread messages</span>
 							</span>
 						</button> <!-- Modal -->
 						<div class="modal fade" id="exampleModal1" tabindex="-1"
@@ -216,83 +216,8 @@
 									</div>
 									<div class="modal-body">
 
-										<!-- 좋아요 알람 불러오기 -->
-								<!-- 
-										<script type="text/javascript">
-											$("#alarmBtn")
-													.click(
-															function() {
-																var user_email = info.getUser_email;
-																loadAlarm();
-															});
-
-											function loadAlarm() {
-												$
-														.ajax({
-															url : "LikeSelectAll",
-															method : "POST",
-															data : {
-																"user_email" : user_email
-															},
-															dataType : "JSON",
-															success : resultJson,
-															error : errFun
-														});
-											}
-
-											function resultJson(data) {
-												console.log(data);
-												var html = "";
-												for (var i = 0; i < data.length; i++) {
-													html += data[i]
-															.getUser_email();
-													+"님이 좋아요를 눌렀습니다.";
-													html += "</br>"
-												}
-												$(".modal-body").html(html);
-											}
-											function errFun(err) {
-												console.log(err);
-												console.log("통신 실패ㅠ ");
-											}
-										</script>
-								 -->
-
-
-										<%
-										//LikesDAO dao = new LikesDAO();
-									//	ArrayList<LikesVO> list = dao.like_alarm(info.getUser_email());
-
-									//	for (int i = 0; i < list.size(); i++) {
-										%>
-									<!-- 	<a href="#해당 게시글"> <!-- 좋아요를 누른 사람 이름 + 님이 좋아요를 눌렀습니다. ,,, 비동기 가능? -->
-											<%
-										//	list.get(i).getUser_email();
-											%><!-- 님이 좋아요를 눌렀습니다.
-										</a> </br>-->
-										<%
-									//	}
-										%>
+								
 										
-
-										<p>
-											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
-										</p>
-										<p>
-											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
-										</p>
-										<p>
-											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
-										</p>
-										<p>
-											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
-										</p>
-										<p>
-											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
-										</p>
-										<p>
-											<small> 현아 님이 좋 아 요 를 눌ㄹ ㅓㅅ </small>
-										</p>
 
 									</div>
 									<div class="modal-footer">
@@ -304,7 +229,7 @@
 					</li>
 					
 					<!-- 메세지 화면 이동  -->
-					<li class="nav-item"><a class="nav-link" href="MessageSystem.jsp">
+					<li class="nav-item"><a class="nav-link" href="MessageSelectAll">
 							📩️ </a></li>
 							
 					<!-- 마이갤러리 이동  -->

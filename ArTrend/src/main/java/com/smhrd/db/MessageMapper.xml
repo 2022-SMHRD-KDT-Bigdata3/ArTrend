@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MessageMapper">
+   <!-- namespace : mapper 구별 / id : 각 sql 구별 -->
+   
+   <select id="myMessage" resultType="MessageVO">
+   	select * from MESSAGES where receive_email = #{my_email} order by day desc 
+   </select>
+  	
+  	<!-- 선택 한 메세지 삭제_ajax 사용 -->
+	<delete id="removeMessage">
+		delete from MESSAGES where msg_num= #{msg_num}
+	</delete>
+</mapper>

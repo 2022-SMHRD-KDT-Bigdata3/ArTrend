@@ -7,7 +7,7 @@ public class BoardsVO {
 	private String board_type;
 
 	private String user_email;
-
+ 
 	private String board_title;
 
 	private String board_content;
@@ -27,7 +27,7 @@ public class BoardsVO {
 		board_view = 0;
 		user_email = "123@123.123";
 	}
-
+	
 	// PostWriteService
 	public BoardsVO(String board_type, String user_email, String board_title, String board_content, String board_pic) {
 		this.board_type = board_type;
@@ -50,18 +50,17 @@ public class BoardsVO {
 		this.board_view = board_view;
 		this.board_pic = board_pic;
 	}
-	
-	// 게시글 수정
-		public BoardsVO(int board_num, String board_type, String board_title, String board_content) {
-			this.board_num = board_num;
-			this.board_type = board_type;
-			this.board_title = board_title;
-			this.board_content = board_content;
-		}
-	
 
 	public BoardsVO() {
 
+	}
+	
+	// 게시글 수정
+	public BoardsVO(int board_num, String board_type, String board_title, String board_content) {
+		this.board_num = board_num;
+		this.board_type = board_type;
+		this.board_title = board_title;
+		this.board_content = board_content;
 	}
 
 	public int getBoard_num() {

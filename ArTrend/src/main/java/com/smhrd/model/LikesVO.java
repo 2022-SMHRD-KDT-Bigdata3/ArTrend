@@ -2,32 +2,26 @@ package com.smhrd.model;
 
 public class LikesVO {
 	
-	// 좋아요 번호
-    private int like_num;
-
     // 게시글 번호
     private int board_num;
 
     // 좋아요 누른 유저의 이메일
     private String user_email;
+    
+    // 좋아요 누른 유저의 닉네임
+    private String liker_nick;
 
-	public LikesVO(int like_num, int board_num, String user_email) {
+	public LikesVO(int board_num, String user_email, String liker_nick) {
 		super();
-		this.like_num = like_num;
 		this.board_num = board_num;
 		this.user_email = user_email;
+		this.liker_nick = liker_nick;
 	}
 
-	public LikesVO() {
+	public LikesVO(int board_num, String user_email) {
 		super();
-	}	
-
-	public int getLike_num() {
-		return like_num;
-	}
-
-	public void setLike_num(int like_num) {
-		this.like_num = like_num;
+		this.board_num = board_num;
+		this.user_email = user_email;
 	}
 
 	public int getBoard_num() {
@@ -46,10 +40,23 @@ public class LikesVO {
 		this.user_email = user_email;
 	}
 
+	
+	
+	public String getLiker_nick() {
+		return liker_nick;
+	}
+
+	public void setLiker_nick(String liker_nick) {
+		this.liker_nick = liker_nick;
+	}
+
 	@Override
 	public String toString() {
-		return "LikesVO [like_num=" + like_num + ", board_num=" + board_num + ", user_email=" + user_email + "]";
+		return "LikesVO [board_num=" + board_num + ", user_email=" + user_email + ", liker_nick=" + liker_nick + "]";
 	}
-    
 
+	
+
+    
+    
 }

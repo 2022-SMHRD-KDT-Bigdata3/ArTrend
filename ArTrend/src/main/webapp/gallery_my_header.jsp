@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.BoardsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -45,13 +46,13 @@
 	
 	
 <%	//post_view에서 세션에 저장한 boards를 가져온다
-	ArrayList<BoardsVO> boards_my_header = (ArrayList<BoardsVO>) session.getAttribute("boards");
+	ArrayList<JoinVO> boards_my_header = (ArrayList<JoinVO>) session.getAttribute("boards");
    //로그인할때 저장된 user의 info를 가져옴
 	UserVO info_my_header = (UserVO) session.getAttribute("info");
 	
 	int board_my_cnt = 0;
 	for(int i=0 ; i<boards_my_header.size() ; i++) { 
-		if((boards_my_header.get(i).getUser_email()).equals(info_my_header.getUser_nick())){
+		if((boards_my_header.get(i).getUser_email()).equals(info_my_header.getUser_email())){
 				System.out.print("접속한 유저의 닉네임(확인용):"+info_my_header.getUser_nick());
 				board_my_cnt++;
 			} 
@@ -136,7 +137,7 @@
 
 								<!--  구독중 -->
 								<div class="con">
-                                    <p class="a">구독자</p>
+                                    <p class="a">구독중</p>
                                     <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">400</a></p>
                                     
                                     <!-- Modal -->
