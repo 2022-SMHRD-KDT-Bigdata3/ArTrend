@@ -109,12 +109,22 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.UserPicService</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>PointUpService</servlet-name>
   	<display-name>PointUpService</display-name>
   	<description></description>
   	<servlet-class>com.smhrd.controller.PointUpService</servlet-class>
   </servlet>
+  
+  <servlet>
+  	<servlet-name>SendMessage</servlet-name>
+  	<display-name>SendMessage</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SendMessage</servlet-class>
+  </servlet>
+  
+  
   
   
   
@@ -167,20 +177,18 @@
      <servlet-name>CmtWriteService</servlet-name>
      <url-pattern>/CmtWriteService</url-pattern>
   </servlet-mapping>
-    
-  <servlet>
+  
+   <servlet>
      <servlet-name>CmtWriteServiceAjax</servlet-name>
      <display-name>CmtWriteServiceAjax</display-name>
      <description></description>
      <servlet-class>com.smhrd.controller.CmtWriteServiceAjax</servlet-class>
   </servlet>
-  
-  <servlet>
+    
+  <servlet-mapping>
      <servlet-name>PostModifyService</servlet-name>
-     <display-name>PostModifyService</display-name>
-     <description></description>
-     <servlet-class>com.smhrd.controller.PostModifyService</servlet-class>
-  </servlet>
+     <url-pattern>/PostModifyService</url-pattern>
+  </servlet-mapping>
   
   <servlet-mapping>
      <servlet-name>BoardSelect</servlet-name>
@@ -198,19 +206,28 @@
   </servlet-mapping>
   
   <servlet-mapping>
-     <servlet-name>UserPicService</servlet-name>
-     <url-pattern>/UserPicService</url-pattern>
+  	<servlet-name>UserPicService</servlet-name>
+  	<url-pattern>/UserPicService</url-pattern>
   </servlet-mapping>
   
-    <servlet-mapping>
+   <servlet-mapping>
      <servlet-name>CmtWriteServiceAjax</servlet-name>
      <url-pattern>/CmtWriteServiceAjax</url-pattern>
   </servlet-mapping>
+  
   
   <servlet-mapping>
   	<servlet-name>PointUpService</servlet-name>
   	<url-pattern>/PointUpService</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>SendMessage</servlet-name>
+  	<url-pattern>/SendMessage</url-pattern>
+  </servlet-mapping>
+
+  	
+
   
 </web-app>
 

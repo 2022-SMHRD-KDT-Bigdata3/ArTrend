@@ -66,9 +66,7 @@
     width:max-content;
 }
 
-#subscrib_btn, #msg_btn{
-    border: none;
-}
+
 
 .subinfo {
     display: flex;
@@ -94,17 +92,7 @@
     text-decoration: none;
 }
 
-#subscrib_btn, #msg_btn{
-	color : rgba(14, 138, 41, 0.765);
-	background-color : white;
-	border-color:rgba(14, 138, 41, 0.765);
-	padding : 5px;
-}
 
-.sub_btn:active{
-	color:white;
-	background-color : rgba(14, 138, 41, 0.765);
-}
 
 /* 탭 3개 */
 .class_name2{
@@ -122,3 +110,50 @@
  .sub_msg_btn{
  	display: flex;	
  }
+ 
+ #message_send_btn{
+    color : rgba(14, 138, 41, 0.765);
+	background-color : white;
+	border-radius: 4px;
+	padding : 5px;
+    border: 1px solid rgba(14, 138, 41, 0.765);
+   
+ }
+ 
+#message_send_btn:active{
+	color:white;
+	background-color : rgba(14, 138, 41, 0.765);
+}
+
+#subscrib_btn{
+    color : rgba(14, 138, 41, 0.765);
+	background-color : white;
+	border-radius: 4px;
+	padding : 5px;
+    border: 1px solid rgba(14, 138, 41, 0.765);
+}
+
+#subscrib_btn:active{
+	color:white;
+	background-color : rgba(14, 138, 41, 0.765);
+}
+ 
+
+#msg_send_bt {
+    color : rgba(14, 138, 41, 0.765);
+	background-color : white;
+	border-radius: 4px;
+	padding : 5px;
+    border: 1px solid rgba(14, 138, 41, 0.765);
+
+}
+
+#msg_close_bt{
+    color : rgba(14, 138, 41, 0.765);
+	background-color : white;
+	border-radius: 4px;
+	padding : 5px;
+    border: 1px solid rgba(14, 138, 41, 0.765);
+
+} 
+ 

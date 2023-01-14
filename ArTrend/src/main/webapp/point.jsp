@@ -90,20 +90,14 @@
     </div>
     <hr width="70%">
       
-    <div class="row mb-3">
-        <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm" ><strong>결제 금액</strong></label>
-    <div class="col-sm-4">
-        받아와야된는딩?
-        </div>
-    </div>
-
     <div class="agree-area" id="agree_checkbox">
         <input type="submit" id="agree" value="✔" style=" border-radius: 50%; border-color:white;background-color:white;" >
         <label for="l_agree">주문 내용을 확인하였으며 결제 진행에 동의합니다. '결제하기'를 눌러주세요.
         </label>
     </div>
     <br>
-    
+    <br>
+    <br>
     <button type="button" class="input-btn" id="payment-button" 
     style="font-weight:bold;background-color: white;border: 1px solid rgba(14, 138, 41, 0.765);color: rgba(14, 138, 41, 0.765);border-radius: 4px;">결제하기</button>
     </form>
@@ -119,12 +113,12 @@
       var button = document.getElementById('payment-button') // 결제하기 버튼
       button.addEventListener('click', function () {
         tossPayments.requestPayment('카드', {
-          amount: 1,
+          amount: 5000,
           orderId: 'fiqdmSdmz2JdmCI5lPUuK',
           orderName: '포인트 충전',
           customerName: '박토스',
-          successUrl: 'http://localhost:8081/ArTrend-copy/pay_success.jsp',
-          failUrl: 'http://localhost:8081/fail',
+          successUrl: 'http://localhost:8082/ArTrend-copy/pay_success.jsp',
+          failUrl: 'http://localhost:8082/fail',
         })
       })
     </script>

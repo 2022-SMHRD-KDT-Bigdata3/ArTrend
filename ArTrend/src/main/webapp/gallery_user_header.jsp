@@ -49,6 +49,8 @@
 <%	//post_view에서 세션에 저장한 boards를 가져온다
 	ArrayList<BoardsVO> boards_user_header = (ArrayList<BoardsVO>) session.getAttribute("boards");
 	String user_nick_header = request.getParameter("getUser_email");
+
+	
 	//확인용콘솔출력
 	System.out.print(user_nick_header);
 	int board_user_cnt = 0;
@@ -75,10 +77,38 @@
 								<h2 class="name">@<%=user_nick_header %></h2>
 								<div class="sub_msg_btn">
 									<button id="subscrib_btn" onclick = "location.href='#'"><span>구독하기</span></button>
-                                    <button id="msg_btn" onclick = "location.href = 'MessageSystem.jsp'"><span>메세지</span></button>
-								</div>
-							
-							</div>
+                                    
+                                    <!-- 메세지 보내기 모달창 -->
+                                    <button type="button" id="message_send_btn" style="border:hidden;background: white;" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>메세지</span></button>
+                                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                         <div class="modal-dialog">
+                                            <div class="modal-content">
+                                               <div class="modal-header">
+                                                  <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                                               	  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                               </div>
+                                               <div class="modal-body">
+                                               	 <form action="SendMessage" method="post" >
+                                                  <div class="mb-3">
+                                                 	<label for="recipient-name" class="col-form-label">받는 사람</label>
+                                                 	<input type="text" class="form-control" name="receive_email" id="recipient-name" >
+                                                 </div>
+                                                 <div class="mb-3">
+                                                 	<label for="message-text" class="col-form-label">메세지</label>
+                                                 	<input type="text" class="form-control" id="message-text" name="contents">
+                                                 </div>
+                                                 <div>
+                                                  <button type="submit" data-bs-dismiss="modal" id="msg_send_bt" style="border:hidden;background: white;" onclick="location.href='main.jsp'" ><span>보내기</span></button>
+                                                  <button type="button" data-bs-dismiss="modal" id="msg_close_bt" style="border:hidden;background: white;" ><span>닫기</span></button>
+                                                 </div>
+                                                </form>
+                                               </div>
+                                              
+                                            </div>
+                                          </div>
+                                       </div>
+                                   </div>
+                                </div>
 							<div class="subinfo">
 								<div class="con">
 									<p class="a">게시글 수</p>
