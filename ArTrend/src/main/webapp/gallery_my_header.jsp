@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -49,13 +50,17 @@ UserVO user_status = dao_my_header.userSelectOne(info.getUser_email());%>
 	
 	
 <%   //post_view에서 세션에 저장한 boards를 가져온다
-   ArrayList<JoinVO> boards_my_header = (ArrayList<JoinVO>) session.getAttribute("boards");
-   //로그인할때 저장된 user의 info를 가져옴
-   UserVO info_my_header = (UserVO) session.getAttribute("info");
+   
+
+// dao에서 게시글 정보 받아오기 
+BoardsDAO my_header_dao = new BoardsDAO();
+ArrayList<JoinVO> my_header_vo = my_header_dao.getBoardNick();
+//로그인할때 저장된 user의 info를 가져옴
+UserVO info_my_header = (UserVO) session.getAttribute("info");
    
    int board_my_cnt = 0;
-   for(int i=0 ; i<boards_my_header.size() ; i++) { 
-      if((boards_my_header.get(i).getUser_email()).equals(info_my_header.getUser_email())){
+   for(int i=0 ; i<my_header_vo.size() ; i++) { 
+      if((my_header_vo.get(i).getUser_email()).equals(info_my_header.getUser_email())){
             System.out.print("접속한 유저의 닉네임(확인용):"+info_my_header.getUser_nick());
             board_my_cnt++;
          } 

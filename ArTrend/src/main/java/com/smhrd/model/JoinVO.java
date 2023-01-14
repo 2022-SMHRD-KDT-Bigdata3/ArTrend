@@ -42,9 +42,10 @@ public class JoinVO {
     }
 
 
-	public JoinVO(String user_email, String user_nick, int board_num, String board_type, String board_title,
+	public JoinVO(String user_email, String user_pic, String user_nick, int board_num, String board_type, String board_title,
 			String board_content, String board_date, int board_view, String board_pic) {
 		super();
+		this.user_pic = user_pic;
 		this.user_email = user_email;
 		this.user_nick = user_nick;
 		this.board_num = board_num;

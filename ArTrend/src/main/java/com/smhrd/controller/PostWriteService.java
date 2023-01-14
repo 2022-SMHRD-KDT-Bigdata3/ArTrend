@@ -63,9 +63,10 @@ public class PostWriteService extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
-		out.print("<script language='javascript'>");
-		out.print("self.close();");
-		out.print("</script>");
+	      out.print("<script language='javascript'>");
+	      out.print("opener.window.location.reload();");
+	      out.print("self.close();");
+	      out.print("</script>");
 
 	}
 

@@ -97,14 +97,11 @@
 		<div class="container container1" align="center">
 
 
-			<div class="support_div_sub support_title">
-
-				<h5></h5>
-			</div>
 
 			<div class="support_div_sub support_img" style="width: 500px">
 				<div class="support_div support_post">
 					<div class="support_div support_btn">
+					<br><br><br><br>
 
 						<!-- 본인의 갤러리 이니까 후원물품을 추가하는 버튼이 필요
 							누르게 된다면 후원물품 추가 페이지로 이동(gallery_user_support.jsp에서는 필요없는 버튼)-->
@@ -118,9 +115,6 @@
 							
 							<% }else if (support != null){ %>
 						
-							
-									
-							
 							
 							
 					</div>

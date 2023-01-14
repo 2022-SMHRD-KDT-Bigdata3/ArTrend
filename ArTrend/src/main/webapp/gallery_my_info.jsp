@@ -81,6 +81,7 @@ System.out.println(my_info.getUserInfo());%>
                 	<%=info_my1996.getUserInfo() %>
                 </span>
             </div>
+            <br><br><br><br>
        
 
         <!-- 소개글 수정하기(소개글이 있을 경우) or 소개글 추가하기(소개글이 없을 경우) 버튼-->
@@ -88,7 +89,7 @@ System.out.println(my_info.getUserInfo());%>
         
       
             <div class="gallery_info_btn">
-                 <div class=" gallery_info_pen" style=" margin: 0 0 0 160px; padding: 0;">
+                 <div class=" gallery_info_pen" style=" margin: 0 0 0 220px; padding: 0;">
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
                     <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
                     <i class="gallery_info_btn1 fa-regular fa-square-plus post_append" style="font-size: 2rem; "> </i>

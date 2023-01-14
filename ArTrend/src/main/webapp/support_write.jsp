@@ -19,14 +19,14 @@
   
 		<form action="SupportUpdateService"method="post" onsubmit="return getContent()" enctype="multipart/form-data">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="supportWriteLabel">후원 상품 등록하기</h1>
+          <h1 class="modal-title fs-5" id="supportWriteLabel" style="margin: 0 0 0 420px;">후원 상품 등록하기</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="write-container">
-                <div class="write-img-container">
+                <div class="write-img-container" style="padding: 0 0 20px 0;">
                  <img id="write-img" src="" alt="">
-                	 <label class="control-label col-sm-2" for="fileName">파일 :</label>
+                	 <label class="control-label col-sm-2" for="fileName" style="padding: 20px;">파일 :</label>
 				    <input type="file" name="gift_pic" id="fileName">
 				  <div class="write-info-container">
                     <div class="support-info-title">상품명</div>
@@ -41,12 +41,12 @@
                     </div>
                     <div class="support-info-title">후원 액수</div>
                     <div class="support-heart-container">
-                        <input class="support-heart" type="number" min="5000" value="5000">
+                        <input class="support-heart" type="number" min="5000" value="">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" style="margin: 0 410px 0 0;">
           <button type="button submit" class="btn btn-primary" data-bs-dismiss="modal">등록하기</button>
         </div>
       </div>

@@ -98,32 +98,38 @@
 		<div class="container container1" align="center">
 
 
-				<div class="support_div_sub support_title">
-				<%if(user_support_vo != null){ %>
-					<h5>
-						<%=user_support_vo.getGift_title()%>
-					</h5>
-				</div>
 
-				<div class="support_div_sub support_img" style="width:40%">
-			<div class="support_div support_post">
-				<div class="support_div support_btn">
-				
-                    	<%@include file="support_write.jsp" %>
+			<div class="support_div_sub support_img" style="width: 500px">
+				<div class="support_div support_post">
+					<div class="support_div support_btn">
+					<br><br><br><br>
+							
+							
+					</div>
+					<div class="support_div">
+						<h5>
 						
-						
-				<!-- 등록된 글이 있을 경우 -->
+							<%=user_support_vo.getGift_title()%>
+							
+							
+						</h5>
+					</div>
 					
+					<!-- 이미지 넣어주긔@@@ -->
+					
+					<img src="gift_imges/<%= user_support_vo.getGift_pic() %>"
+						alt="">
 						
-						
-				</div>
-
 				</div>
 
 				<div class="support_div_sub support_contents">
-				
+					<p>
+						
+							<%=user_support_vo.getGift_content()%>
+							
+							
+					</p>
 				</div>
-
 
 			<!-- 유저의 갤러리니까 후원하기 버튼 있어야함 (gallery_user_support.jsp에서는 필요한 버튼) -->
 
@@ -195,7 +201,6 @@
 			</div>
 		</div>
 	</div> 
-<%} %>
 	<!--부트스트랩 js-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

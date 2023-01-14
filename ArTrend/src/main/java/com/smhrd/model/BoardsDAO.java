@@ -71,5 +71,16 @@ public class BoardsDAO {
 		
 		return res;
 	}
+
+	   // 게시글 삭제
+	public int boardDelete(Integer board_num) {
+		
+		session = sqlSessionFactory.openSession(true);
+		
+		int res = session.delete("boardDelete", board_num);
+		session.close();
+		
+		return res;
+	}
 	  
 }

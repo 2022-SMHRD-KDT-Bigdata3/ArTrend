@@ -127,6 +127,8 @@ if(boards != null) {
 						<!-- 게시판 상세 - 유저 -->
                            <div class="post-user-container">   
                               <span style="text-decoration: none; color: black;"></span>
+                              
+                              			<!-- 해당 유저의 프로필 사진이 떠야하는데.. 안뜸.... why.... -->
                                        <img class="user-card-img" src="uimges/<%=boards.get(i).getUser_pic()%>" alt="">
                                        <span class="card-user-name" style="cursor:pointer;" onclick="location.href='UserInfoCheck?getUser_email=<%= boards.get(i).getUser_email()%>&getUser_nick=<%=boards.get(i).getUser_nick()%>'">
                                           <%= boards.get(i).getUser_nick() %>
