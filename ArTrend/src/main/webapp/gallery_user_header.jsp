@@ -144,9 +144,7 @@
                         <!-- 구독자 목록 버튼 -->
                         <div class="con">
                                     <p class="a">구독자</p>
-                                    
-                           
-                                    <p><a class="a_font subscriberCnt" data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">412</a></p>
+<a class="a_font" data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#"><span class="subscriberCnt">412</span></a>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribed_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -192,8 +190,9 @@
 
                         <!--  구독중 -->
                         <div class="con">
-                                    <p class="a">구독중</p>
-                                    <p ><a class="a_font subscribingCnt" data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">2</a></p>
+						<p class="a">구독중</p>
+						<a class="a_font subscribingCnt" data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#"><span class="subscribingCnt">2</span></a>
+                             
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribing_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -235,61 +234,40 @@
  <script>
  //구독체크
  $('#subscrib_btn').click(function(){
-	 var my_nick = '<%= info.getUser_nick()%>';
-	 var my_email = '<%= info.getUser_email()%>';
-	 var gallery_user_email = '<%=user_email_header%>';
-	 
-	 $.ajax({
-		 url : "SubCheckService",
-		 method : "POST",
-		 data : {"my_nick" : my_nick, "my_email" : my_email, "gallery_user_email" : gallery_user_email},
-		 success : function(btn_status){
-			 subscriberCnt(gallery_user_email);
-			 subscribingCnt(gallery_user_email);
-			 $(".subBtn_text").html(btn_status);
-			 console.log(btn_status);
-			 
-		 },
-		 error : function(){
-			 console.log("통신 실패 ");
-			 
-		 }
-	 })
- })
+    var my_nick = '<%= info.getUser_nick()%>';
+    var my_email = '<%= info.getUser_email()%>';
+    var gallery_user_email = '<%=user_email_header%>';
+    
+    $.ajax({
+       url : "SubCheckService",
+       method : "POST",
+       datatype : "JSON",
+       data : {"my_nick" : my_nick, "my_email" : my_email, "gallery_user_email" : gallery_user_email},
+       success : function(data){
+          console.log(data);
+          
+          var datum = JSON.parse(data);
+          
+          $(".subBtn_text").html(datum.btn_status);
+          var beforeSubCnt = Number($('.subscriberCnt').text());
+          
+          if (datum.btn_crease == "PLUS") {
+             $(".subscriberCnt").text(beforeSubCnt+1);
+          }else {
+             $(".subscriberCnt").text(beforeSubCnt-1);
+          }
+          
+          console.log(btn_status);
+          
+       },
+       error : function(){
+          console.log("통신 실패 ");
+          
+       }
+    });
+ });
  
- 
- 
- // 구독자  비동기
- function subscriberCnt(gallery_user_email){
-	 
-	 $.ajax({
-		 url : "SubCountService",
-		 type : "POST",
-		 data : {"gallery_user_email" : gallery_user_email},
-		 success : function(subscriberCnt){
-			 $(".subscriberCnt").html(400 + subscriberCnt);
-		 },
-		 error : function(){
-			 console.log("통신 실패 ");
-		 }
-	 })
-};
 
- // 구독중   비동기
- function subscribingCnt(gallery_user_email){
-	 $.ajax({
-		 url : "SubCountService",
-		 type : "POST",
-		 data : {"gallery_user_email" : gallery_user_email},
-		 success : function(subscribingCnt){
-			 $(".subscribingCnt").html(100 + subscribingCnt);
-		 },
-		 error : function(){
-			 console.log("통신 실패 ");
-		 }
-	 })
-};
- 
  
 </script>  
 

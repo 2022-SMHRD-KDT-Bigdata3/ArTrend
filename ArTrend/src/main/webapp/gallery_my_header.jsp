@@ -64,6 +64,14 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
          } 
       }
       
+   
+// 나의 구독자 , 구독중 수 받아오기
+String sub_my_email = info.getUser_email();
+SubscribeDAO dao = new SubscribeDAO();
+int mySubscriberCnt = dao.mySubscriberCnt(sub_my_email);
+int mySubscribingCnt = dao.mySubscribingCnt(sub_my_email);
+   
+   
    //구독자 구독중 카운트
    
 //SubscribeDAO my_sub_dao = new SubscribeDAO();
@@ -107,7 +115,7 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
 								<!-- 구독자 목록 버튼 -->
 								<div class="con">
                                     <p class="a">구독자</p>
-                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">154</a></p>
+                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#"><%= mySubscriberCnt  %></a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribed_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -154,7 +162,7 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
 								<!--  구독중 -->
 								<div class="con">
                                     <p class="a">구독중</p>
-                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">4</a></p>
+                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#"><%= mySubscribingCnt %></a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribing_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

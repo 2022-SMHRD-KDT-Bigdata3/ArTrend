@@ -57,9 +57,9 @@
 	String user_email = my_support.getUser_email();
 
 	//support 정보 받아오기 
-	SupportDAO dao = new SupportDAO();
+	SupportDAO sueprgreatdao = new SupportDAO();
 
-	SupportVO support = dao.getSupport(user_email);
+	SupportVO support = sueprgreatdao.getSupport(user_email);
 	response.setCharacterEncoding("UTF-8"); // 한글이 들어가기때문에 인코딩
 	
 	if (support != null) {

@@ -28,5 +28,18 @@
 	<select id="subscribingCnt">
 	select count(*) from subscribes where subscriber_email=#{user_email}
 	</select>	
+	
+	
+	
+	<!-- 나를 구독하는 사람의 수 -->
+	<select id="mySubscriberCnt" resultType="int" >
+		select count(*) from subscribes where user_email=#{sub_my_email}
+	</select>	
+	
+	<!-- 나를 구독하는 사람의 수  -->
+	<select id="mySubscribingCnt" resultType="int">
+		select count(*) from subscribes where subscriber_email=#{sub_my_email}
+	</select>
+	
 
 </mapper>

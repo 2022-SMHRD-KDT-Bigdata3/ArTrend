@@ -68,6 +68,25 @@ public class SubscribeDAO {
 			return subscribingCnt;
 		}
 			
+		// 나를 구독하는 사람 수 세기 
+		public int mySubscriberCnt(String sub_my_email) {
+			session = sqlSessionFactory.openSession(true);
+			
+			int subscriberCnt = (Integer)session.selectOne("mySubscriberCnt", sub_my_email);
+			session.close();
+			
+			return subscriberCnt;
+		}
+		
+		// 내가  구독하는 사람 수 세기 
+		public int mySubscribingCnt(String sub_my_email) {
+			session = sqlSessionFactory.openSession(true);
+			
+			int subscriberCnt = (Integer)session.selectOne("mySubscribingCnt", sub_my_email);
+			session.close();
+			
+			return subscriberCnt;
+		}
 	
-	
+		
 }

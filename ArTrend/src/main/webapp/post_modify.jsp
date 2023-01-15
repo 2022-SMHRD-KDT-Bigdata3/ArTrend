@@ -42,7 +42,7 @@
 	%>
 		
 		<form action="PostModifyService" method="post">
-            <div class="write-container">
+            <div class="write-container"  style="margin: 0 0 0 130px;">
                 <div class="write-img-container">
                 
                 <!-- 게시글 수정 mapper에서 where 매칭 시켜줄 값 - hidden으로 해서 출력은 X  -->
