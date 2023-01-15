@@ -41,7 +41,7 @@ UserVO write_post = (UserVO) session.getAttribute("info");
                         <input type="text" class="write-title-input" placeholder="제목을 입력하세요" name="board_title">
                     </div>
                     <div class="write-category-container">
-                        <input list="cate-list" class="write-category-input" placeholder="카테고리를 선택하세요" name="board_type">
+                        <input list="cate-list" class="write-category-input" placeholder="카테고리를 선택하세요" name="board_type" autocomplete="off">
                         <datalist id="cate-list">
                             <option value="그림"></option>
                             <option value="사진"></option>

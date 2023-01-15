@@ -30,7 +30,7 @@
   <h5>포인트 충전</h5>
   <br>
   <div class="pay_box">
-    <form action="PointUpService" method="post">
+    <form action="PointUpService" method="post" style="height: 600px;">
       <div class="recharge">
         <div class="point1">
           <p>충전할 포인트</p>
@@ -91,15 +91,18 @@
     <hr width="70%">
       
     <div class="agree-area" id="agree_checkbox">
-        <input type="submit" id="agree" value="✔" style=" border-radius: 50%; border-color:white;background-color:white;" >
-        <label for="l_agree">주문 내용을 확인하였으며 결제 진행에 동의합니다. '결제하기'를 눌러주세요.
-        </label>
+        <input type="submit" id="agree" value="✔" style=" border-radius: 50%; border-color:white; background-color:white;" >
+        <label for="l_agree">주문 내용을 확인하였으며 결제 진행에 동의합니다.
+        <br>'결제하기'를 눌러주세요.</label>
+        
     </div>
-    <br>
-    <br>
-    <br>
     <button type="button" class="input-btn" id="payment-button" 
     style="font-weight:bold;background-color: white;border: 1px solid rgba(14, 138, 41, 0.765);color: rgba(14, 138, 41, 0.765);border-radius: 4px;">결제하기</button>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
     </form>
   
   
@@ -117,8 +120,8 @@
           orderId: 'fiqdmSdmz2JdmCI5lPUuK',
           orderName: '포인트 충전',
           customerName: '박토스',
-          successUrl: 'http://localhost:8088/ArTrend/pay_success.jsp',
-          failUrl: 'http://localhost:8088/ArTrend/fail',
+          successUrl: 'http://localhost:8081/ArTrend/pay_success.jsp',
+          failUrl: 'http://localhost:8081/ArTrend/fail',
         })
       })
     </script>

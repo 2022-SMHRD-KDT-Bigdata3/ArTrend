@@ -186,6 +186,13 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.removeMessageService</servlet-class>
   </servlet>
+  
+    <servlet>
+  	<servlet-name>SubCheckService</servlet-name>
+  	<display-name>SubCheckService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.SubCheckService</servlet-class>
+  </servlet>
      
   
   <servlet-mapping>
@@ -260,6 +267,12 @@
      <description></description>
      <servlet-class>com.smhrd.controller.SendMessage</servlet-class>
   </servlet>
+    <servlet>
+    	<servlet-name>ViewIncService</servlet-name>
+    	<display-name>ViewIncService</display-name>
+    	<description></description>
+    	<servlet-class>com.smhrd.controller.ViewIncService</servlet-class>
+    </servlet>
   
   <servlet-mapping>
      <servlet-name>BoardSelect</servlet-name>
@@ -357,5 +370,15 @@
   	<servlet-name>removeMessageService</servlet-name>
   	<url-pattern>/removeMessageService</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewIncService</servlet-name>
+  	<url-pattern>/ViewIncService</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>SubCheckService</servlet-name>
+  	<url-pattern>/SubCheckService</url-pattern>
+  </servlet-mapping>
+  
+  
   
 </web-app>

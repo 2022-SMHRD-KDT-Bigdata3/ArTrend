@@ -36,7 +36,7 @@
 	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="main.jsp"> <img
-				src="./assets/images/logo_green.png" alt="ArTrend" width="200px"
+				src="./assets/images/logo_green2.png" alt="ArTrend" width="200px"
 				height="80px">
 			</a>
 			<button class="navbar-toggler" type="button"
@@ -193,18 +193,18 @@
 					%>
 					<!-- 로그인 후 화면 네비게이션 메뉴 -->
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="main.jsp" style="padding: 8px 14px 0 14px;"> <i class="fa-solid fa-house nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i> </a></li>
+						aria-current="page" href="main.jsp" style="padding: 8px 0 0 8px;"> <i class="fa-solid fa-house nav_icon" style="color: rgba(14, 138, 41, 0.765);  font-size:20px;"></i> </a></li>
 
-					<li class="nav-item"><a class="nav-link" href="main_sub.jsp" style="padding: 8px 14px 0 0;">
+					<li class="nav-item"><a class="nav-link" href="main_sub.jsp" style="padding: 8px 8px 0 0;">
 							<i class="fa-solid fa-star nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i></a></li>
 
 					<!-- 알림 버튼 -->
 					<li class="nav-item">
 						<!-- Button trigger modal -->
 						<button type="button" id="alarmBtn" class="btn position-relative"
-							data-bs-toggle="modal" data-bs-target="#exampleModal1" style="padding: 8px 14px 0 0; border: none;">
-							<i class="fa-regular fa-bell nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i> <span
-								class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+							data-bs-toggle="modal" data-bs-target="#exampleModal1" style="padding: 8px 18px 0 8px; border: none;">
+							<i class="fa-regular fa-bell" style="color: rgba(14, 138, 41, 0.765);  font-size:22px;"></i>
+							<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 								new <span class="visually-hidden">unread messages</span>
 							</span>
 						</button> <!-- Modal -->
@@ -235,8 +235,8 @@
 					
 					<!-- 메세지 화면 이동  -->
 
-					<li class="nav-item"><a class="nav-link" href="MessageSelectAll" style="padding: 8px 8px 0 0;">
-							<i class="fa-regular fa-comments nav_icon" style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i></a></li>
+					<li class="nav-item"><a class="nav-link" href="MessageSelectAll" style="padding: 8px 0 0 0;">
+					<i class="fa-regular fa-envelope"  style="color: rgba(14, 138, 41, 0.765);;  font-size:20px;"></i></a></li>
 			
 					<!-- 마이갤러리 이동  -->
 					<li class="nav-item dropdown">

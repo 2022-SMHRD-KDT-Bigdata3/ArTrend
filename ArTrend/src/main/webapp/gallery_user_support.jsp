@@ -143,10 +143,10 @@
 					<div class="modal-dialog">
 						<div class="modal-content" style="width:100%">
 							<div class="modal-header">
-								<h1 class="modal-title fs-6" id="exampleModalLabel">후원하기 /
+								<h1 class="modal-title fs-6" id="exampleModalLabel" >후원하기 
 								
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
+									aria-label="Close" style="margin: 0 0 0 350px;"></button>
 							</div>
 							<div class="modal-body"> 
 							

@@ -128,19 +128,19 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
                         <div class="post-img-container">
                         
                         <!-- 게시판 상세 - 이미지 -->
-                           <img class="img_post" src="imges/<%= boards_my_post.get(i).getBoard_pic() %>" alt="">
+                           <img class="img_post" src="imges/<%= boards_my_post.get(i).getBoard_pic() %>" alt="" style="margin: 0 0 20px 0;">
                            
                         </div>
                         
                         <!-- 게시글 상세보기  -->
                         <div class="post-rest-container">
                            <div class="post-rest-header">
-                              <div class="post-user-container">
+                              <div class="post-user-container"style="padding: 0 0 20px 0;">
                               
                   <!-- 게시판 상세 - 유저 -->
                            <a style="text-decoration: none; color: black;"
                            href ="gallery_user.jsp?getUser_email=<%= boards_my_post.get(i).getUser_email()%>"></a>
-                                    <img class="user-card-img" src="uimges/<%=boards_my_post.get(i).getBoard_pic()%>" alt="">
+                                    <img class="user-card-img" src="uimges/<%=boards_my_post.get(i).getUser_pic()%>" alt="">
                                        <span class="card-user-name">
                                           <%= boards_my_post.get(i).getUser_nick() %>
                                           </span>

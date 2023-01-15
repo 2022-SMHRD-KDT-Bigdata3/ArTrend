@@ -88,9 +88,10 @@ if(boards != null) {
    <div class="col-lg-4 col-md-6">
       <div class="card text-bg-light">
 
-         <a href="javascript:checkModel(<%=i%>)" class="banner_img">
+<a href="javascript:checkModel(<%=i%>)" class="banner_img<%=i%> banner_img">
           <img class="img_post"
-            src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
+            src="imges/<%= boards.get(i).getBoard_pic() %>" alt=""
+            >
             <p class="hover_text">
                <%= boards.get(i).getBoard_title()%>
                
@@ -116,8 +117,8 @@ if(boards != null) {
                         <div class="post-img-container">
                         
                         <!-- 게시판 상세 - 이미지 -->
-                           <img class="img_post" src="imges/<%= boards.get(i).getBoard_pic() %>" alt="">
-                           <p class="hover_text">몽크 - 절규</p>
+                           <img class="img_post" src="imges/<%= boards.get(i).getBoard_pic() %>" alt="" style="padding: 0 0 20px 0;">
+                           <p class="hover_text"></p>
                         </div>
                         
                         <!-- 게시글 상세보기  -->
@@ -153,8 +154,8 @@ if(boards != null) {
                                  </p>
                               </div>
                            </div>
-                           <div class="comment-container-padding">
-                              <div class="post-comment-container comment-container-ajax<%=i%>">
+                           <div class="comment-container-padding" style="height: 100px;">
+                              <div class="post-comment-container comment-container-ajax<%=i%>"style="height: 100px;">
                                  <%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
                                     if (cmtView.get(allCmt).getBoard_num() == boards.get(i).getBoard_num()) {%>
                                  <div class="post-comment-card">
@@ -182,7 +183,7 @@ if(boards != null) {
                            
 
                                     <button class="normal-btn">
-                                       <img src="./assets/kjh/icon/journal.svg" alt="">
+                                       <img src="./assets/kjh/icon/journal.svg" alt="" style="width: 18px; height: 18px;">
                                     </button>
                                  </div>
                                  <div class="post-right-btn">
@@ -194,8 +195,8 @@ if(boards != null) {
                            </div>
                            <div class="post-view-padding">
                               <div class="post-view-info">
-                                 <span class="likes">3.2k likes</span><span class="views">10k
-                                    views</span>
+                                 <span class="likes">3.2k likes</span>
+                           <span class="views<%=i%>"><%= boards.get(i).getBoard_view()%></span><span> views</span>
                               </div>
                            </div>
                            <div class="comment-box-padding">
@@ -325,7 +326,27 @@ function likeCount(){
 likeCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
 
 
-
+<%for (int i = 0; i<boards.size(); i++ ) {%>
+$('.banner_img<%=i%>').click(function() {
+    var board_num = $('.cmt_board_num_ajax<%=i%>').val();
+    
+    $.ajax({
+       url : "ViewIncService",
+       method : "POST",
+       data : {"board_num" : board_num},
+       dataType : "JSON",
+       success : function(data){
+           console.log("통신성공");
+           
+           var beforeViews = Number($('.views<%=i%>').text());
+           $('.views<%=i%>').text(beforeViews + 1);
+          },
+          error : function(err){
+             console.log("통신 실패")
+          }
+    });
+ });
+<%}%>
 
 
 </script>

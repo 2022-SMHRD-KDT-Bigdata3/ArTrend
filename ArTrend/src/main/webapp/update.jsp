@@ -59,7 +59,7 @@ UserVO user_status = dao.userSelectOne(info.getUser_email());%>
     <div class = "info_modify">
         <form action="UpdateService" method="post" style="display:inline-block;">
             <div class="row ">
-                <label for="colFormLabel" class="col-sm-5 col-form-label">변경할 닉네임 입력 </label>
+                <label for="colFormLabel" class="col-sm-5 col-form-label">변경할 닉네임입력 </label>
                 <div class="col-sm-7">
                 <input type="text" value="<%= info.getUser_nick() %>" class="form-control" id="colFormLabelSm" name="user_nick" placeholder="변경할 닉네임 ">
                 <br>

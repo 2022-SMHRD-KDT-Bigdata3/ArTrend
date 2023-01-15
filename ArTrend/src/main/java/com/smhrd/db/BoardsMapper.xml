@@ -18,7 +18,7 @@
 
 
   <select id="getBoardNick" resultType="JoinVO">
-      select b.user_email, u.user_pic, u.user_nick, b.board_num, b.board_type, b.board_title, b.board_content, b.board_date, b.board_view, b.board_pic from boards b, users u where b.user_email = u.user_email
+      select b.user_email, u.user_pic, u.user_nick, b.board_num, b.board_type, b.board_title, b.board_content, b.board_date, b.board_view, b.board_pic from boards b, users u where b.user_email = u.user_email order by b.board_date desc 
 
    </select>
 
@@ -36,5 +36,10 @@
 	<delete id="boardDelete">
 		delete from boards where board_num=#{board_num}
 	</delete>
+	
+	<!-- 조회수 -->
+	   <update id="viewInc">
+      update boards set board_view = board_view + 1 where board_num = #{board_num}
+   </update>
 	
 </mapper>

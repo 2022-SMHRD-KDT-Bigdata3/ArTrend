@@ -74,7 +74,7 @@ System.out.println(my_info.getUserInfo());%>
         
         <div class="gallery_info_div">
             <div class="gallery_info_title">
-                <h3><%=info_my1996.getUser_nick() %>님의 소개글입니다!</h3>
+                <h3>@<%=info_my1996.getUser_nick() %> 님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
                 <span> 
@@ -89,7 +89,7 @@ System.out.println(my_info.getUserInfo());%>
         
       
             <div class="gallery_info_btn">
-                 <div class=" gallery_info_pen" style=" margin: 0 0 0 220px; padding: 0;">
+                 <div class=" gallery_info_pen" style=" margin: 0 0 0 180px; padding: 0;">
                     <!-- 소개글 추가하기(소개글이 없을 경우) 버튼-->
                     <button style="border: none; background-color: white;" type="button" data-bs-toggle="modal" data-bs-target="#newintro">
                     <i class="gallery_info_btn1 fa-regular fa-square-plus post_append" style="font-size: 2rem; "> </i>

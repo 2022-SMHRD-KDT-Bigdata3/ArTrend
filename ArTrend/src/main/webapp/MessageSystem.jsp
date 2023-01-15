@@ -16,6 +16,11 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
+	
+	<!--아이콘-->
+<script src="https://kit.fontawesome.com/fa92a52c34.js"
+	crossorigin="anonymous"></script>
+	
 
 <!-- 현아 css -->
 <link href="./assets/css/main.css" rel="stylesheet">
@@ -55,7 +60,7 @@
 	<div class="msgWrapper" align="center">
        
         <div class="msg_header"> 
-            <span> ❤ 나에게 온 메세지 ❤</span>
+            <span><i class="fa-solid fa-heart" style="color: rgba(14, 138, 41, 0.765);"></i> 나에게 온 메세지 <i class="fa-solid fa-heart" style="color: rgba(14, 138, 41, 0.765);"></i></span>
            
         </div>    
 
@@ -92,6 +97,9 @@
 
  </div>
     </div>
+    
+
+               
     
 </body>
 </html>

@@ -65,7 +65,7 @@ if (user_info_vo != null) {
         <!--소개글이 나올 디브-->
         <div class="gallery_info_div">
             <div class="gallery_info_title">
-                <h3><%=user_info_vo.getUser_nick() %>님의 소개글입니다!</h3>
+                <h3>@<%=user_info_vo.getUser_nick() %> 님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
                 <span>

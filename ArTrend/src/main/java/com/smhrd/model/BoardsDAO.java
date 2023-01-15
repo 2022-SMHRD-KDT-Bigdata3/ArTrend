@@ -82,4 +82,15 @@ public class BoardsDAO {
 		return res;
 	}
 	  
+	//조회수
+	
+	   public int viewInc(int board_num) {
+		      
+		      session = sqlSessionFactory.openSession(true);
+		      int res = session.update("viewInc", board_num);
+		      session.close();
+		      
+		      return res;
+		      
+		   }
 }

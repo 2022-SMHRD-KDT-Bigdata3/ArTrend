@@ -23,6 +23,8 @@
 
 <!-- 현아 header css -->
 <link href="./assets/css/header.css" rel="stylesheet">
+    <!-- footer css -->
+    <link href="./assets/css/footer.css" rel="stylesheet">
 
 <!-- 장 -->
 <link rel="stylesheet" href="./assets/kjh/css/postModal.css">
@@ -128,7 +130,7 @@ if(boards_user_post != null) {
                      
                      <!-- 게시판 상세 - 이미지 -->
                         <img class="img_post" src="imges/<%= boards_user_post.get(i).getBoard_pic() %>" alt="">
-                        <p class="hover_text">몽크 - 절규</p>
+                        <p class="hover_text" style="margin: 0 0 20px 0;"></p>
                      </div>
                      
                      <!-- 게시글 상세보기  -->
@@ -139,7 +141,7 @@ if(boards_user_post != null) {
                         <!-- 게시판 상세 - 유저 -->
                         <a style="text-decoration: none; color: black;"
                         href ="gallery_user.jsp?getUser_email=<%= boards_user_post.get(i).getUser_email()%>"></a>
-                              <img class="user-card-img" src="https://blog.kakaocdn.net/dn/c3vWTf/btqUuNfnDsf/VQMbJlQW4ywjeI8cUE91OK/img.jpg" alt="">
+                              <img class="user-card-img" src="uimges/<%=boards_user_post.get(i).getUser_pic() %>" alt="">
                                  <span class="card-user-name">
                                     <%= boards_user_post.get(i).getUser_nick() %>
                                     </span>
@@ -163,23 +165,22 @@ if(boards_user_post != null) {
                               </p>
                            </div>
                         </div>
-                        <div class="comment-container-padding">
-                           <div class="post-comment-container">
-                              <div class="post-comment-card">
-                                 <span class="card-user-name">초코파이</span> <span
-                                    class="comment-body">몽쉘.</span>
-                              </div>
-                              <div class="post-comment-card">
-                                 <span class="card-user-name">새벽</span> <span
-                                    class="comment-body">새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고.
-                                    새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에
-                                    손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어
-                                    손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬
-                                    더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는 이슬 더불어 손에 손을잡고. 새벽빛 와 닿으면 스러지는
-                                    </span>
+
+							<div class="comment-container-padding">
+                              <div class="post-comment-container" style="height: 150px;">
+                                 <%for (int allCmt = 0; allCmt<cmtView.size(); allCmt++) {
+                                    if (cmtView.get(allCmt).getBoard_num() == boards_user_post.get(i).getBoard_num()) {%>
+                                 <div class="post-comment-card">
+                                    <span class="card-user-name"><%= cmtView.get(allCmt).getUser_email() %></span>
+                                    <span class="comment-body"><%= cmtView.get(allCmt).getCmt_content() %></span>
+                                 </div>
+                                    <% }
+                                    }
+                                    %>
                               </div>
                            </div>
-                        </div>
+
+
                         <div class="post-btn-padding">
                            <div class="post-list-btn">
                               <div class="post-left-btn">
@@ -222,6 +223,8 @@ if(boards_user_post != null) {
       
       <%} %>
       <%} %>   
+      
+
         
      </div>
 

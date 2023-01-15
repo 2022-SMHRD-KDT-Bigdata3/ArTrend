@@ -56,6 +56,8 @@
    String user_nick_header = request.getParameter("getUser_nick"); //글쓴사람의 닉
    
    
+   
+   
    //글쓴사람 프로필사진 가져오기 
    UserDAO user_pic_dao = new UserDAO();
    UserVO user_pic_vo = user_pic_dao.userSelectOne(user_email_header);
@@ -96,7 +98,7 @@
                      <div class="username">
                         <h2 class="name">@<%=user_nick_header %></h2>
                         <div class="sub_msg_btn">
-                        <button id="subscrib_btn" onclick = "location.href='SubscribeService?gallery_user_email=<%=user_email_header%>'"><span>구독하기</span></button>
+                        <button id="subscrib_btn" style="border: none;"><span class="subBtn_text">구독하기</span></button>
                                     
                                     <!-- 메세지 보내기 모달창 -->
                                     <button type="button" id="message_send_btn" style="border:hidden;background: white;" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>메세지</span></button>
@@ -143,29 +145,27 @@
                         <div class="con">
                                     <p class="a">구독자</p>
                                     
-                              <!-- for(구독자정보.size만큼 포문)
-                                          구독자정보cnt++ -->      
                            
-                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">0</a></p>
+                                    <p><a class="a_font subscriberCnt" data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">412</a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribed_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="width:80%;">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@ 님을 구독하고있는 유저</h1>
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@<%=user_nick_header %>< 님을 구독하고있는 유저</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <!--구독자가 들어가야할 모달의 body-->
                                                 <div class="subscrib_div wrapper">
                                                     <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@</p></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
                                                     <div class="class5 subscrib_btn"><button>구독하기</button></div>
                                                 </div><br>
                                                 <div class="subscrib_div wrapper">
                                                     <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@</p></div>
+                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
                                                     <div class="class5 subscrib_btn"><button>구독하기</button></div>
                                                 </div><br>
                                                 <div class="subscrib_div wrapper">
@@ -193,7 +193,7 @@
                         <!--  구독중 -->
                         <div class="con">
                                     <p class="a">구독중</p>
-                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">400</a></p>
+                                    <p ><a class="a_font subscribingCnt" data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">2</a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribing_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -215,21 +215,7 @@
                                                     <div class="class5 subscrib_nick"><p>@dooboo</p></div>
                                                     <div class="class5 subscrib_btn"><button>구독중</button></div>
                                                 </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
+       
                                              </div>
                                            </div>
                                         </div>
@@ -246,7 +232,66 @@
    </div>
    
 
-   
+ <script>
+ //구독체크
+ $('#subscrib_btn').click(function(){
+	 var my_nick = '<%= info.getUser_nick()%>';
+	 var my_email = '<%= info.getUser_email()%>';
+	 var gallery_user_email = '<%=user_email_header%>';
+	 
+	 $.ajax({
+		 url : "SubCheckService",
+		 method : "POST",
+		 data : {"my_nick" : my_nick, "my_email" : my_email, "gallery_user_email" : gallery_user_email},
+		 success : function(btn_status){
+			 subscriberCnt(gallery_user_email);
+			 subscribingCnt(gallery_user_email);
+			 $(".subBtn_text").html(btn_status);
+			 console.log(btn_status);
+			 
+		 },
+		 error : function(){
+			 console.log("통신 실패 ");
+			 
+		 }
+	 })
+ })
+ 
+ 
+ 
+ // 구독자  비동기
+ function subscriberCnt(gallery_user_email){
+	 
+	 $.ajax({
+		 url : "SubCountService",
+		 type : "POST",
+		 data : {"gallery_user_email" : gallery_user_email},
+		 success : function(subscriberCnt){
+			 $(".subscriberCnt").html(400 + subscriberCnt);
+		 },
+		 error : function(){
+			 console.log("통신 실패 ");
+		 }
+	 })
+};
+
+ // 구독중   비동기
+ function subscribingCnt(gallery_user_email){
+	 $.ajax({
+		 url : "SubCountService",
+		 type : "POST",
+		 data : {"gallery_user_email" : gallery_user_email},
+		 success : function(subscribingCnt){
+			 $(".subscribingCnt").html(100 + subscribingCnt);
+		 },
+		 error : function(){
+			 console.log("통신 실패 ");
+		 }
+	 })
+};
+ 
+ 
+</script>  
 
 </body>
 </html>

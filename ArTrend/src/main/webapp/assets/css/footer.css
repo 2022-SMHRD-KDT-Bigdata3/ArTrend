@@ -1,0 +1,21 @@
+.footer_b{
+    text-align: center;
+    background-color: white;
+    padding: 30px 50px;
+   color: rgb(166, 166, 166);
+ 
+}
+
+.footer_b li {
+    position: relative;
+    display: inline;;
+    padding: 0 7px 0 10px;
+    white-space: nowrap;
+    color: rgb(166, 166, 166);
+
+}
+
+.footer_b address{
+    padding-top: 15px;
+}
+

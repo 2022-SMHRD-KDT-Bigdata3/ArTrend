@@ -18,7 +18,7 @@
             <div class="cmd">
                 <p>결제에 실패했습니다 !</p>
                 <br><br>
-                <input type="button"  name="btnclose" class="button" value="닫기" onclick="location.href='http://localhost:8082/ArTrend/point.jsp';">
+                <input type="button"  name="btnclose" class="button" value="닫기" onclick="location.href='http://localhost:8081/ArTrend/point.jsp';">
             </div>
         </div>
     </body>

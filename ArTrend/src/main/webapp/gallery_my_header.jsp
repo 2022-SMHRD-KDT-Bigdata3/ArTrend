@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.SubscribeDAO"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.UserDAO"%>
@@ -61,7 +62,18 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
             System.out.print("접속한 유저의 닉네임(확인용):"+info_my_header.getUser_nick());
             board_my_cnt++;
          } 
-      }%>    	  
+      }
+      
+   //구독자 구독중 카운트
+   
+//SubscribeDAO my_sub_dao = new SubscribeDAO();
+ //  String sub_info_email = info.getUser_email();
+//갤러리 주인을 구독중인 사람 수 
+//int MysubscriberCnt =my_sub_dao.subscriberCnt(sub_info_email);
+// 갤러리 주인이 구독중인 사람 수 
+//int MysubscribingCnt = my_sub_dao.subscribingCnt(sub_info_email);
+      
+      %>    	  
 
 	<div class="wrapper">
 		<br> <br> <br>
@@ -80,7 +92,7 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
 								<h2 class="name">@<%=info.getUser_nick() %></h2>
 								<div class="sub_msg_btn">
 								<!-- 정보수정페이지로 이동 -->
-									<button id="subscrib_btn" onclick = "location.href='update.jsp'"><span>정보수정</span></button>
+									<button id="subscrib_btn" style="border: none;" onclick = "location.href='update.jsp'"><span>정보수정</span></button>
 								</div>
 							
 							</div>
@@ -95,7 +107,7 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
 								<!-- 구독자 목록 버튼 -->
 								<div class="con">
                                     <p class="a">구독자</p>
-                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">500</a></p>
+                                    <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#">154</a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribed_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -142,7 +154,7 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
 								<!--  구독중 -->
 								<div class="con">
                                     <p class="a">구독중</p>
-                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">400</a></p>
+                                    <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#">4</a></p>
                                     
                                     <!-- Modal -->
                                     <div class="modal fade" id="subscribing_ja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -174,11 +186,7 @@ UserVO info_my_header = (UserVO) session.getAttribute("info");
                                                     <div class="class5 subscrib_nick"><p>@dooboo</p></div>
                                                     <div class="class5 subscrib_btn"><button>구독중</button></div>
                                                 </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
+                                             
                                              </div>
                                            </div>
                                         </div>

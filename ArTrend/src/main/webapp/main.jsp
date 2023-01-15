@@ -18,11 +18,15 @@
 <link href="./assets/css/main.css" rel="stylesheet">
 <link href="./assets/css/header.css" rel="stylesheet">
 
+    <!-- footer css -->
+    <link href="./assets/css/footer.css" rel="stylesheet">
+
 <!-- 장호 css -->
 <link rel="stylesheet" href="./assets/kjh/css/postModal.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
 </head>
 <body>
 
@@ -40,6 +44,25 @@
 		<!-- row 끝 -->
 
 	</div>
+	
+	
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer_b" >
+                    <ul style="border-top: 1px solid  rgb(166, 166, 166); padding: 20px 0 0 0;">
+                        <li>ArTrend</li>
+                    </ul>
+                    <address>
+                        Copyright ⓒ
+                        <a href="#" style="color: rgb(166, 166, 166);"><strong>ArTrend</strong></a>
+                        All Rights Reserved
+                    </address>
+                </div>
+            </div>
+        </div>
+    </footer>
+	
 
 </body>
 </html>

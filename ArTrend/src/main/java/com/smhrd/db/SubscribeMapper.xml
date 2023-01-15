@@ -7,10 +7,26 @@
 	 insert into subscribes
       values(subscribes_seq.nextVal,#{user_email},#{subscriber_email})
 </insert>
-
-<!-- 구독자정보 모두 가져오는 기능 -->
-  <select id="sub_select" parameterType="SubscribeVO">
-      select count(*) from subscribes where subscriber_email = #{user_email} and user_email = #{loginEmail}
-   </select>
+   
+<!-- 구독 상태 확인  -->
+	<select id="sub_select" resultType="int" parameterType="SubscribeVO">  <!-- subscriber가 내가 구독 누른 사람 / user_email이 로그인 한 사람 이메일 -->
+	select count(*) from subscribes where subscriber_email = #{subscriber_email} and user_email = #{user_email}
+	</select>
+	
+<!-- 구독취소 -->
+	<delete id="subscribe_delete" parameterType="SubscribeVO">
+		delete from subscribes where subscriber_email = #{subscriber_email} and user_email = #{user_email}
+	</delete>
+	
+	
+<!-- 갤러리 유저를 구독한 사람의 수 -->
+	<select id="subscriberCnt">
+	select count(*) from subscribes where user_email=#{user_email}
+	</select>
+	
+	<!-- 갤러리 유저가 구독중인  사람의 수 -->
+	<select id="subscribingCnt">
+	select count(*) from subscribes where subscriber_email=#{user_email}
+	</select>	
 
 </mapper>
