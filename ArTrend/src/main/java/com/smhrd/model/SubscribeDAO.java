@@ -88,5 +88,27 @@ public class SubscribeDAO {
 			return subscriberCnt;
 		}
 	
+		// 나의 구독자 보기
+		
+	      public ArrayList<UserVO> subscriber(String subscribe_email) {
+	          
+	          session = sqlSessionFactory.openSession(true);   
+	          
+	          List<UserVO> list = session.selectList("subscribers", subscribe_email);
+	          session.close();
+	          
+	          return (ArrayList<UserVO>) list;
+	       }
+	       
+	      //나의 구독중 보기
+	       public ArrayList<UserVO> subscribe(String subscribe_email) {
+	          
+	          session = sqlSessionFactory.openSession(true);   
+	          
+	          List<UserVO> list = session.selectList("subscribes", subscribe_email);
+	          session.close();
+	          
+	          return (ArrayList<UserVO>) list;
+	       }
 		
 }

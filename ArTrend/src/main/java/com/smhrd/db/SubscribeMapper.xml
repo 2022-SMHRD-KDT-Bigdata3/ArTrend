@@ -41,5 +41,14 @@
 		select count(*) from subscribes where subscriber_email=#{sub_my_email}
 	</select>
 	
+	
+	<!-- 나의 구독자 -->
+	   <select id="subscribers" resultType="UserVO">
+      select s.user_email, u.user_nick, u.user_pic from users u, subscribes s where s.subscriber_email = u.user_email and s.user_email = #{subscribe_email}
+   </select>
+   <!-- 나의 구독중 -->
+   <select id="subscribes" resultType="UserVO">
+      select u.user_email, u.user_nick, u.user_pic from users u, subscribes s where u.user_email = s.user_email and s.subscriber_email = #{subscribe_email}
+   </select>
 
 </mapper>

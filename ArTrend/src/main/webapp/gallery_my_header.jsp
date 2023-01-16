@@ -3,7 +3,7 @@
 <%@page import="com.smhrd.model.JoinVO"%>
 <%@page import="com.smhrd.model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +18,10 @@
 
 <!--부트스트랩css-->
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-	crossorigin="anonymous">
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+   crossorigin="anonymous">
 
 
 <!--다니css파일-->
@@ -33,22 +33,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link
-	href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-	rel="stylesheet">
+   href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+   rel="stylesheet">
 <!--아이콘-->
 <script src="https://kit.fontawesome.com/fa92a52c34.js"
-	crossorigin="anonymous"></script>
+   crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 </head>
 <body>
-	<!-- header include -->
-	<%@include file="header.jsp"%>
-	
+   <!-- header include -->
+   <%@include file="header.jsp"%>
+   
 <% UserDAO dao_my_header = new UserDAO();
 UserVO user_status = dao_my_header.userSelectOne(info.getUser_email());%>
-	
+   
 <%  
 // dao에서 게시글 정보 받아오기 
 BoardsDAO my_header_dao = new BoardsDAO();
@@ -80,40 +80,44 @@ int mySubscribingCnt = dao.mySubscribingCnt(sub_my_email);
 //int MysubscriberCnt =my_sub_dao.subscriberCnt(sub_info_email);
 // 갤러리 주인이 구독중인 사람 수 
 //int MysubscribingCnt = my_sub_dao.subscribingCnt(sub_info_email);
-      
-      %>    	  
 
-	<div class="wrapper">
-		<br> <br> <br>
-		<!--다니가 만들어준 프로필..-->
-		<div class="Wrap">
-			<header id="header"></header>
-			<main id="main2">
-				<div class="mainVisual">
-					<div class="profile">
-						<div class="pic">
-							<img class="profile_pic" src="uimges/<%=user_status.getUser_pic()%>"
-								alt="" style="width: 150px; height: 150px;">
-						</div>
-						<div class="info">
-							<div class="username">
-								<h2 class="name">@<%=info.getUser_nick() %></h2>
-								<div class="sub_msg_btn">
-								<!-- 정보수정페이지로 이동 -->
-									<button id="subscrib_btn" style="border: none;" onclick = "location.href='update.jsp'"><span>정보수정</span></button>
-								</div>
-							
-							</div>
-							<div class="subinfo">
-								<div class="con">
-									<p class="a">게시글 수</p>
-									<p>
-									<a class="a_font" href="gallery_post.jsp"><%=board_my_cnt %></a>
-									</p>
-								</div>
+SubscribeDAO mySubscribedao = new SubscribeDAO();
+ArrayList<UserVO> mySubscriberList = mySubscribedao.subscriber(info_my_header.getUser_email());
+ArrayList<UserVO> mySubscribeList = mySubscribedao.subscribe(info_my_header.getUser_email());
 
-								<!-- 구독자 목록 버튼 -->
-								<div class="con">
+%>         
+
+   <div class="wrapper">
+      <br> <br> <br>
+      <!--다니가 만들어준 프로필..-->
+      <div class="Wrap">
+         <header id="header"></header>
+         <main id="main2">
+            <div class="mainVisual">
+               <div class="profile">
+                  <div class="pic">
+                     <img class="profile_pic" src="uimges/<%=user_status.getUser_pic()%>"
+                        alt="" style="width: 150px; height: 150px;">
+                  </div>
+                  <div class="info">
+                     <div class="username">
+                        <h2 class="name">@<%=info.getUser_nick() %></h2>
+                        <div class="sub_msg_btn">
+                        <!-- 정보수정페이지로 이동 -->
+                           <button id="subscrib_btn" style="border: none;" onclick = "location.href='update.jsp'"><span>정보수정</span></button>
+                        </div>
+                     
+                     </div>
+                     <div class="subinfo">
+                        <div class="con">
+                           <p class="a">게시글 수</p>
+                           <p>
+                           <a class="a_font" href="gallery_post.jsp"><%=board_my_cnt %></a>
+                           </p>
+                        </div>
+
+                        <!-- 구독자 목록 버튼 -->
+                        <div class="con">
                                     <p class="a">구독자</p>
                                     <p><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribed_ja" href="#"><%= mySubscriberCnt  %></a></p>
                                     
@@ -122,45 +126,27 @@ int mySubscribingCnt = dao.mySubscribingCnt(sub_my_email);
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="width:80%;">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@dooboo 님을 구독하고있는 유저</h1>
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@<%=info_my_header.getUser_nick()%>님을 구독하고있는 유저</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <!--구독자가 들어가야할 모달의 body-->
+                                               <% for (int i =0; i<mySubscriberList.size(); i++) {%>
                                                 <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="uimges/<%=mySubscriberList.get(i).getUser_pic()%>" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@<%=mySubscriberList.get(i).getUser_nick()%></p></div>
                                                     <div class="class5 subscrib_btn"><button>구독하기</button></div>
                                                 </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독하기</button></div>
-                                                </div><br>
+                                    <%}%>
                                              </div>
                                            </div>
                                         </div>
                                     </div>
                                    </div>
-								<!-- 구독자 모달 끝  -->
+                        <!-- 구독자 모달 끝  -->
 
-								<!--  구독중 -->
-								<div class="con">
+                        <!--  구독중 -->
+                        <div class="con">
                                     <p class="a">구독중</p>
                                     <p ><a class="a_font " data-bs-toggle="modal" data-bs-target="#subscribing_ja" href="#"><%= mySubscribingCnt %></a></p>
                                     
@@ -169,45 +155,31 @@ int mySubscribingCnt = dao.mySubscribingCnt(sub_my_email);
                                         <div class="modal-dialog">
                                             <div class="modal-content" style="width:80%;">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@dooboo 님이 구독하고있는 유저</h1>
+                                                <h1 class="modal-title fs-6" id="exampleModalLabel" style="margin:0px;">@<%=info_my_header.getUser_nick()%>님이 구독하고있는 유저</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <!--구독자가 들어가야할 모달의 body-->
+                                                <% for (int i =0; i<mySubscribeList.size(); i++) {%>
                                                 <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
+                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="uimges/<%=mySubscribeList.get(i).getUser_pic()%>" alt=""></div>
+                                                    <div class="class5 subscrib_nick"><p>@<%=mySubscribeList.get(i).getUser_nick()%></p></div>
                                                     <div class="class5 subscrib_btn"><button>구독중</button></div>
                                                 </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
-                                                <div class="subscrib_div wrapper">
-                                                    <div class="class5 subscrib_img"><img class = "subscrib_img1"src="./assets/img_gallery/정사각형.jpg" alt=""></div>
-                                                    <div class="class5 subscrib_nick"><p>@dooboo</p></div>
-                                                    <div class="class5 subscrib_btn"><button>구독중</button></div>
-                                                </div><br>
-                                             
+                                                <%}%>                                             
                                              </div>
                                            </div>
                                         </div>
                                     </div>
                                    </div>
-								<!-- 구독중 모달 끝  -->
+                        <!-- 구독중 모달 끝  -->
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-	</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+      </div>
+   </div>
 </body>
 </html>

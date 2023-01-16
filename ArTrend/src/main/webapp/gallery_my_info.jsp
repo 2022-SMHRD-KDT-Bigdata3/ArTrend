@@ -77,6 +77,9 @@ System.out.println(my_info.getUserInfo());%>
                 <h3>@<%=info_my1996.getUser_nick() %> 님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
+                <span style="padding: 0 0 0 130px;">
+            	Email : <%=info_my1996.getUser_email() %>
+            	</span><br><br><br>
                 <span> 
                 	<%=info_my1996.getUserInfo() %>
                 </span>

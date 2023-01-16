@@ -68,6 +68,9 @@ if (user_info_vo != null) {
                 <h3>@<%=user_info_vo.getUser_nick() %> 님의 소개글입니다!</h3>
             </div><br><br>
             <div class="gallery_info_post">
+            	<span style="padding: 0 0 0 130px;">
+            	Email : <%=user_info_vo.getUser_email() %>
+            	</span><br><br><br>
                 <span>
                    <%=user_info_vo.getUserInfo() %>
                 </span>
